@@ -1,0 +1,16 @@
+{
+  "name": "rc_drift_parts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
+  },
+  "dependencies": {
+    "nuxt": "^2.17.0",
+    "vue": "^2.7.14",
+    "vue-router": "^3.6.5"
+  }
+}
