@@ -400,8 +400,25 @@ For support and questions:
 **Important Links:**
 - Repository: https://github.com/bairdweng/rc_drift_parts
 - GitHub Pages: https://bairdweng.github.io/rc_drift_parts/
-- Custom Domain: https://rcdriftparts.com
+- Custom Domain: https://rcdriftparts.com ✅ **LIVE**
+- Cloudflare DNS Management: https://dash.cloudflare.com/46e30407068c1219db970509e332b407/rcdriftparts.com/dns/records
 - Issues: https://github.com/bairdweng/rc_drift_parts/issues
+
+## Domain Configuration Status
+
+### ✅ **Custom Domain Successfully Configured** (2024-11-15)
+- **Primary Domain**: https://rcdriftparts.com
+- **WWW Subdomain**: https://www.rcdriftparts.com  
+- **GitHub Pages**: https://bairdweng.github.io/rc_drift_parts/
+- **SSL/TLS**: Full encryption mode enabled
+- **Cloudflare Proxy**: Active and working
+- **HTTPS Enforcement**: Automatic
+
+### DNS Records Configuration:
+```
+Type: CNAME | Name: rcdriftparts.com | Target: bairdweng.github.io | Proxy: Enabled
+Type: CNAME | Name: www | Target: bairdweng.github.io | Proxy: Enabled
+```
 - Actions: https://github.com/bairdweng/rc_drift_parts/actions
 
 Remember to keep this documentation updated as the project evolves!

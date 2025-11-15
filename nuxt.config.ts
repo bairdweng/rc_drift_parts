@@ -21,6 +21,21 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ],
+    script: [
+      // Google Analytics (gtag.js)
+      {
+        async: true,
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-KGTL7ESMEK'
+      },
+      {
+        innerHTML: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-KGTL7ESMEK');
+        `
+      }
     ]
   },
 
