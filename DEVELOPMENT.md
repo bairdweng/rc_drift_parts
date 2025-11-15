@@ -5,7 +5,9 @@
 RC Drift Parts is a modern e-commerce website built with Nuxt.js for selling RC drift car parts and accessories.
 
 **Live Website**: https://rcdriftparts.com
-**Repository**: [GitHub Repository URL]
+**Repository**: https://github.com/bairdweng/rc_drift_parts
+**Git Clone URL**: git@github.com:bairdweng/rc_drift_parts.git
+**GitHub Pages**: https://bairdweng.github.io/rc_drift_parts/
 
 ## Tech Stack
 
@@ -27,8 +29,15 @@ Before you begin, ensure you have the following installed:
 
 ### 1. Clone the Repository
 
+**Using SSH (Recommended):**
 ```bash
-git clone [repository-url]
+git clone git@github.com:bairdweng/rc_drift_parts.git
+cd rc_drift_parts
+```
+
+**Using HTTPS:**
+```bash
+git clone https://github.com/bairdweng/rc_drift_parts.git
 cd rc_drift_parts
 ```
 
@@ -305,15 +314,94 @@ Generate sitemap automatically or manually create one in `static/sitemap.xml`.
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
+## Git Workflow
+
+### Basic Git Commands
+
+**Initialize and setup:**
+```bash
+# Clone the repository
+git clone git@github.com:bairdweng/rc_drift_parts.git
+
+# Check current status
+git status
+
+# View remote repositories
+git remote -v
+```
+
+**Making changes:**
+```bash
+# Add all changes
+git add .
+
+# Add specific files
+git add filename.js
+
+# Commit changes
+git commit -m "Descriptive commit message"
+
+# Push to remote
+git push origin main
+```
+
+**Branch management:**
+```bash
+# Create new branch
+git checkout -b feature/new-feature
+
+# Switch branches
+git checkout main
+git checkout feature/new-feature
+
+# Merge branches
+git checkout main
+git merge feature/new-feature
+
+# Delete branch
+git branch -d feature/new-feature
+```
+
+### Deployment Workflow
+
+1. **Make changes locally**
+2. **Test changes**
+   ```bash
+   npm run dev
+   npm run generate
+   ```
+3. **Commit and push**
+   ```bash
+   git add .
+   git commit -m "Description of changes"
+   git push origin main
+   ```
+4. **GitHub Actions automatically deploys to GitHub Pages**
+5. **Check deployment status at:** https://github.com/bairdweng/rc_drift_parts/actions
+
+### Useful Git Tips
+
+- Always pull latest changes before starting work: `git pull origin main`
+- Use descriptive commit messages
+- Create feature branches for new functionality
+- Regularly push your changes to avoid conflicts
+
 ## Support
 
 For support and questions:
-- Create an issue in the repository
+- Create an issue in the repository: https://github.com/bairdweng/rc_drift_parts/issues
 - Contact the development team
 - Check the project documentation
 
 ---
 
-**Last Updated**: $(date +%Y-%m-%d)
+**Last Updated**: 2024-11-15
+
+**Important Links:**
+- Repository: https://github.com/bairdweng/rc_drift_parts
+- GitHub Pages: https://bairdweng.github.io/rc_drift_parts/
+- Custom Domain: https://rcdriftparts.com
+- Issues: https://github.com/bairdweng/rc_drift_parts/issues
+- Actions: https://github.com/bairdweng/rc_drift_parts/actions
 
 Remember to keep this documentation updated as the project evolves!
