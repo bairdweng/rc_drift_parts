@@ -12,5 +12,13 @@
     "nuxt": "^2.17.0",
     "vue": "^2.7.14",
     "vue-router": "^3.6.5"
+  },
+  "devDependencies": {
+    "@nuxt/typescript-build": "^2.1.0",
+    "typescript": "^4.9.5"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
   }
 }
