@@ -1,5 +1,13 @@
 // https://nuxtjs.org/docs/configuration-glossary/configuration-modules
 export default {
+  // Target for static generation: https://nuxtjs.org/docs/configuration-glossary/configuration-target
+  target: 'static',
+  
+  // Static site generation configuration: https://nuxtjs.org/docs/configuration-glossary/configuration-generate
+  generate: {
+    dir: 'dist'
+  },
+
   // Global page headers: https://nuxtjs.org/docs/configuration-glossary/configuration-head
   head: {
     title: 'RC Drift Parts',
