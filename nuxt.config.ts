@@ -5,7 +5,8 @@ export default {
   
   // Static site generation configuration: https://nuxtjs.org/docs/configuration-glossary/configuration-generate
   generate: {
-    dir: 'dist'
+    dir: 'dist',
+    routes: ['/parts/tamiya-tt-02', '/models']
   },
 
   // Global page headers: https://nuxtjs.org/docs/configuration-glossary/configuration-head
@@ -22,21 +23,7 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
-    script: [
-      // Google Analytics (gtag.js)
-      {
-        async: true,
-        src: 'https://www.googletagmanager.com/gtag/js?id=G-KGTL7ESMEK'
-      },
-      {
-        innerHTML: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-KGTL7ESMEK');
-        `
-      }
-    ]
+    script: []
   },
 
   // Global CSS: https://nuxtjs.org/docs/configuration-glossary/configuration-css

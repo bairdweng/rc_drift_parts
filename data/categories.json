@@ -1,0 +1,141 @@
+[
+  {
+    "id": "chassis",
+    "name": "Chassis & Frame",
+    "description": "Main chassis structure and frame components",
+    "subcategories": [
+      {
+        "id": "chassis-plates",
+        "name": "Chassis Plates",
+        "description": "Main chassis plate components"
+      },
+      {
+        "id": "suspension-arms",
+        "name": "Suspension Arms",
+        "description": "Front and rear suspension arms"
+      },
+      {
+        "id": "motor-mounts",
+        "name": "Motor Mounts",
+        "description": "Motor mounting systems"
+      }
+    ]
+  },
+  {
+    "id": "electronics",
+    "name": "Electronics",
+    "description": "Electronic components and systems",
+    "subcategories": [
+      {
+        "id": "motors",
+        "name": "Motors",
+        "description": "Brushed and brushless motors"
+      },
+      {
+        "id": "esc",
+        "name": "ESC (Electronic Speed Controllers)",
+        "description": "Speed control units"
+      },
+      {
+        "id": "servos",
+        "name": "Servos",
+        "description": "Steering and control servos"
+      }
+    ]
+  },
+  {
+    "id": "drivetrain",
+    "name": "Drivetrain",
+    "description": "Power transmission components",
+    "subcategories": [
+      {
+        "id": "gears",
+        "name": "Gears",
+        "description": "Spur gears, pinion gears, and differential gears"
+      },
+      {
+        "id": "differentials",
+        "name": "Differentials",
+        "description": "Front and rear differential units"
+      },
+      {
+        "id": "drive-shafts",
+        "name": "Drive Shafts",
+        "description": "Power transmission shafts"
+      }
+    ]
+  },
+  {
+    "id": "suspension",
+    "name": "Suspension",
+    "description": "Suspension system components",
+    "subcategories": [
+      {
+        "id": "shocks",
+        "name": "Shock Absorbers",
+        "description": "Oil-filled shock absorbers"
+      },
+      {
+        "id": "springs",
+        "name": "Springs",
+        "description": "Suspension springs"
+      },
+      {
+        "id": "c-hubs",
+        "name": "C-Hubs & Knuckles",
+        "description": "Steering knuckles and C-hubs"
+      }
+    ]
+  },
+  {
+    "id": "tires-wheels",
+    "name": "Tires & Wheels",
+    "description": "Wheels and tire components",
+    "subcategories": [
+      {
+        "id": "tires",
+        "name": "Tires",
+        "description": "Drift tires and rubber compounds"
+      },
+      {
+        "id": "wheels",
+        "name": "Wheels",
+        "description": "Wheel rims and inserts"
+      }
+    ]
+  },
+  {
+    "id": "body-appearance",
+    "name": "Body & Appearance",
+    "description": "Body shells and appearance parts",
+    "subcategories": [
+      {
+        "id": "body-shells",
+        "name": "Body Shells",
+        "description": "Lexan body shells"
+      },
+      {
+        "id": "accessories",
+        "name": "Accessories",
+        "description": "Body accessories and details"
+      }
+    ]
+  },
+  {
+    "id": "tools-consumables",
+    "name": "Tools & Consumables",
+    "description": "Tools and maintenance supplies",
+    "subcategories": [
+      {
+        "id": "tools",
+        "name": "Tools",
+        "description": "RC maintenance tools"
+      },
+      {
+        "id": "lubricants",
+        "name": "Lubricants",
+        "description": "Greases and lubricating oils"
+      }
+    ]
+  }
+]

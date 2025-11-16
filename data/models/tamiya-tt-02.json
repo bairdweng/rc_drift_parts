@@ -1,0 +1,37 @@
+{
+  "id": "tamiya-tt-02",
+  "brand": "Tamiya",
+  "name": "TT-02",
+  "fullName": "Tamiya TT-02",
+  "type": "drift",
+  "scale": "1/10",
+  "driveType": "4WD",
+  "description": "The Tamiya TT-02 is an entry-level 4WD chassis perfect for drift beginners. With its balanced design and affordable price, it's one of the most popular RC drift platforms worldwide.",
+  "images": {
+    "main": "/images/models/tamiya-tt-02.jpg",
+    "gallery": [
+      "/images/models/tt-02-1.jpg",
+      "/images/models/tt-02-2.jpg"
+    ]
+  },
+  "specifications": {
+    "wheelbase": "257mm",
+    "width": "190mm",
+    "weight": "1500g",
+    "chassisMaterial": "ABS Plastic",
+    "suspension": "4-wheel independent suspension"
+  },
+  "compatibility": {
+    "motorSize": "540",
+    "escType": "Brushed/Brushless",
+    "battery": "7.2V NiMH/2S LiPo"
+  },
+  "seo": {
+    "title": "Tamiya TT-02 Drift Parts - Complete Upgrade Guide",
+    "description": "Professional Tamiya TT-02 drift car parts selection guide. Find the best upgrades for chassis, electronics, and performance tuning.",
+    "keywords": ["Tamiya TT-02", "drift parts", "RC car upgrades", "TT-02 modifications"]
+  },
+  "popularity": 85,
+  "releaseYear": 2013,
+  "status": "active"
+}

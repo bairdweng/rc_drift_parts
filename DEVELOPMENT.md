@@ -181,6 +181,239 @@ npm run generate
 # Upload contents to your web server or GitHub Pages
 ```
 
+## Data Structure Documentation
+
+### Overview
+
+RC Drift Parts 采用数据驱动的架构，所有车型和配件信息都存储在JSON文件中，便于维护和扩展。
+
+### Directory Structure
+
+```
+data/
+├── categories.json          # 配件分类体系
+├── models/                  # 车型数据目录
+│   └── tamiya-tt-02.json   # Tamiya TT-02车型信息
+└── parts/                  # 配件数据目录
+    └── tamiya-tt-02-parts.json  # Tamiya TT-02配件信息
+```
+
+### 1. 车型数据结构 (models/)
+
+每个车型对应一个JSON文件，文件名格式：`{brand}-{model}.json`
+
+**示例：tamiya-tt-02.json**
+```json
+{
+  "id": "tamiya-tt-02",
+  "brand": "Tamiya",
+  "name": "TT-02",
+  "fullName": "Tamiya TT-02",
+  "type": "drift",
+  "scale": "1/10",
+  "driveType": "4WD",
+  "description": "车型描述...",
+  "images": {
+    "main": "/images/models/tamiya-tt-02.jpg",
+    "gallery": ["/images/models/tt-02-1.jpg"]
+  },
+  "specifications": {
+    "wheelbase": "257mm",
+    "width": "190mm",
+    "weight": "1500g",
+    "chassisMaterial": "ABS Plastic",
+    "suspension": "4-wheel independent suspension"
+  },
+  "compatibility": {
+    "motorSize": "540",
+    "escType": "Brushed/Brushless",
+    "battery": "7.2V NiMH/2S LiPo"
+  },
+  "seo": {
+    "title": "页面标题",
+    "description": "页面描述",
+    "keywords": ["关键词1", "关键词2"]
+  },
+  "popularity": 85,
+  "releaseYear": 2013,
+  "status": "active"
+}
+```
+
+### 2. 配件分类体系 (categories.json)
+
+定义配件的一级分类和子分类：
+
+```json
+[
+  {
+    "id": "chassis",
+    "name": "Chassis",
+    "subcategories": [
+      {"id": "chassis-plates", "name": "Chassis Plates"},
+      {"id": "upper-decks", "name": "Upper Decks"},
+      {"id": "motor-mounts", "name": "Motor Mounts"}
+    ]
+  },
+  {
+    "id": "electronics",
+    "name": "Electronics",
+    "subcategories": [
+      {"id": "esc", "name": "ESC"},
+      {"id": "servos", "name": "Servos"},
+      {"id": "receivers", "name": "Receivers"}
+    ]
+  }
+]
+```
+
+### 3. 配件数据结构 (parts/)
+
+每个车型的配件数据存储在独立的JSON文件中，文件名格式：`{model-id}-parts.json`
+
+**示例：tamiya-tt-02-parts.json**
+```json
+[
+  {
+    "id": "tt02-chassis-001",
+    "sku": "TT02-CH-001",
+    "name": "Aluminum Chassis Plate",
+    "brand": "Yeah Racing",
+    "category": "chassis",
+    "subcategory": "chassis-plates",
+    "description": "7075 aluminum chassis plate for Tamiya TT-02",
+    "images": {
+      "main": "/images/parts/tt02-chassis-001.jpg",
+      "gallery": ["/images/parts/tt02-chassis-001-1.jpg"]
+    },
+    "compatibility": {
+      "models": ["tamiya-tt-02"],
+      "notes": "Direct replacement for stock plastic chassis"
+    },
+    "specifications": {
+      "material": "7075 Aluminum",
+      "weight": "85g",
+      "thickness": "3mm",
+      "color": "Silver"
+    },
+    "pricing": {
+      "retail": 45.99,
+      "sale": 39.99,
+      "currency": "USD",
+      "availability": "in_stock"
+    },
+    "installation": {
+      "difficulty": "intermediate",
+      "timeEstimate": "30-45 minutes",
+      "toolsRequired": ["2.0mm hex driver", "Phillips screwdriver"]
+    },
+    "vendors": [
+      {
+        "name": "Amazon",
+        "url": "https://amazon.com/dp/product123",
+        "price": 39.99
+      }
+    ],
+    "reviews": {
+      "rating": 4.5,
+      "count": 23
+    }
+  }
+]
+```
+
+### 4. 数据关系模型
+
+```
+车型 (Model) ←→ 配件 (Part)
+    ↑
+    └── 分类 (Category)
+```
+
+- **一对多关系**: 一个车型对应多个配件
+- **多对多关系**: 一个配件可能兼容多个车型
+- **分类体系**: 配件按功能分类，便于用户浏览
+
+### 5. 扩展新车型的步骤
+
+1. **创建车型数据文件**
+   ```bash
+   # 在 data/models/ 目录下创建新文件
+   touch data/models/yokomo-yd-2.json
+   ```
+
+2. **创建配件数据文件**
+   ```bash
+   # 在 data/parts/ 目录下创建新文件
+   touch data/parts/yokomo-yd-2-parts.json
+   ```
+
+3. **更新静态生成配置** (可选)
+   ```javascript
+   // 在 nuxt.config.ts 中添加新路由
+   generate: {
+     routes: ['/parts/tamiya-tt-02', '/parts/yokomo-yd-2', '/models']
+   }
+   ```
+
+### 6. 数据验证规则
+
+- **车型ID**: 必须唯一，格式为 `brand-model`
+- **配件SKU**: 必须唯一，建议包含车型标识
+- **价格**: 必须为数字，支持小数
+- **兼容性**: 必须包含至少一个车型ID
+- **分类**: 必须存在于 categories.json 中
+
+### 7. 数据加载方式
+
+#### 开发模式 vs 生产模式
+
+**开发模式** (npm run dev):
+- 使用ES6模块导入直接加载数据文件
+- 数据文件位于 `data/` 目录下
+- 修改数据文件后，开发服务器会自动热重载
+- 示例代码：
+```javascript
+import partsData from '~/data/parts/tamiya-tt-02-parts.json'
+
+export default {
+  data() {
+    return {
+      parts: partsData
+    }
+  }
+}
+```
+
+**生产模式** (npm run generate):
+- Nuxt.js会自动将数据文件静态化
+- 生成的文件位于 `dist/` 目录
+- 数据文件会被优化并包含在最终的构建产物中
+
+#### 单一数据源原则
+
+项目采用单一数据源架构：
+- **唯一数据源**: `/data/` 目录下的JSON文件
+- **无需手动复制**: 避免在 `public/` 或 `static/` 目录创建重复数据
+- **实时同步**: 修改数据文件后，页面会自动更新
+
+#### 数据文件访问路径
+
+```
+数据源 (唯一) → 开发/生产构建 → 最终网站
+    ↓
+data/parts/tamiya-tt-02-parts.json → 构建处理 → 可访问的零件数据
+```
+
+### 8. 最佳实践
+
+1. **单一数据源**: 所有数据修改只在 `data/` 目录进行，避免多份数据副本
+2. **保持数据一致性**: 所有JSON文件使用相同的字段命名规范
+3. **SEO优化**: 为每个车型设置完整的SEO元数据
+4. **图片管理**: 使用相对路径，图片文件存储在 public/images/ 目录
+5. **版本控制**: 数据文件随代码一起版本控制
+6. **备份策略**: 定期备份重要数据文件
+
 ## Environment Configuration
 
 ### Development Environment
@@ -419,6 +652,12 @@ For support and questions:
 Type: CNAME | Name: rcdriftparts.com | Target: bairdweng.github.io | Proxy: Enabled
 Type: CNAME | Name: www | Target: bairdweng.github.io | Proxy: Enabled
 ```
+
+### Google Analytics Configuration (2024-11-15)
+- **Tracking ID**: G-KGTL7ESMEK
+- **Implementation**: Global gtag.js script
+- **Status**: ✅ Active and collecting data
+- **Analytics Dashboard**: https://analytics.google.com/analytics/web/
 - Actions: https://github.com/bairdweng/rc_drift_parts/actions
 
 Remember to keep this documentation updated as the project evolves!

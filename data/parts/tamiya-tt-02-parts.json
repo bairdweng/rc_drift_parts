@@ -1,0 +1,242 @@
+[
+  {
+    "id": "53433",
+    "name": "Medium-Narrow Reinforced Tires Type-A",
+    "category": "Tires",
+    "specs": "Diameter 26mm × Width 12mm",
+    "compatibility": ["TT-02"],
+    "image": ""
+  },
+  {
+    "id": "53156",
+    "name": "Hard Inner Sponge Set",
+    "category": "Tires",
+    "specs": "Diameter 26mm × Width 12mm",
+    "compatibility": ["TT-02"],
+    "image": ""
+  },
+  {
+    "id": "53336",
+    "name": "Reinforced One-Piece Mesh Wheels",
+    "category": "Wheels",
+    "specs": "Diameter 26mm × Offset 0",
+    "compatibility": ["TT-02"],
+    "image": ""
+  },
+  {
+    "id": "53335",
+    "name": "Reinforced One-Piece Spoke Wheels",
+    "category": "Wheels",
+    "specs": "Diameter 26mm × Offset 0",
+    "compatibility": ["TT-02"],
+    "image": ""
+  },
+  {
+    "id": "53471",
+    "name": "Medium-Narrow White 5-Spoke Wheels",
+    "category": "Wheels",
+    "specs": "Diameter 24mm × Offset 0",
+    "compatibility": ["TT-02"],
+    "image": ""
+  },
+  {
+    "id": "53453",
+    "name": "Medium-Narrow 6-Spoke Wheels",
+    "category": "Wheels",
+    "specs": "Diameter 24mm × Offset +2",
+    "compatibility": ["TT-02"],
+    "image": ""
+  },
+  {
+    "id": "51049",
+    "name": "Medium-Narrow Racing Slicks",
+    "category": "Tires",
+    "specs": "Diameter 24mm × Width 12mm",
+    "compatibility": ["TT-02"],
+    "image": ""
+  },
+  {
+    "id": "53705",
+    "name": "Reinforced Tires Type B3",
+    "category": "Tires",
+    "specs": "Diameter 24mm × Width 12mm",
+    "compatibility": ["TT-02"],
+    "image": ""
+  },
+  {
+    "id": "51023",
+    "name": "Medium-Narrow Racing Radial Tires",
+    "category": "Tires",
+    "specs": "Diameter 24mm × Width 12mm",
+    "compatibility": ["TT-02"],
+    "image": ""
+  },
+  {
+    "id": "54952",
+    "name": "Reinforced Tires Type C2",
+    "category": "Tires",
+    "specs": "Diameter 24mm × Width 12mm",
+    "compatibility": ["TT-02"],
+    "image": ""
+  },
+  {
+    "id": "54649",
+    "name": "TT-02 Differential Gear",
+    "category": "Drivetrain",
+    "specs": "Teeth 25 × Module 0.5 × Material Nylon",
+    "compatibility": ["TT-02"],
+    "image": ""
+  },
+  {
+    "id": "54558",
+    "name": "TT-02 Aluminum Motor Mount",
+    "category": "Motor Mount",
+    "specs": "Material Aluminum",
+    "compatibility": ["TT-02"],
+    "image": ""
+  },
+  {
+    "id": "54574",
+    "name": "TT-02 Aluminum Racing Steering Set",
+    "category": "Steering",
+    "specs": "Material Aluminum",
+    "compatibility": ["TT-02"],
+    "image": ""
+  },
+  {
+    "id": "54753",
+    "name": "TT-02 CVA Super Mini Shock Unit Set",
+    "category": "Suspension",
+    "specs": "Quantity 4 × Diameter 8mm × Length 32mm",
+    "compatibility": ["TT-02"],
+    "image": ""
+  },
+  {
+    "id": "53440",
+    "name": "On-Road Tuned Hard Spring Set",
+    "category": "Suspension",
+    "specs": "Quantity 4 × Diameter 7mm × Hardness 3",
+    "compatibility": ["TT-02"],
+    "image": ""
+  },
+  {
+    "id": "54549",
+    "name": "TT-02 Aluminum Rear Upright (2.5°)",
+    "category": "Suspension",
+    "specs": "Material Aluminum × Angle 2.5°",
+    "compatibility": ["TT-02"],
+    "image": ""
+  },
+  {
+    "id": "54733",
+    "name": "TT-02 Aluminum Rear Uprights (3.0°)",
+    "category": "Suspension",
+    "specs": "Material Aluminum × Angle 3.0°",
+    "compatibility": ["TT-02"],
+    "image": ""
+  },
+  {
+    "id": "54409",
+    "name": "3×14mm Low Friction Step Screw (4pcs)",
+    "category": "Hardware",
+    "specs": "Size 3×14mm × Quantity 4 × Material Steel",
+    "compatibility": ["TT-02"],
+    "image": ""
+  },
+  {
+    "id": "54550",
+    "name": "3×18mm Low Friction Step Screw (2pcs)",
+    "category": "Hardware",
+    "specs": "Size 3×18mm × Quantity 2 × Material Steel",
+    "compatibility": ["TT-02"],
+    "image": ""
+  },
+  {
+    "id": "54476",
+    "name": "TT-02 Ball Bearing Set",
+    "category": "Hardware",
+    "specs": "Diameter 5×11×4mm × Quantity 8",
+    "compatibility": ["TT-02"],
+    "image": ""
+  },
+  {
+    "id": "54559",
+    "name": "TT-02 Low Friction Suspension Ball (4pcs)",
+    "category": "Suspension Hardware",
+    "specs": "Diameter 6mm × Quantity 4 × Material Steel",
+    "compatibility": ["TT-02"],
+    "image": ""
+  },
+  {
+    "id": "54395",
+    "name": "3×22 mm Low Friction Suspension Shaft (4pcs)",
+    "category": "Suspension Hardware",
+    "specs": "Diameter 3mm × Length 22mm × Quantity 4 × Material Steel",
+    "compatibility": ["TT-02"],
+    "image": ""
+  },
+  {
+    "id": "54555",
+    "name": "TT-02 FRP Battery Plate & Transponder Stay Set",
+    "category": "Chassis Hardware",
+    "specs": "Material FRP × Thickness 2mm",
+    "compatibility": ["TT-02"],
+    "image": ""
+  },
+  {
+    "id": "54575",
+    "name": "TT-02 Aluminum Steering Bridge",
+    "category": "Steering",
+    "specs": "Material Aluminum",
+    "compatibility": ["TT-02"],
+    "image": ""
+  },
+  {
+    "id": "54799",
+    "name": "TT-02 Hi-Torque Servo Saver Set (with Aluminum Horn)",
+    "category": "Steering",
+    "specs": "Material Aluminum × Includes Servo Horn",
+    "compatibility": ["TT-02"],
+    "image": ""
+  },
+  {
+    "id": "54977",
+    "name": "TT-02 Aluminum Servo Mount",
+    "category": "Chassis",
+    "specs": "Material Aluminum",
+    "compatibility": ["TT-02"],
+    "image": ""
+  },
+  {
+    "id": "54604",
+    "name": "Body Mount Extension Set",
+    "category": "Chassis",
+    "specs": "Material Aluminum × Length 30mm",
+    "compatibility": ["TT-02"],
+    "image": ""
+  },
+  {
+    "id": "54650",
+    "name": "TT-02 Aluminum Driveshaft (2pcs)",
+    "category": "Drivetrain",
+    "specs": "Length 88mm × Material Aluminum × Quantity 2",
+    "compatibility": ["TT-02"],
+    "image": ""
+  },
+  {
+    "id": "54651",
+    "name": "TT-02 Aluminum Drive Cup Set",
+    "category": "Drivetrain",
+    "specs": "Diameter 8mm × Material Aluminum × Quantity 2",
+    "compatibility": ["TT-02"],
+    "image": ""
+  },
+  {
+    "id": "54700",
+    "name": "TT-02 Lightweight Aluminum Spur Gear 64T",
+    "category": "Drivetrain",
+    "specs": "Teeth 64 × Material Aluminum",
+    "compatibility": ["TT-02"],
+    "image": ""
+  }
+]
