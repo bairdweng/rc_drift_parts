@@ -42,7 +42,7 @@ jobs:
         run: npm ci
       - name: Build static site
         if: ${{ !inputs.use_local_dist }}
-        run: npm run generate
+        run: npm run generate:full
       
       - name: Setup Pages
         uses: actions/configure-pages@v4

@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# 站点地图
+Sitemap: https://rcdriftparts.com/sitemap.xml
+
+# 禁止爬虫访问的目录
+Disallow: /_nuxt/
+Disallow: /_ipx/
+
+# 允许爬虫访问所有页面
+Allow: /parts/
+Allow: /models/
+
+# 爬取延迟（可选）
+Crawl-delay: 1

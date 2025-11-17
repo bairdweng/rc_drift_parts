@@ -6,6 +6,8 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
+    "generate:seo": "node scripts/generate-sitemap.js",
+    "generate:full": "nuxt generate && npm run generate:seo",
     "preview": "nuxt preview"
   },
   "dependencies": {

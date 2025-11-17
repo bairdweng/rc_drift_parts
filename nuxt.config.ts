@@ -16,17 +16,21 @@ export default {
 
   // Global page headers: https://nuxtjs.org/docs/configuration-glossary/configuration-head
   head: {
-    title: 'RC Drift Parts',
+    title: 'RC Drift Parts - 专业RC漂移车零件搜索和购买平台',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'zh-CN'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'RC Drift Parts Store' }
+      { hid: 'description', name: 'description', content: 'RC Drift Parts - 专业的RC漂移车零件搜索平台，提供田宫Tamiya TT-02等热门车型的零件搜索、价格比较和购买指南。快速找到您需要的RC漂移车配件。' },
+      { name: 'keywords', content: 'RC漂移车,RC零件,田宫Tamiya,TT-02,漂移车配件,RC模型车' },
+      { name: 'author', content: 'RC Drift Parts' },
+      { name: 'robots', content: 'index, follow' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'canonical', href: 'https://rcdriftparts.com' }
     ],
     script: []
   },
@@ -37,6 +41,7 @@ export default {
 
   // Plugins to run before rendering page: https://nuxtjs.org/docs/configuration-glossary/configuration-plugins
   plugins: [
+    '~/plugins/sitemap.js'
   ],
 
   // Auto import components: https://nuxtjs.org/docs/configuration-glossary/configuration-components
