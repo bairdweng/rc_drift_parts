@@ -4,239 +4,219 @@
     "name": "Medium-Narrow Reinforced Tires Type-A",
     "category": "Tires",
     "specs": "Diameter 26mm × Width 12mm",
-    "compatibility": ["TT-02"],
-    "image": ""
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-tire-a.jpg"
   },
   {
     "id": "53156",
     "name": "Hard Inner Sponge Set",
     "category": "Tires",
     "specs": "Diameter 26mm × Width 12mm",
-    "compatibility": ["TT-02"],
-    "image": ""
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-53156-hard-inner-sponge-set.jpg"
   },
   {
     "id": "53336",
     "name": "Reinforced One-Piece Mesh Wheels",
     "category": "Wheels",
     "specs": "Diameter 26mm × Offset 0",
-    "compatibility": ["TT-02"],
-    "image": ""
-  },
-  {
-    "id": "53335",
-    "name": "Reinforced One-Piece Spoke Wheels",
-    "category": "Wheels",
-    "specs": "Diameter 26mm × Offset 0",
-    "compatibility": ["TT-02"],
-    "image": ""
-  },
-  {
-    "id": "53471",
-    "name": "Medium-Narrow White 5-Spoke Wheels",
-    "category": "Wheels",
-    "specs": "Diameter 24mm × Offset 0",
-    "compatibility": ["TT-02"],
-    "image": ""
-  },
-  {
-    "id": "53453",
-    "name": "Medium-Narrow 6-Spoke Wheels",
-    "category": "Wheels",
-    "specs": "Diameter 24mm × Offset +2",
-    "compatibility": ["TT-02"],
-    "image": ""
-  },
-  {
-    "id": "51049",
-    "name": "Medium-Narrow Racing Slicks",
-    "category": "Tires",
-    "specs": "Diameter 24mm × Width 12mm",
-    "compatibility": ["TT-02"],
-    "image": ""
-  },
-  {
-    "id": "53705",
-    "name": "Reinforced Tires Type B3",
-    "category": "Tires",
-    "specs": "Diameter 24mm × Width 12mm",
-    "compatibility": ["TT-02"],
-    "image": ""
-  },
-  {
-    "id": "51023",
-    "name": "Medium-Narrow Racing Radial Tires",
-    "category": "Tires",
-    "specs": "Diameter 24mm × Width 12mm",
-    "compatibility": ["TT-02"],
-    "image": ""
-  },
-  {
-    "id": "54952",
-    "name": "Reinforced Tires Type C2",
-    "category": "Tires",
-    "specs": "Diameter 24mm × Width 12mm",
-    "compatibility": ["TT-02"],
-    "image": ""
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-53336-reinforced-one-piece-mesh-wheels.jpg"
   },
   {
     "id": "54649",
     "name": "TT-02 Differential Gear",
     "category": "Drivetrain",
     "specs": "Teeth 25 × Module 0.5 × Material Nylon",
-    "compatibility": ["TT-02"],
-    "image": ""
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-54649-tt-02-differential-gear.jpg"
   },
   {
     "id": "54558",
     "name": "TT-02 Aluminum Motor Mount",
     "category": "Motor Mount",
     "specs": "Material Aluminum",
-    "compatibility": ["TT-02"],
-    "image": ""
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-54558-tt-02-aluminum-motor-mount.jpg"
   },
   {
     "id": "54574",
     "name": "TT-02 Aluminum Racing Steering Set",
     "category": "Steering",
     "specs": "Material Aluminum",
-    "compatibility": ["TT-02"],
-    "image": ""
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-54574-tt-02-aluminum-racing-steering-set.jpg"
   },
   {
     "id": "54753",
     "name": "TT-02 CVA Super Mini Shock Unit Set",
     "category": "Suspension",
     "specs": "Quantity 4 × Diameter 8mm × Length 32mm",
-    "compatibility": ["TT-02"],
-    "image": ""
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-54753-tt-02-cva-super-mini-shock-unit-set.jpg"
   },
   {
     "id": "53440",
     "name": "On-Road Tuned Hard Spring Set",
     "category": "Suspension",
     "specs": "Quantity 4 × Diameter 7mm × Hardness 3",
-    "compatibility": ["TT-02"],
-    "image": ""
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-53440-on-road-tuned-hard-spring-set.jpg"
   },
   {
     "id": "54549",
     "name": "TT-02 Aluminum Rear Upright (2.5°)",
     "category": "Suspension",
     "specs": "Material Aluminum × Angle 2.5°",
-    "compatibility": ["TT-02"],
-    "image": ""
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-54549-tt-02-aluminum-rear-upright--2-5--.jpg"
   },
   {
     "id": "54733",
     "name": "TT-02 Aluminum Rear Uprights (3.0°)",
     "category": "Suspension",
     "specs": "Material Aluminum × Angle 3.0°",
-    "compatibility": ["TT-02"],
-    "image": ""
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-54733-tt-02-aluminum-rear-uprights--3-0--.jpg"
   },
   {
     "id": "54409",
     "name": "3×14mm Low Friction Step Screw (4pcs)",
     "category": "Hardware",
     "specs": "Size 3×14mm × Quantity 4 × Material Steel",
-    "compatibility": ["TT-02"],
-    "image": ""
-  },
-  {
-    "id": "54550",
-    "name": "3×18mm Low Friction Step Screw (2pcs)",
-    "category": "Hardware",
-    "specs": "Size 3×18mm × Quantity 2 × Material Steel",
-    "compatibility": ["TT-02"],
-    "image": ""
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-54409-3-14mm-low-friction-step-screw--4pcs-.jpg"
   },
   {
     "id": "54476",
     "name": "TT-02 Ball Bearing Set",
     "category": "Hardware",
     "specs": "Diameter 5×11×4mm × Quantity 8",
-    "compatibility": ["TT-02"],
-    "image": ""
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-54476-tt-02-ball-bearing-set.jpg"
   },
   {
     "id": "54559",
     "name": "TT-02 Low Friction Suspension Ball (4pcs)",
     "category": "Suspension Hardware",
     "specs": "Diameter 6mm × Quantity 4 × Material Steel",
-    "compatibility": ["TT-02"],
-    "image": ""
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-54559-tt-02-low-friction-suspension-ball--4pcs-.jpg"
   },
   {
     "id": "54395",
     "name": "3×22 mm Low Friction Suspension Shaft (4pcs)",
     "category": "Suspension Hardware",
     "specs": "Diameter 3mm × Length 22mm × Quantity 4 × Material Steel",
-    "compatibility": ["TT-02"],
-    "image": ""
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-54395-3-22-mm-low-friction-suspension-shaft--4pcs-.jpg"
   },
   {
     "id": "54555",
     "name": "TT-02 FRP Battery Plate & Transponder Stay Set",
     "category": "Chassis Hardware",
     "specs": "Material FRP × Thickness 2mm",
-    "compatibility": ["TT-02"],
-    "image": ""
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-54555-tt-02-frp-battery-plate---transponder-stay-set.jpg"
   },
   {
     "id": "54575",
     "name": "TT-02 Aluminum Steering Bridge",
     "category": "Steering",
     "specs": "Material Aluminum",
-    "compatibility": ["TT-02"],
-    "image": ""
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-54575-tt-02-aluminum-steering-bridge.jpg"
   },
   {
     "id": "54799",
     "name": "TT-02 Hi-Torque Servo Saver Set (with Aluminum Horn)",
     "category": "Steering",
     "specs": "Material Aluminum × Includes Servo Horn",
-    "compatibility": ["TT-02"],
-    "image": ""
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-54799-tt-02-hi-torque-servo-saver-set--with-aluminum-horn-.jpg"
   },
   {
     "id": "54977",
     "name": "TT-02 Aluminum Servo Mount",
     "category": "Chassis",
     "specs": "Material Aluminum",
-    "compatibility": ["TT-02"],
-    "image": ""
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-54977-tt-02-aluminum-servo-mount.jpg"
   },
   {
     "id": "54604",
     "name": "Body Mount Extension Set",
     "category": "Chassis",
     "specs": "Material Aluminum × Length 30mm",
-    "compatibility": ["TT-02"],
-    "image": ""
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-54604-body-mount-extension-set.jpg"
   },
   {
     "id": "54650",
     "name": "TT-02 Aluminum Driveshaft (2pcs)",
     "category": "Drivetrain",
     "specs": "Length 88mm × Material Aluminum × Quantity 2",
-    "compatibility": ["TT-02"],
-    "image": ""
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-54650-tt-02-aluminum-driveshaft--2pcs-.jpg"
   },
   {
     "id": "54651",
     "name": "TT-02 Aluminum Drive Cup Set",
     "category": "Drivetrain",
     "specs": "Diameter 8mm × Material Aluminum × Quantity 2",
-    "compatibility": ["TT-02"],
-    "image": ""
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-54651-tt-02-aluminum-drive-cup-set.webp"
   },
   {
     "id": "54700",
     "name": "TT-02 Lightweight Aluminum Spur Gear 64T",
     "category": "Drivetrain",
     "specs": "Teeth 64 × Material Aluminum",
-    "compatibility": ["TT-02"],
-    "image": ""
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-54700-tt-02-lightweight-aluminum-spur-gear-64t.jpg"
   }
 ]

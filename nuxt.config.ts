@@ -43,5 +43,36 @@ export default {
 
   // Build Configuration: https://nuxtjs.org/docs/configuration-glossary/configuration-build
   build: {
+    // 优化构建性能
+    optimizeCSS: true,
+    // 启用代码分割
+    splitChunks: {
+      layouts: true,
+      pages: true,
+      commons: true
+    },
+    // 压缩JavaScript
+    terser: {
+      terserOptions: {
+        compress: {
+          drop_console: process.env.NODE_ENV === 'production'
+        }
+      }
+    }
+  },
+  
+  // 开发服务器配置
+  dev: process.env.NODE_ENV === 'development',
+  
+  // 渲染配置
+  render: {
+    // 压缩HTML
+    compressor: {
+      threshold: 1024
+    },
+    // 静态资源缓存
+    static: {
+      maxAge: '1y'
+    }
   }
 }

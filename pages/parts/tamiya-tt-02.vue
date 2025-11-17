@@ -98,7 +98,13 @@
         >
           <!-- Part Image -->
           <div class="part-image">
-            <div class="image-placeholder-small">📷</div>
+            <img 
+              v-if="part.image" 
+              :src="part.image" 
+              :alt="part.name"
+              class="part-image-real"
+            />
+            <div v-else class="image-placeholder-small">📷</div>
           </div>
           
           <!-- Core Information -->
@@ -140,9 +146,23 @@
 </template>
 
 <script>
-import partsData from '~/data/parts/tamiya-tt-02-parts.json'
-
+// 使用异步数据加载，减少初始包大小
 export default {
+  async asyncData({ $fetch }) {
+    try {
+      // 在生产环境中，可以考虑使用API端点
+      const partsData = await import('~/data/parts/tamiya-tt-02-parts.json')
+      return {
+        parts: partsData.default
+      }
+    } catch (error) {
+      console.error('加载零件数据失败:', error)
+      return {
+        parts: []
+      }
+    }
+  },
+  
   data() {
     return {
       searchQuery: '',
@@ -150,8 +170,7 @@ export default {
       showSuggestions: false,
       activeSuggestionIndex: -1,
       searchTimeout: null,
-      selectedPart: null,
-      parts: partsData
+      selectedPart: null
     }
   },
   computed: {
@@ -580,6 +599,14 @@ export default {
   justify-content: center;
   font-size: 1.2rem;
   color: #666;
+}
+
+.part-image-real {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
 }
 
 .part-info {
