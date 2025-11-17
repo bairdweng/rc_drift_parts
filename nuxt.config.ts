@@ -3,6 +3,11 @@ export default {
   // Target for static generation: https://nuxtjs.org/docs/configuration-glossary/configuration-target
   target: 'static',
   
+  // GitHub Pages部署配置
+  router: {
+    base: process.env.NODE_ENV === 'production' ? '/rc_drift_parts/' : '/'
+  },
+  
   // Static site generation configuration: https://nuxtjs.org/docs/configuration-glossary/configuration-generate
   generate: {
     dir: 'dist',
