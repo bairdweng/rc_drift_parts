@@ -53,20 +53,13 @@ export default function (context) {
   }
   
   // 添加路由钩子，在生成静态页面时创建站点地图
+  // 注意：已移除自动下载功能，避免用户访问时自动下载文件
   app.router.afterEach((to, from) => {
     if (process.static && process.client) {
-      // 客户端静态生成时创建站点地图
-      const blob = new Blob([sitemapXml], { type: 'application/xml' })
-      const url = URL.createObjectURL(blob)
-      
-      // 触发站点地图下载（仅用于测试）
-      const link = document.createElement('a')
-      link.href = url
-      link.download = 'sitemap.xml'
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
-      URL.revokeObjectURL(url)
+      // 仅在开发环境下输出日志，避免生产环境干扰
+      if (process.env.NODE_ENV === 'development') {
+        console.log('Sitemap generated for static site')
+      }
     }
   })
 }
