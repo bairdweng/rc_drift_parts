@@ -453,5 +453,65 @@
       "TT-02"
     ],
     "image": "/image/parts/tamiya-tt-02/tt02-body_honda_nsx-tt-02-honda-nsx-body.jpg"
+  },
+  {
+    "id": "55030",
+    "name": "TT-02 High-Torque Servo",
+    "category": "electronics",
+    "specs": "Torque 20kg/cm × Speed 0.12s/60° × Voltage 6.0V-7.4V",
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-55030-tt-02-high-torque-servo.jpg"
+  },
+  {
+    "id": "55031",
+    "name": "TT-02 Brushless Motor 10.5T",
+    "category": "electronics",
+    "specs": "Turns 10.5T × KV 3500 × Sensorless brushless motor",
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-55031-tt-02-brushless-motor-10-5t.jpg"
+  },
+  {
+    "id": "55032",
+    "name": "TT-02 ESC 60A Waterproof",
+    "category": "electronics",
+    "specs": "Current 60A × Voltage 2-3S LiPo × Waterproof design",
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-55032-tt-02-esc-60a-waterproof.jpg"
+  },
+  {
+    "id": "55033",
+    "name": "TT-02 2.4GHz Radio System",
+    "category": "electronics",
+    "specs": "Frequency 2.4GHz × Channels 3 × Range 200m",
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-55033-tt-02-2-4ghz-radio-system.jpg"
+  },
+  {
+    "id": "55034",
+    "name": "TT-02 LiPo Battery 5000mAh",
+    "category": "electronics",
+    "specs": "Capacity 5000mAh × Voltage 7.4V (2S) × Discharge 50C",
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-55034-tt-02-lipo-battery-5000mah.jpg"
+  },
+  {
+    "id": "55035",
+    "name": "TT-02 LED Light Kit",
+    "category": "electronics",
+    "specs": "Includes front and rear lights × RGB LED × Waterproof",
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-55035-tt-02-led-light-kit.jpg"
   }
 ]
