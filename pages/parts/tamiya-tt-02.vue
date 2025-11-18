@@ -250,7 +250,7 @@ export default {
         { id: 'wheels_tires', name: 'Wheels & Tires' },
         { id: 'hardware', name: 'Hardware' },
         { id: 'body', name: 'body' },
-        { id: 'electronics', name: 'Electronics' }
+        { id: 'electronics', name: 'electronics' }
       ]
     },
     
@@ -664,25 +664,32 @@ export default {
   display: flex;
   align-items: center;
   gap: 8px;
+  white-space: nowrap;
+  line-height: 1;
 }
 
 .clear-filter {
   background: rgba(255, 255, 255, 0.2);
   border: none;
   color: white;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
+  border-radius: 20px;
+  padding: 4px 12px;
   cursor: pointer;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   display: flex;
   align-items: center;
-  justify-content: center;
-  transition: background 0.2s ease;
+  gap: 4px;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  line-height: 1;
+  margin: 0;
+  position: relative;
+  white-space: nowrap;
 }
 
 .clear-filter:hover {
   background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
 }
 
 .total-count {
@@ -694,6 +701,8 @@ export default {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  margin: 0;
+  padding: 0;
 }
 
 .category-filter-btn {
@@ -709,6 +718,8 @@ export default {
   font-size: 0.95rem;
   font-weight: 500;
   color: #333;
+  margin: 0;
+  white-space: nowrap;
 }
 
 .category-filter-btn:hover {
