@@ -8,7 +8,7 @@
   "driveType": "4WD",
   "description": "The Tamiya TT-02 is an entry-level 4WD chassis perfect for drift beginners. With its balanced design and affordable price, it's one of the most popular RC drift platforms worldwide.",
   "images": {
-    "main": "/images/models/tamiya-tt-02.jpg",
+    "main": "https://www.tamiya.com/cms/img/usr/item/ch/tt02.jpg",
     "gallery": [
       "/images/models/tt-02-1.jpg",
       "/images/models/tt-02-2.jpg"

@@ -30,50 +30,87 @@
       </div>
       
       <div class="model-image">
-        <div class="image-placeholder">
+        <img 
+          v-if="model.images && model.images.main" 
+          :src="model.images.main" 
+          :alt="model.fullName || model.name"
+          class="model-image-real"
+        />
+        <div v-else class="image-placeholder">
           🚗 Tamiya TT-02 Image
         </div>
       </div>
     </header>
 
-    <!-- Parts Search Box -->
-    <div class="search-section">
-      <div class="search-container">
-        <div class="search-input-wrapper">
-          <input
-            ref="searchInput"
-            v-model="searchQuery"
-            type="text"
-            class="search-input"
-            placeholder="Search parts by name..."
-            @input="handleInput"
-            @keydown="handleKeydown"
-            @focus="showSuggestions = true"
-            @blur="handleBlur"
-          />
-          <button class="search-btn" @click="handleSearch">
-            🔍 Search
-          </button>
-        </div>
-        
-        <!-- Search Suggestions Dropdown -->
-        <div v-if="showSuggestions && searchSuggestions.length > 0" class="search-suggestions">
-          <div
-            v-for="(part, index) in searchSuggestions"
-            :key="part.id"
-            :class="['suggestion-item', { active: activeSuggestionIndex === index }]"
-            @mousedown="preventBlur"
-            @click="selectSuggestion(part)"
-          >
-            <span class="suggestion-name">{{ part.name }}</span>
-            <span class="suggestion-description">{{ part.description }}</span>
+    <!-- Search and Filter Section -->
+    <div class="search-filter-section">
+      <!-- Parts Search Box -->
+      <div class="search-section">
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <input
+              ref="searchInput"
+              v-model="searchQuery"
+              type="text"
+              class="search-input"
+              placeholder="Search parts by name..."
+              @input="handleInput"
+              @keydown="handleKeydown"
+              @focus="showSuggestions = true"
+              @blur="handleBlur"
+            />
+            <button class="search-btn" @click="handleSearch">
+              🔍 Search
+            </button>
+          </div>
+          
+          <!-- Search Suggestions Dropdown -->
+          <div v-if="showSuggestions && searchSuggestions.length > 0" class="search-suggestions">
+            <div
+              v-for="(part, index) in searchSuggestions"
+              :key="part.id"
+              :class="['suggestion-item', { active: activeSuggestionIndex === index }]"
+              @mousedown="preventBlur"
+              @click="selectSuggestion(part)"
+            >
+              <span class="suggestion-name">{{ part.name }}</span>
+              <span class="suggestion-description">{{ part.description }}</span>
+            </div>
+          </div>
+          
+          <!-- Search Results Statistics -->
+          <div v-if="searchQuery" class="search-stats">
+            <span class="results-count">{{ filteredParts.length }} parts found</span>
+            <span v-if="searchQuery" class="search-query">for "{{ searchQuery }}"</span>
           </div>
         </div>
-        
-        <!-- Search Results Statistics -->
-        <div v-if="searchQuery" class="search-stats">
-          <span class="results-count">{{ filteredParts.length }} parts found</span>
-          <span v-if="searchQuery" class="search-query">for "{{ searchQuery }}"</span>
+      </div>
+
+      <!-- Category Filter Section -->
+      <div class="filter-section">
+        <div class="filter-container">
+          <div class="filter-header">
+            <h3 class="filter-title">Filter by Category</h3>
+            <div class="filter-stats">
+              <span v-if="selectedCategory" class="active-filter">
+                Showing: {{ selectedCategory }}
+                <button class="clear-filter" @click="clearCategoryFilter">× Clear</button>
+              </span>
+              <span v-else class="total-count">{{ parts.length }} parts total</span>
+            </div>
+          </div>
+          
+          <div class="category-filters">
+            <button
+              v-for="category in categories"
+              :key="category.id"
+              :class="['category-filter-btn', { active: selectedCategory === category.name }]"
+              @click="toggleCategoryFilter(category.name)"
+            >
+              <span class="category-name">{{ category.name }}</span>
+              <span class="category-count">{{ getCategoryCount(category.name) }}</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -103,6 +140,7 @@
               :src="part.image" 
               :alt="part.name"
               class="part-image-real"
+              @click="openImageModal(part)"
             />
             <div v-else class="image-placeholder-small">📷</div>
           </div>
@@ -142,6 +180,27 @@
         </div>
       </div>
     </div>
+
+    <!-- 图片查看模态框 -->
+    <div v-if="selectedImagePart" class="modal-overlay image-modal-overlay" @click="closeImageModal" @keydown="handleKeydownModal">
+      <div class="modal-content image-modal-content" @click.stop>
+        <button class="modal-close image-modal-close" @click="closeImageModal">×</button>
+        <div class="image-modal-header">
+          <h2>{{ selectedImagePart.name }}</h2>
+          <p class="image-modal-category">{{ selectedImagePart.category }}</p>
+        </div>
+        <div class="image-modal-body">
+          <img 
+            :src="selectedImagePart.image" 
+            :alt="selectedImagePart.name"
+            class="image-modal-image"
+          />
+        </div>
+        <div class="image-modal-footer">
+          <p class="image-modal-specs">{{ selectedImagePart.specs }}</p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -150,15 +209,19 @@
 export default {
   async asyncData({ $fetch }) {
     try {
-      // 在生产环境中，可以考虑使用API端点
-      const partsData = await import('~/data/parts/tamiya-tt-02-parts.json')
+      // 加载零件数据
+      const partsData = require('~/data/parts/tamiya-tt-02-parts.json')
+      // 加载模型数据
+      const modelData = require('~/data/models/tamiya-tt-02.json')
       return {
-        parts: partsData.default
+        parts: partsData,
+        model: modelData
       }
     } catch (error) {
-      console.error('加载零件数据失败:', error)
+      console.error('加载数据失败:', error)
       return {
-        parts: []
+        parts: [],
+        model: {}
       }
     }
   },
@@ -170,21 +233,46 @@ export default {
       showSuggestions: false,
       activeSuggestionIndex: -1,
       searchTimeout: null,
-      selectedPart: null
+      selectedPart: null,
+      selectedImagePart: null,
+      selectedCategory: null
     }
   },
   computed: {
+    categories() {
+      // 从categories.json获取标准分类
+      return [
+        { id: 'chassis', name: 'Chassis' },
+        { id: 'drivetrain', name: 'Drivetrain' },
+        { id: 'suspension', name: 'Suspension' },
+        { id: 'steering', name: 'Steering' },
+        { id: 'motor', name: 'Motor / Motor Mount' },
+        { id: 'wheels_tires', name: 'Wheels & Tires' },
+        { id: 'hardware', name: 'Hardware' },
+        { id: 'body', name: 'body' },
+        { id: 'electronics', name: 'Electronics' }
+      ]
+    },
+    
     filteredParts() {
-      if (!this.searchQuery.trim()) {
-        return this.parts
+      let filtered = this.parts
+      
+      // 应用分类筛选
+      if (this.selectedCategory) {
+        filtered = filtered.filter(part => part.category === this.selectedCategory)
       }
       
-      const searchTerm = this.searchQuery.toLowerCase().trim()
-      return this.parts.filter(part => 
-        part.name.toLowerCase().includes(searchTerm) ||
-        part.category.toLowerCase().includes(searchTerm) ||
-        (part.specs && part.specs.toLowerCase().includes(searchTerm))
-      )
+      // 应用搜索筛选
+      if (this.searchQuery.trim()) {
+        const searchTerm = this.searchQuery.toLowerCase().trim()
+        filtered = filtered.filter(part => 
+          part.name.toLowerCase().includes(searchTerm) ||
+          part.category.toLowerCase().includes(searchTerm) ||
+          (part.specs && part.specs.toLowerCase().includes(searchTerm))
+        )
+      }
+      
+      return filtered
     }
   },
   methods: {
@@ -286,6 +374,26 @@ export default {
       event.preventDefault()
     },
     
+    // Category filter methods
+    toggleCategoryFilter(categoryName) {
+      if (this.selectedCategory === categoryName) {
+        this.selectedCategory = null
+      } else {
+        this.selectedCategory = categoryName
+      }
+      // 清除搜索查询，避免冲突
+      this.searchQuery = ''
+      this.showSuggestions = false
+    },
+    
+    clearCategoryFilter() {
+      this.selectedCategory = null
+    },
+    
+    getCategoryCount(categoryName) {
+      return this.parts.filter(part => part.category === categoryName).length
+    },
+    
 
     searchEbay(part) {
       const searchQuery = encodeURIComponent(`Tamiya TT-02 ${part.name}`)
@@ -293,6 +401,23 @@ export default {
     },
     showGuide(part) {
       this.selectedPart = part
+    },
+    
+    // 打开图片查看模态框
+    openImageModal(part) {
+      this.selectedImagePart = part
+    },
+    
+    // 关闭图片查看模态框
+    closeImageModal() {
+      this.selectedImagePart = null
+    },
+    
+    // 键盘事件处理（ESC键关闭模态框）
+    handleKeydownModal(event) {
+      if (event.key === 'Escape' && this.selectedImagePart) {
+        this.closeImageModal()
+      }
     }
   },
   head() {
@@ -397,18 +522,43 @@ export default {
 .model-image {
   background: #f8f9fa;
   border-radius: 12px;
-  padding: 40px;
+  padding: 20px;
   text-align: center;
   color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 200px;
+}
+
+.model-image-real {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.model-image-real:hover {
+  transform: scale(1.02);
 }
 
 .image-placeholder {
   font-size: 1.5rem;
 }
 
+/* 搜索和筛选区域布局 */
+.search-filter-section {
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
 /* 搜索区域样式 */
 .search-section {
-  margin-bottom: 40px;
+  margin-bottom: 0;
 }
 
 .search-container {
@@ -470,6 +620,125 @@ export default {
   z-index: 1000;
   animation: slideDown 0.2s ease;
   margin-top: 8px;
+}
+
+/* 分类筛选区域样式 */
+.filter-section {
+  margin-bottom: 40px;
+  background: #f8f9fa;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.filter-container {
+  max-width: 100%;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.filter-title {
+  font-size: 1.3rem;
+  color: #333;
+  margin: 0;
+  font-weight: 600;
+}
+
+.filter-stats {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.active-filter {
+  background: #667eea;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.clear-filter {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.clear-filter:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.total-count {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.category-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.category-filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.category-filter-btn:hover {
+  border-color: #667eea;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+.category-filter-btn.active {
+  background: #667eea;
+  border-color: #667eea;
+  color: white;
+}
+
+.category-name {
+  font-weight: 500;
+}
+
+.category-count {
+  background: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.category-filter-btn.active .category-count {
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
 }
 
 .suggestion-item {
@@ -577,7 +846,8 @@ export default {
   transition: all 0.3s ease;
   display: flex;
   gap: 12px;
-  height: 120px;
+  min-height: 120px;
+  height: auto;
 }
 
 .part-card:hover {
@@ -647,7 +917,7 @@ export default {
 /* 零件类别 */
 .part-category {
   margin-bottom: 8px;
-  display: flex;
+  display: none; /* 隐藏分类信息 */
   align-items: center;
   gap: 8px;
 }
@@ -667,29 +937,51 @@ export default {
   font-weight: 500;
 }
 
-/* 文本格式规格参数 */
+/* 文本格式规格参数 - 突出显示 */
 .part-specs-text {
   margin-top: auto;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 8px;
+  padding: 8px 12px;
+  border-left: 4px solid #667eea;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
 }
 
 .part-specs-text .spec-item {
   display: flex;
   align-items: flex-start;
   gap: 8px;
+  width: 100%;
 }
 
 .part-specs-text .spec-label {
   font-size: 0.7rem;
-  color: #999;
+  color: #667eea;
   white-space: nowrap;
   flex-shrink: 0;
+  font-weight: 600;
+  background: rgba(102, 126, 234, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-top: 2px;
 }
 
 .part-specs-text .spec-value {
-  font-size: 0.75rem;
-  color: #333;
-  font-weight: 500;
-  line-height: 1.3;
+  font-size: 0.8rem;
+  color: #2d3748;
+  font-weight: 600;
+  line-height: 1.4;
+  flex: 1;
+  background: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .modal-overlay {
@@ -735,6 +1027,116 @@ export default {
 .guide-content {
   line-height: 1.6;
   color: #666;
+}
+
+/* 图片查看模态框样式 */
+.image-modal-overlay {
+  background: rgba(0,0,0,0.9);
+  backdrop-filter: blur(5px);
+}
+
+.image-modal-content {
+  max-width: 800px;
+  width: 95%;
+  max-height: 90vh;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.image-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.image-modal-close:hover {
+  background: rgba(0,0,0,0.9);
+  transform: scale(1.1);
+}
+
+.image-modal-header {
+  padding: 30px 30px 20px;
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.image-modal-header h2 {
+  margin: 0 0 8px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.image-modal-category {
+  margin: 0;
+  color: #667eea;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.image-modal-body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background: #f8f9fa;
+  overflow: hidden;
+}
+
+.image-modal-image {
+  max-width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.image-modal-image:hover {
+  transform: scale(1.02);
+}
+
+.image-modal-footer {
+  padding: 20px 30px;
+  background: white;
+  border-top: 1px solid #e0e0e0;
+}
+
+.image-modal-specs {
+  margin: 0;
+  color: #2d3748;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 600;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  padding: 12px 16px;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* 为小图片添加点击提示 */
+.part-image-real {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.part-image-real:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
 @keyframes slideDown {

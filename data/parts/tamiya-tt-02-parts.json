@@ -2,8 +2,8 @@
   {
     "id": "53433",
     "name": "Medium-Narrow Reinforced Tires Type-A",
-    "category": "Tires",
-    "specs": "Diameter 26mm × Width 12mm",
+    "category": "Wheels & Tires",
+    "specs": "uter Diameter approx. 63 mm × Width 24 mm (fits standard 24 mm touring car wheels)",
     "compatibility": [
       "TT-02"
     ],
@@ -12,8 +12,8 @@
   {
     "id": "53156",
     "name": "Hard Inner Sponge Set",
-    "category": "Tires",
-    "specs": "Diameter 26mm × Width 12mm",
+    "category": "Wheels & Tires",
+    "specs": "L x W x H 6.3 x 2.44 x 1.1 inches",
     "compatibility": [
       "TT-02"
     ],
@@ -22,8 +22,8 @@
   {
     "id": "53336",
     "name": "Reinforced One-Piece Mesh Wheels",
-    "category": "Wheels",
-    "specs": "Diameter 26mm × Offset 0",
+    "category": "Wheels & Tires",
+    "specs": "52mm in diameter and 26mm in width, with a +2mm offset and a 12mm hex fitting",
     "compatibility": [
       "TT-02"
     ],
@@ -33,7 +33,7 @@
     "id": "54649",
     "name": "TT-02 Differential Gear",
     "category": "Drivetrain",
-    "specs": "Teeth 25 × Module 0.5 × Material Nylon",
+    "specs": "The TT-02 uses a 39T ring gear and 15T bevel pinion (2.6:1 diff ratio) and supports a 68T high-speed spur, allowing overall gear ratios from 9.82:1 down to 6.55:1 with different pinion choices.",
     "compatibility": [
       "TT-02"
     ],
@@ -42,8 +42,8 @@
   {
     "id": "54558",
     "name": "TT-02 Aluminum Motor Mount",
-    "category": "Motor Mount",
-    "specs": "Material Aluminum",
+    "category": "Motor / Motor Mount",
+    "specs": "The Tamiya TT‑02 Aluminum Motor Mount (# 54558) is anodized blue aluminum, replaces the stock plastic mount, offers 10 pinion-gear positions (5 per side), and acts as a heat sink for better motor cooling",
     "compatibility": [
       "TT-02"
     ],
@@ -53,7 +53,7 @@
     "id": "54574",
     "name": "TT-02 Aluminum Racing Steering Set",
     "category": "Steering",
-    "specs": "Material Aluminum",
+    "specs": "The TT-02 Aluminum Racing Steering Set replaces the stock plastic steering with a precision aluminum system featuring TRF417 steering posts, full ball bearings, and alloy arms, greatly improving durability and steering accuracy.",
     "compatibility": [
       "TT-02"
     ],
@@ -122,7 +122,7 @@
   {
     "id": "54559",
     "name": "TT-02 Low Friction Suspension Ball (4pcs)",
-    "category": "Suspension Hardware",
+    "category": "Hardware",
     "specs": "Diameter 6mm × Quantity 4 × Material Steel",
     "compatibility": [
       "TT-02"
@@ -132,7 +132,7 @@
   {
     "id": "54395",
     "name": "3×22 mm Low Friction Suspension Shaft (4pcs)",
-    "category": "Suspension Hardware",
+    "category": "Hardware",
     "specs": "Diameter 3mm × Length 22mm × Quantity 4 × Material Steel",
     "compatibility": [
       "TT-02"
@@ -142,7 +142,7 @@
   {
     "id": "54555",
     "name": "TT-02 FRP Battery Plate & Transponder Stay Set",
-    "category": "Chassis Hardware",
+    "category": "Hardware",
     "specs": "Material FRP × Thickness 2mm",
     "compatibility": [
       "TT-02"
@@ -218,5 +218,240 @@
       "TT-02"
     ],
     "image": "/image/parts/tamiya-tt-02/tt02-54700-tt-02-lightweight-aluminum-spur-gear-64t.jpg"
+  },
+  {
+    "id": "55009",
+    "name": "TT-02 Aluminum Front Lower Arm Set",
+    "category": "Suspension",
+    "specs": "Material Aluminum × Compatible with TT-02 front suspension",
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-55009-tt-02-aluminum-front-lower-arm-set.jpg"
+  },
+  {
+    "id": "55010",
+    "name": "TT-02 Aluminum Rear Upper Arm Set",
+    "category": "Suspension",
+    "specs": "Material Aluminum × Compatible with TT-02 rear suspension",
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-55010-tt-02-aluminum-rear-upper-arm-set.jpg"
+  },
+  {
+    "id": "55011",
+    "name": "TT-02 Aluminum Wheel Hubs Set",
+    "category": "Drivetrain",
+    "specs": "Material Aluminum × Compatible with 12mm hex wheels × Quantity 4",
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-55011-tt-02-aluminum-wheel-hubs-set.jpg"
+  },
+  {
+    "id": "55012",
+    "name": "TT-02 Aluminum Pinion Gear 19T",
+    "category": "Drivetrain",
+    "specs": "Teeth 19 × Material Aluminum × Fits standard TT-02 spur gear",
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-55012-tt-02-aluminum-pinion-gear-19t.jpg"
+  },
+  {
+    "id": "55013",
+    "name": "TT-02 Aluminum Spur Gear 70T",
+    "category": "Drivetrain",
+    "specs": "Teeth 70 × Material Aluminum × Lightweight design",
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-55013-tt-02-aluminum-spur-gear-70t.jpg"
+  },
+  {
+    "id": "55014",
+    "name": "TT-02 CVA Long Shock Set",
+    "category": "Suspension",
+    "specs": "Quantity 4 × Diameter 8mm × Length 36mm",
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-55014-tt-02-cva-long-shock-set.jpg"
+  },
+  {
+    "id": "55015",
+    "name": "TT-02 Soft Spring Set",
+    "category": "Suspension",
+    "specs": "Quantity 4 × Diameter 7mm × Hardness 2",
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-55015-tt-02-soft-spring-set.jpg"
+  },
+  {
+    "id": "55016",
+    "name": "TT-02 Aluminum Servo Horn",
+    "category": "Steering",
+    "specs": "Material Aluminum × Compatible with standard TT-02 servo",
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-55016-tt-02-aluminum-servo-horn.jpg"
+  },
+  {
+    "id": "55017",
+    "name": "TT-02 Steering Link Set",
+    "category": "Steering",
+    "specs": "Material Aluminum × Includes ball ends × Improves precision",
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-55017-tt-02-steering-link-set.jpg"
+  },
+  {
+    "id": "55018",
+    "name": "TT-02 Aluminum Upper Deck",
+    "category": "Chassis",
+    "specs": "Anodized aluminum upper deck for TT-02, replacing the stock plastic deck to increase chassis rigidity and durability, with extra mounting points for hardware.",
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-55018-tt-02-aluminum-upper-deck.jpg"
+  },
+  {
+    "id": "55019",
+    "name": "TT-02 Ball Bearing Kit 5×11×4mm",
+    "category": "Hardware",
+    "specs": "Diameter 5×11×4mm × Quantity 8 × Material Steel",
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-55019-tt-02-ball-bearing-kit-5-11-4mm.jpg"
+  },
+  {
+    "id": "55020",
+    "name": "TT-02 Low Friction Suspension Ball Set",
+    "category": "Hardware",
+    "specs": "Diameter 6mm × Quantity 4 × Material Steel",
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-55020-tt-02-low-friction-suspension-ball-set.jpg"
+  },
+  {
+    "id": "55021",
+    "name": "TT-02 Aluminum Battery Holder",
+    "category": "Hardware",
+    "specs": "Material Aluminum × Thickness 2mm",
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-55021-tt-02-aluminum-battery-holder.jpg"
+  },
+  {
+    "id": "55022",
+    "name": "TT-02 Aluminum Body Mount Set",
+    "category": "Hardware",
+    "specs": "Material Aluminum × Height 30mm × Quantity 2",
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-55022-tt-02-aluminum-body-mount-set.jpg"
+  },
+  {
+    "id": "55023",
+    "name": "TT-02 Aluminum Rear Wing Mount",
+    "category": "Hardware",
+    "specs": "Material Aluminum × Compatible with standard TT-02 wing",
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-55023-tt-02-aluminum-rear-wing-mount.jpg"
+  },
+  {
+    "id": "55024",
+    "name": "TT-02 Lightweight Aluminum Driveshaft 90mm",
+    "category": "Drivetrain",
+    "specs": "Length 90mm × Material Aluminum × Quantity 2",
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-55024-tt-02-lightweight-aluminum-driveshaft-90mm.jpg"
+  },
+  {
+    "id": "55025",
+    "name": "TT-02 Aluminum Steering Post Set",
+    "category": "Steering",
+    "specs": "Material Aluminum × Includes 2 posts with ball bearings",
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-55025-tt-02-aluminum-steering-post-set.jpg"
+  },
+  {
+    "id": "55028",
+    "name": "TT-02 Lightweight Aluminum Pinion Gear 15T",
+    "category": "Drivetrain",
+    "specs": "Teeth 15 × Material Aluminum × Lightweight design for better acceleration",
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-55028-tt-02-lightweight-aluminum-pinion-gear-15t.jpg"
+  },
+  {
+    "id": "body_lancer",
+    "name": "TT-02 Mitsubishi Lancer EVO Body",
+    "category": "body",
+    "description": "Classic rally car design, durable and lightweight, fits TT-02 chassis",
+    "specs": "Compatible with TT-02 chassis",
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-body_lancer-tt-02-mitsubishi-lancer-evo-body.jpg"
+  },
+  {
+    "id": "body_supra",
+    "name": "TT-02 Toyota Supra Body",
+    "category": "body",
+    "description": "Iconic sports car body, aerodynamic and stylish, ideal for on-road and drift",
+    "specs": "Compatible with TT-02 chassis",
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-body_supra-tt-02-toyota-supra-body.jpg"
+  },
+  {
+    "id": "body_mustang",
+    "name": "TT-02 Ford Mustang Body",
+    "category": "body",
+    "description": "Muscle car style, strong appearance, designed for TT-02 chassis",
+    "specs": "Compatible with TT-02 chassis",
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-body_mustang-tt-02-ford-mustang-body.jpg"
+  },
+  {
+    "id": "body_nissan_gt",
+    "name": "TT-02 Nissan GT-R Body",
+    "category": "body",
+    "description": "High-performance racing car look, lightweight and durable, fits TT-02",
+    "specs": "Compatible with TT-02 chassis",
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-body_nissan_gt-tt-02-nissan-gt-r-body.jpg"
+  },
+  {
+    "id": "body_honda_nsx",
+    "name": "TT-02 Honda NSX Body",
+    "category": "body",
+    "description": "Sleek sports car body, perfect for drift and on-road racing, TT-02 compatible",
+    "specs": "Compatible with TT-02 chassis",
+    "compatibility": [
+      "TT-02"
+    ],
+    "image": "/image/parts/tamiya-tt-02/tt02-body_honda_nsx-tt-02-honda-nsx-body.jpg"
   }
 ]
