@@ -11,7 +11,8 @@ export default {
   // Static site generation configuration: https://nuxtjs.org/docs/configuration-glossary/configuration-generate
   generate: {
     dir: 'dist',
-    routes: ['/parts/tamiya-tt-02', '/models']
+    routes: ['/parts/tamiya-tt-02', '/models'],
+    fallback: true
   },
 
   // Global page headers: https://nuxtjs.org/docs/configuration-glossary/configuration-head
@@ -38,6 +39,7 @@ export default {
 
   // Global CSS: https://nuxtjs.org/docs/configuration-glossary/configuration-css
   css: [
+    '~/assets/css/main.css'
   ],
 
   // Plugins to run before rendering page: https://nuxtjs.org/docs/configuration-glossary/configuration-plugins
@@ -50,7 +52,23 @@ export default {
 
   // Modules for dev and build (recommended): https://nuxtjs.org/docs/configuration-glossary/configuration-modules
   modules: [
+    '@nuxt/content'
   ],
+  
+  // Content module configuration
+  content: {
+    // 内容目录
+    dir: 'content',
+    // 支持的文件扩展名
+    extensions: ['md', 'json', 'yaml', 'yml'],
+    // 是否使用全文搜索
+    fullTextSearchFields: ['title', 'description', 'slug', 'text'],
+    // Markdown配置
+    markdown: {
+      remarkPlugins: [],
+      rehypePlugins: []
+    }
+  },
 
   // Build Configuration: https://nuxtjs.org/docs/configuration-glossary/configuration-build
   build: {
