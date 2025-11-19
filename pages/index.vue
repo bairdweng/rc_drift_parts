@@ -63,6 +63,35 @@
         </div>
       </div>
 
+      <!-- 技术文章入口 - 15%视觉权重 -->
+      <div class="tech-articles-section">
+        <div class="tech-articles-card">
+          <h2 class="tech-articles-title">RC Drift Car Technical Guides</h2>
+          <p class="tech-articles-subtitle">Learn professional tuning techniques for better drift performance</p>
+          <div class="tech-categories">
+            <div class="tech-category">
+              <span class="tech-icon">🎮</span>
+              <span>Remote Controllers</span>
+            </div>
+            <div class="tech-category">
+              <span class="tech-icon">🔋</span>
+              <span>Battery Systems</span>
+            </div>
+            <div class="tech-category">
+              <span class="tech-icon">🛞</span>
+              <span>Suspension & Tires</span>
+            </div>
+            <div class="tech-category">
+              <span class="tech-icon">⚡</span>
+              <span>Electronics Setup</span>
+            </div>
+          </div>
+          <button class="tech-articles-btn" @click="navigateToTechArticles">
+            View All Technical Guides →
+          </button>
+        </div>
+      </div>
+
       <!-- 漂移车简单介绍 - 8%视觉权重 -->
       <div class="drift-intro-section">
         <p class="drift-intro-text">
@@ -76,6 +105,20 @@
         <p class="future-hint">
           More popular drift car models in development: Yokomo YD-2, MST RMX, etc.
         </p>
+      </div>
+
+      <!-- 联系我们 - 2%视觉权重 -->
+      <div class="contact-section">
+        <div class="contact-card">
+          <h3 class="contact-title">Contact Us</h3>
+          <p class="contact-description">
+            Have questions or suggestions about RC drift car parts? We'd love to hear from you!
+          </p>
+          <div class="contact-email">
+            <span class="email-icon">✉️</span>
+            <a href="mailto:bairdweng@gmail.com" class="email-link">bairdweng@gmail.com</a>
+          </div>
+        </div>
       </div>
     </main>
   </div>
@@ -206,6 +249,10 @@ export default {
     
     navigateToTT02() {
       this.$router.push('/parts/tamiya-tt-02')
+    },
+    
+    navigateToTechArticles() {
+      this.$router.push('/tech-articles')
     }
   },
   head() {
@@ -545,5 +592,158 @@ export default {
   .tt02-title {
     font-size: 1.2rem;
   }
+  
+  .contact-section {
+    margin: 20px auto;
+  }
+  
+  .contact-card {
+    padding: 16px;
+  }
+  
+  .contact-title {
+    font-size: 1.1rem;
+  }
+  
+  .contact-description {
+    font-size: 0.9rem;
+  }
+  
+  .contact-email {
+    font-size: 0.9rem;
+  }
+}
+
+/* 技术文章入口 - 15%视觉权重 */
+.tech-articles-section {
+  max-width: 600px;
+  margin: 25px auto;
+}
+
+.tech-articles-card {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  text-align: center;
+}
+
+.tech-articles-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 12px;
+}
+
+.tech-articles-subtitle {
+  font-size: 1.1rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0 0 30px;
+}
+
+.tech-categories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.tech-category {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.tech-category:hover {
+  background: #f1f5f9;
+  transform: translateY(-2px);
+}
+
+.tech-icon {
+  font-size: 1.5rem;
+}
+
+.tech-category span:last-child {
+  font-weight: 500;
+  color: #475569;
+}
+
+.tech-articles-btn {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+.tech-articles-btn:hover {
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(139, 92, 246, 0.4);
+}
+
+/* 联系我们 - 2%视觉权重 */
+.contact-section {
+  max-width: 500px;
+  margin: 15px auto;
+  text-align: center;
+}
+
+.contact-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f1f5f9;
+}
+
+.contact-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 12px;
+}
+
+.contact-description {
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0 0 20px;
+}
+
+.contact-email {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.email-icon {
+  font-size: 1.2rem;
+}
+
+.email-link {
+  color: #3b82f6;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.email-link:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
 }
 </style>
