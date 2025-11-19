@@ -3,7 +3,7 @@ export default {
   // Target for static generation: https://nuxtjs.org/docs/configuration-glossary/configuration-target
   target: 'static',
   
-  // GitHub Pages部署配置 - 移除base路径以支持自定义域名
+  // GitHub Pages deployment configuration - Remove base path to support custom domain
   // router: {
   //   base: process.env.NODE_ENV === 'production' ? '/rc_drift_parts/' : '/'
   // },
@@ -17,15 +17,15 @@ export default {
 
   // Global page headers: https://nuxtjs.org/docs/configuration-glossary/configuration-head
   head: {
-    title: 'RC Drift Parts - 专业RC漂移车零件搜索和购买平台',
+    title: 'RC Drift Parts - Professional RC Drift Car Parts Search Platform',
     htmlAttrs: {
-      lang: 'zh-CN'
+      lang: 'en'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'RC Drift Parts - 专业的RC漂移车零件搜索平台，提供田宫Tamiya TT-02等热门车型的零件搜索、价格比较和购买指南。快速找到您需要的RC漂移车配件。' },
-      { name: 'keywords', content: 'RC漂移车,RC零件,田宫Tamiya,TT-02,漂移车配件,RC模型车' },
+      { hid: 'description', name: 'description', content: 'RC Drift Parts - Professional RC drift car parts search platform. Find Tamiya TT-02 parts, compare prices, and get buying guides. Quickly find the RC drift car accessories you need.' },
+      { name: 'keywords', content: 'RC drift cars, RC parts, Tamiya, TT-02, drift car accessories, RC model cars' },
       { name: 'author', content: 'RC Drift Parts' },
       { name: 'robots', content: 'index, follow' }
     ],
@@ -69,13 +69,13 @@ export default {
   
   // Content module configuration
   content: {
-    // 内容目录
+    // Content directory
     dir: 'content',
-    // 支持的文件扩展名
+    // Supported file extensions
     extensions: ['md', 'json', 'yaml', 'yml'],
-    // 是否使用全文搜索
+    // Enable full-text search
     fullTextSearchFields: ['title', 'description', 'slug', 'text'],
-    // Markdown配置
+    // Markdown configuration
     markdown: {
       remarkPlugins: [],
       rehypePlugins: []
@@ -84,15 +84,15 @@ export default {
 
   // Build Configuration: https://nuxtjs.org/docs/configuration-glossary/configuration-build
   build: {
-    // 优化构建性能
+    // Optimize CSS build performance
     optimizeCSS: true,
-    // 启用代码分割
+    // Enable code splitting
     splitChunks: {
       layouts: true,
       pages: true,
       commons: true
     },
-    // 压缩JavaScript
+    // JavaScript compression
     terser: {
       terserOptions: {
         compress: {
@@ -102,16 +102,16 @@ export default {
     }
   },
   
-  // 开发服务器配置
+  // Development server configuration
   dev: process.env.NODE_ENV === 'development',
   
-  // 渲染配置
+  // Render configuration
   render: {
-    // 压缩HTML
+    // HTML compression
     compressor: {
       threshold: 1024
     },
-    // 静态资源缓存
+    // Static assets caching
     static: {
       maxAge: '1y'
     }
