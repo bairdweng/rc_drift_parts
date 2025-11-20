@@ -41,6 +41,35 @@
       </div>
     </section>
 
+    <!-- Floating Table of Contents -->
+    <div class="floating-toc" :class="{ 'toc-open': isTocOpen }">
+      <button class="toc-toggle" @click="toggleToc">
+        <span class="toc-icon">📋</span>
+        <span class="toc-text">{{ isTocOpen ? 'Hide TOC' : 'Show TOC' }}</span>
+      </button>
+      
+      <div class="toc-content" v-if="isTocOpen">
+        <h3 class="toc-title">Table of Contents</h3>
+        <nav class="toc-nav">
+          <ul>
+            <li 
+              v-for="(heading, index) in mainHeadings" 
+              :key="index"
+              :class="{ 'toc-active': heading.id === activeHeading }"
+            >
+              <a 
+                :href="`#${heading.id}`"
+                @click.prevent="scrollToHeading(heading.id)"
+                class="toc-link"
+              >
+                {{ heading.text }}
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
     <!-- Article Content -->
     <section class="article-content-section">
       <div class="container">
@@ -125,11 +154,65 @@ export default {
       .filter(a => a.category === article.category && a.slug !== params.slug)
       .slice(0, 3)
     
+    // Extract main headings (h2 level only)
+    const mainHeadings = []
+    if (article.body && article.body.children) {
+      article.body.children.forEach(child => {
+        if (child.type === 'element' && child.tag === 'h2') {
+          const text = child.children
+            .filter(c => c.type === 'text')
+            .map(c => c.value)
+            .join('')
+          
+          if (text) {
+            // Generate ID that matches Nuxt Content's default anchor generation
+            const id = text.toLowerCase()
+              .replace(/[^a-z0-9\s-]/g, '')
+              .replace(/\s+/g, '-')
+              .replace(/-+/g, '-')
+              .replace(/^-|-$/g, '')
+            
+            // Ensure the heading element has the correct ID
+            if (!child.props) child.props = {}
+            child.props.id = id
+            
+            mainHeadings.push({
+              id,
+              text
+            })
+          }
+        }
+      })
+    }
+    
     return {
       article,
       prevArticle,
       nextArticle,
-      relatedArticles
+      relatedArticles,
+      mainHeadings
+    }
+  },
+  
+  data() {
+    return {
+      isTocOpen: false,
+      activeHeading: '',
+      scrollTimeout: null
+    }
+  },
+  
+  mounted() {
+    // Add scroll event listener for active heading detection
+    window.addEventListener('scroll', this.handleScroll)
+    // Initial check
+    this.handleScroll()
+  },
+  
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.handleScroll)
+    if (this.scrollTimeout) {
+      clearTimeout(this.scrollTimeout)
     }
   },
   
@@ -141,6 +224,55 @@ export default {
     formatDate(dateString) {
       const options = { year: 'numeric', month: 'long', day: 'numeric' }
       return new Date(dateString).toLocaleDateString('en-US', options)
+    },
+    
+    toggleToc() {
+      this.isTocOpen = !this.isTocOpen
+    },
+    
+    scrollToHeading(headingId) {
+      // Wait for next tick to ensure DOM is updated
+      this.$nextTick(() => {
+        const element = document.getElementById(headingId)
+        if (element) {
+          // Get the exact position of the element
+          const elementRect = element.getBoundingClientRect()
+          const offsetTop = window.pageYOffset + elementRect.top - 80
+          
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+          })
+          
+          // Close TOC after clicking on mobile
+          if (window.innerWidth < 768) {
+            this.isTocOpen = false
+          }
+        }
+      })
+    },
+    
+    handleScroll() {
+      if (this.scrollTimeout) {
+        clearTimeout(this.scrollTimeout)
+      }
+      
+      this.scrollTimeout = setTimeout(() => {
+        const headings = this.mainHeadings.map(h => document.getElementById(h.id)).filter(Boolean)
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+        
+        let activeHeading = ''
+        
+        for (let i = headings.length - 1; i >= 0; i--) {
+          const heading = headings[i]
+          if (heading.offsetTop - 150 <= scrollTop) {
+            activeHeading = heading.id
+            break
+          }
+        }
+        
+        this.activeHeading = activeHeading
+      }, 100)
     }
   },
   
@@ -464,6 +596,138 @@ export default {
 
 .back-button:hover {
   background: #cbd5e0;
+}
+
+/* Floating Table of Contents */
+.floating-toc {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.toc-toggle {
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  transition: all 0.3s ease;
+}
+
+.toc-toggle:hover {
+  background: #5a6fd8;
+  transform: translateX(-5px);
+}
+
+.toc-icon {
+  font-size: 1.2rem;
+}
+
+.toc-text {
+  font-size: 0.9rem;
+}
+
+.toc-content {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  width: 280px;
+  max-height: 400px;
+  overflow-y: auto;
+  margin-top: 10px;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.toc-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #2d3748;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 8px;
+}
+
+.toc-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-nav li {
+  margin-bottom: 8px;
+}
+
+.toc-link {
+  display: block;
+  color: #4a5568;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.toc-link:hover {
+  background: #f7fafc;
+  color: #667eea;
+}
+
+.toc-nav li.toc-active .toc-link {
+  background: #667eea;
+  color: white;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .floating-toc {
+    right: 10px;
+  }
+  
+  .toc-content {
+    width: 250px;
+    max-height: 300px;
+  }
+  
+  .toc-text {
+    display: none;
+  }
+  
+  .toc-toggle {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .floating-toc {
+    right: 5px;
+  }
+  
+  .toc-content {
+    width: 220px;
+  }
 }
 
 /* Responsive Design */
