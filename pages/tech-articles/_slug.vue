@@ -55,7 +55,7 @@
             <li 
               v-for="(heading, index) in mainHeadings" 
               :key="index"
-              :class="{ 'toc-active': heading.id === activeHeading }"
+              :class="['toc-item', { 'toc-active': heading.id === activeHeading }, `toc-level-${heading.level}`]"
             >
               <a 
                 :href="`#${heading.id}`"
@@ -154,32 +154,49 @@ export default {
       .filter(a => a.category === article.category && a.slug !== params.slug)
       .slice(0, 3)
     
-    // Extract main headings (h2 level only)
+    // Extract main headings (h2 and h3 levels)
     const mainHeadings = []
     if (article.body && article.body.children) {
       article.body.children.forEach(child => {
-        if (child.type === 'element' && child.tag === 'h2') {
+        // Handle both h2 and h3 headings for better compatibility
+        if (child.type === 'element' && (child.tag === 'h2' || child.tag === 'h3')) {
+          // Improved text extraction to handle various content types
+          const extractText = (node) => {
+            if (node.type === 'text') {
+              return node.value
+            } else if (node.type === 'element' && node.children) {
+              return node.children.map(extractText).join('')
+            }
+            return ''
+          }
+          
           const text = child.children
-            .filter(c => c.type === 'text')
-            .map(c => c.value)
+            .map(extractText)
             .join('')
+            .trim()
           
           if (text) {
             // Generate ID that matches Nuxt Content's default anchor generation
+            // Improved regex to handle special characters, Unicode, and formatting
             const id = text.toLowerCase()
-              .replace(/[^a-z0-9\s-]/g, '')
+              .replace(/[^\w\s-]/g, '') // Keep word characters, spaces, and hyphens
               .replace(/\s+/g, '-')
               .replace(/-+/g, '-')
               .replace(/^-|-$/g, '')
+              .substring(0, 50) // Limit ID length to prevent issues
             
             // Ensure the heading element has the correct ID
             if (!child.props) child.props = {}
             child.props.id = id
             
-            mainHeadings.push({
-              id,
-              text
-            })
+            // Only add if we have a valid ID
+            if (id && id.length > 0) {
+              mainHeadings.push({
+                id,
+                text,
+                level: child.tag
+              })
+            }
           }
         }
       })

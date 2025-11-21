@@ -7,7 +7,7 @@ author: "RC Drift Parts Team"
 readingTime: 10
 featured: true
 image: "/image/articles/battery-systems.webp"
-keywords: "rc drift cars battery, RC drift car power systems, LiPo batteries for drift cars, drift car battery guide"
+keywords: "rc drift cars battery systems"
 ---
 
 # RC Drift Car Battery Systems: Powering Your Drift Machine

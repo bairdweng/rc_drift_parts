@@ -1,5 +1,5 @@
 ---
-title: "RC Drift Car Transmitter Setup Guide - Mastering Precision Control"
+title: "RC Drift Car Transmitter Setup Guide"
 description: "Complete guide to setting up your RC drift car transmitter for optimal control and drift performance. Learn about steering endpoints, throttle curves, and advanced settings for RC drift cars."
 category: "Transmitter & Electronics"
 date: "2024-01-15"
@@ -7,10 +7,10 @@ author: "RC Drift Parts Team"
 readingTime: 8
 featured: true
 image: "/image/articles/transmitter-setup.webp"
-keywords: "rc drift cars transmitter setup, drift car remote control, steering endpoints RC drift, throttle curves for drifting"
+keywords: "rc drift cars transmitter setup"
 ---
 
-# RC Remote Controllers for Beginners: Everything You Need to Know
+# RC Drift Car Transmitter Setup Guide
 
 If you're new to RC cars, planes, drones, or boats, one of the most confusing things is understanding remote controllers. What do channels mean? How do you choose the right one? This guide will explain everything in a simple way.
 
