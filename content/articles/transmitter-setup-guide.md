@@ -2,7 +2,7 @@
 title: "RC Drift Car Transmitter Setup Guide"
 description: "Complete guide to setting up your RC drift car transmitter for optimal control and drift performance. Learn about steering endpoints, throttle curves, and advanced settings for RC drift cars."
 category: "Transmitter & Electronics"
-date: "2024-01-15"
+date: "2025-01-15"
 author: "RC Drift Parts Team"
 readingTime: 8
 featured: true
