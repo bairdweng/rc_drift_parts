@@ -8,6 +8,8 @@ readingTime: 8
 featured: true
 image: "/image/articles/battery-basics.webp"
 keywords: "rc drift cars battery basics"
+models: []
+compatibleModels: []
 ---
 
 # **RC Drift Car Battery Basics – Simple Q&A Guide for Beginners**

@@ -9,6 +9,8 @@ featured: true
 image: "/image/articles/lipo-safety.webp"
 alt: "RC drift cars LiPo battery safety guide - dangerous battery identification and prevention"
 keywords: "rc drift cars lipo battery safety, dangerous rc battery, swollen lipo battery, rc drift car battery fire prevention, tamiya tt-02 battery safety"
+models: []
+compatibleModels: []
 ---
 
 # RC Drift Cars LiPo Battery Safety Guide - How to Identify Dangerous Batteries

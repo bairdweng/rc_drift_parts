@@ -40,6 +40,15 @@
       </div>
     </header>
 
+    <!-- Model Selector for Article Navigation -->
+    <div class="model-selector-section">
+      <div class="selector-container">
+        <h3 class="selector-title">Browse Technical Articles</h3>
+        <p class="selector-description">Find installation guides and technical articles for this model</p>
+        <ModelSelector />
+      </div>
+    </div>
+
     <!-- Parts Category Navigation -->
     <nav class="parts-nav">
       <button 
@@ -116,8 +125,12 @@
 
 <script>
 import categoriesData from '~/data/categories.json'
+import ModelSelector from '~/components/ModelSelector.vue'
 
 export default {
+  components: {
+    ModelSelector
+  },
   async asyncData({ params }) {
     try {
       // Load model data based on route parameter
@@ -279,6 +292,31 @@ export default {
   text-align: center;
   font-size: 1.2rem;
   color: #666;
+}
+
+.model-selector-section {
+  background: #f8f9fa;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 30px;
+}
+
+.selector-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.selector-title {
+  font-size: 1.3rem;
+  color: #333;
+  margin: 0 0 8px;
+  font-weight: 600;
+}
+
+.selector-description {
+  color: #666;
+  margin: 0 0 16px;
+  font-size: 0.95rem;
 }
 
 .parts-nav {

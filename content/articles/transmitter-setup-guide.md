@@ -8,6 +8,8 @@ readingTime: 8
 featured: true
 image: "/image/articles/transmitter-setup.webp"
 keywords: "rc drift cars transmitter setup"
+models: []
+compatibleModels: []
 ---
 
 # RC Drift Car Transmitter Setup Guide

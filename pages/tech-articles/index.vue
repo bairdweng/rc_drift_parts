@@ -59,6 +59,13 @@
       </div>
     </section>
 
+    <!-- Model Selector -->
+    <section class="model-selector-section">
+      <div class="container">
+        <ModelSelector />
+      </div>
+    </section>
+
     <!-- Categories Filter -->
     <section class="categories-section">
       <div class="container">
@@ -115,7 +122,13 @@
 </template>
 
 <script>
+import ModelSelector from '~/components/ModelSelector.vue'
+
 export default {
+  components: {
+    ModelSelector
+  },
+  
   async asyncData({ $content }) {
     const articles = await $content('articles')
       .sortBy('date', 'desc')
@@ -156,6 +169,12 @@ export default {
         filtered = filtered.filter(article => article.category === this.selectedCategory)
       }
       
+      // Filter out model-specific articles (only show general articles)
+      filtered = filtered.filter(article => {
+        const isGeneralArticle = !article.models || article.models.length === 0
+        return isGeneralArticle
+      })
+      
       return filtered
     }
   },
@@ -166,6 +185,7 @@ export default {
     },
     
     navigateToArticle(slug) {
+      console.log('Navigating to article:', slug)
       this.$router.push(`/tech-articles/${slug}`)
     },
     
@@ -356,6 +376,12 @@ export default {
 
 .search-button:hover {
   background: #45a049;
+}
+
+/* Model Selector Section */
+.model-selector-section {
+  padding: 40px 0;
+  background: rgba(255, 255, 255, 0.95);
 }
 
 /* Categories Section */

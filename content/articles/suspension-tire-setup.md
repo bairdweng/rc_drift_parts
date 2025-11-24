@@ -2,12 +2,14 @@
 title: "RC Drift Car Suspension & Tire Setup: Q&A Guide"
 description: "Complete guide to RC drift car suspension tuning and tire selection. Learn about camber, toe, spring rates, and tire compounds for optimal drift performance in RC drift cars."
 category: "Suspension & Tires"
-date: "2024-01-17"
+date: "2025-01-17"
 author: "RC Drift Parts Team"
 readingTime: 12
 featured: true
 image: "/image/articles/suspension-tire-setup.webp"
 keywords: "rc drift cars suspension tuning"
+models: []
+compatibleModels: []
 ---
 
 ## *With Useful Diagrams for Camber, Shock Angle, and Offset*
