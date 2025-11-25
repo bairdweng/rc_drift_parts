@@ -7,7 +7,20 @@ const __dirname = path.dirname(__filename)
 
 // 站点地图配置
 const baseUrl = 'https://rcdriftparts.com'
+
+// 获取所有文章文件
+const articlesDir = path.join(__dirname, '..', 'content', 'articles')
+const articleFiles = fs.readdirSync(articlesDir).filter(file => file.endsWith('.md'))
+const articleSlugs = articleFiles.map(file => file.replace('.md', ''))
+
+// 获取所有模型文件
+const modelsDir = path.join(__dirname, '..', 'data', 'models')
+const modelFiles = fs.readdirSync(modelsDir).filter(file => file.endsWith('.json'))
+const modelIds = modelFiles.map(file => file.replace('.json', ''))
+
+// 完整的站点地图路由配置
 const routes = [
+  // 主页和主要页面
   {
     url: '/',
     changefreq: 'daily',
@@ -17,7 +30,7 @@ const routes = [
   {
     url: '/models',
     changefreq: 'weekly',
-    priority: 0.8,
+    priority: 0.9,
     lastmod: new Date().toISOString()
   },
   {
@@ -25,7 +38,37 @@ const routes = [
     changefreq: 'weekly',
     priority: 0.9,
     lastmod: new Date().toISOString()
-  }
+  },
+  {
+    url: '/rc-drift-cars',
+    changefreq: 'weekly',
+    priority: 0.8,
+    lastmod: new Date().toISOString()
+  },
+  
+  // 技术文章页面
+  {
+    url: '/tech-articles',
+    changefreq: 'weekly',
+    priority: 0.9,
+    lastmod: new Date().toISOString()
+  },
+  
+  // 所有技术文章详情页
+  ...articleSlugs.map(slug => ({
+    url: `/tech-articles/${slug}`,
+    changefreq: 'monthly',
+    priority: 0.8,
+    lastmod: new Date().toISOString()
+  })),
+  
+  // 所有模型文章页面
+  ...modelIds.map(modelId => ({
+    url: `/tech-articles/model/${modelId}`,
+    changefreq: 'monthly',
+    priority: 0.7,
+    lastmod: new Date().toISOString()
+  }))
 ]
 
 // 生成站点地图XML

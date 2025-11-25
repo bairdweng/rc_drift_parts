@@ -11,7 +11,37 @@ export default {
   // Static site generation configuration: https://nuxtjs.org/docs/configuration-glossary/configuration-generate
   generate: {
     dir: 'dist',
-    routes: ['/parts/tamiya-tt-02', '/models'],
+    routes: async () => {
+      const fs = require('fs')
+      const path = require('path')
+      
+      // 获取所有文章slug
+      const articlesDir = path.join(__dirname, 'content', 'articles')
+      const articleFiles = fs.readdirSync(articlesDir).filter(file => file.endsWith('.md'))
+      const articleSlugs = articleFiles.map(file => file.replace('.md', ''))
+      
+      // 获取所有模型ID
+      const modelsDir = path.join(__dirname, 'data', 'models')
+      const modelFiles = fs.readdirSync(modelsDir).filter(file => file.endsWith('.json'))
+      const modelIds = modelFiles.map(file => file.replace('.json', ''))
+      
+      // 生成所有静态路由
+      const staticRoutes = [
+        '/',
+        '/models',
+        '/parts/tamiya-tt-02',
+        '/rc-drift-cars',
+        '/tech-articles'
+      ]
+      
+      // 添加所有技术文章详情页路由
+      const articleRoutes = articleSlugs.map(slug => `/tech-articles/${slug}`)
+      
+      // 添加所有模型文章页面路由
+      const modelRoutes = modelIds.map(modelId => `/tech-articles/model/${modelId}`)
+      
+      return [...staticRoutes, ...articleRoutes, ...modelRoutes]
+    },
     fallback: true
   },
 
