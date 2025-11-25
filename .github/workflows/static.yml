@@ -44,6 +44,10 @@ jobs:
         if: ${{ !inputs.use_local_dist }}
         run: npm run generate:full
       
+      # 确保站点地图总是最新的（即使使用本地dist也重新生成）
+      - name: Generate latest sitemap
+        run: npm run generate:seo
+      
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
