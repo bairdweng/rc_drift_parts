@@ -17,12 +17,12 @@ export default {
       
       // 获取所有文章slug
       const articlesDir = path.join(__dirname, 'content', 'articles')
-      const articleFiles = fs.readdirSync(articlesDir).filter(file => file.endsWith('.md'))
+      const articleFiles: string[] = fs.readdirSync(articlesDir).filter((file: string) => file.endsWith('.md'))
       const articleSlugs = articleFiles.map(file => file.replace('.md', ''))
       
       // 获取所有模型ID
       const modelsDir = path.join(__dirname, 'data', 'models')
-      const modelFiles = fs.readdirSync(modelsDir).filter(file => file.endsWith('.json'))
+      const modelFiles: string[] = fs.readdirSync(modelsDir).filter((file: string) => file.endsWith('.json'))
       const modelIds = modelFiles.map(file => file.replace('.json', ''))
       
       // 生成所有静态路由
@@ -81,7 +81,8 @@ export default {
 
   // Global CSS: https://nuxtjs.org/docs/configuration-glossary/configuration-css
   css: [
-    '~/assets/css/main.css'
+    '~/assets/css/main.css',
+    '@mdi/font/css/materialdesignicons.min.css'
   ],
 
   // Plugins to run before rendering page: https://nuxtjs.org/docs/configuration-glossary/configuration-plugins
@@ -96,6 +97,30 @@ export default {
   modules: [
     '@nuxt/content'
   ],
+  
+  // Vuetify module configuration
+  buildModules: [
+    '@nuxtjs/vuetify'
+  ],
+  
+  // Vuetify configuration
+  vuetify: {
+    customVariables: ['~/assets/variables.scss'],
+    theme: {
+      dark: false,
+      themes: {
+        light: {
+          primary: '#1976D2',
+          secondary: '#424242',
+          accent: '#82B1FF',
+          error: '#FF5252',
+          info: '#2196F3',
+          success: '#4CAF50',
+          warning: '#FFC107'
+        }
+      }
+    }
+  },
   
   // Content module configuration
   content: {

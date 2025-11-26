@@ -1,263 +1,293 @@
 <template>
-  <div class="drift-parts-homepage">
-    <!-- 搜索区域 - 60%视觉权重 -->
-    <main class="search-section">
-      <div class="hero-text">
-        <h1 class="hero-title">Your RC Drift Car Parts Search Starts Here</h1>
-        <p class="hero-subtitle">Search for perfect parts for your RC drift car, starting with Tamiya TT-02</p>
-      </div>
+  <v-app>
+    <v-main>
+      <!-- 搜索工具界面 -->
+      <v-container fluid>
+        <!-- 顶部应用栏 -->
+        <v-app-bar color="primary" dark flat dense app>
+          <v-toolbar-title class="text-h6 font-weight-bold">
+            RC Drift Parts Finder
+          </v-toolbar-title>
+          <v-spacer></v-spacer>
+        </v-app-bar>
 
-      <!-- 搜索框 -->
-      <div class="search-container">
-        <div class="search-input-wrapper">
-          <input 
-            ref="searchInput"
-            type="text" 
-            placeholder="Search RC drift car models (e.g., Tamiya TT-02)"
-            class="search-input"
-            v-model="searchQuery"
-            @input="handleInput"
-            @keydown="handleKeydown"
-            @focus="showSuggestions = true"
-            @blur="handleBlur"
-          />
-          <!-- 搜索建议 -->
-          <div 
-            v-if="showSuggestions && searchSuggestions.length > 0" 
-            class="suggestions-dropdown"
-            @mousedown="preventBlur"
-          >
-            <div 
-              v-for="(model, index) in searchSuggestions" 
-              :key="model.id"
-              class="suggestion-item"
-              :class="{ active: index === activeSuggestionIndex }"
-              @mousedown="selectSuggestion(model)"
-            >
-              <span class="suggestion-brand">{{ model.brand }}</span>
-              <span class="suggestion-name">{{ model.name }}</span>
-            </div>
-          </div>
-        </div>
+        <!-- 主内容区域 -->
+        <v-container class="pa-4 mt-8">
+          <v-row dense>
+            <v-col cols="12">
+              <!-- 搜索卡片 -->
+              <v-card class="mb-4" elevation="4" rounded="lg">
+                <v-card-text class="pa-4">
+                  <div class="text-center mb-4">
+                    <v-icon color="primary" size="48" class="mb-2">mdi-car-sports</v-icon>
+                    <h2 class="text-h5 font-weight-bold primary--text mb-2">Find RC Drift Car Parts</h2>
+                    <p class="text-body-2 grey--text">Search for parts by model, category, or keyword</p>
+                  </div>
+                  
+                  <v-text-field
+                    v-model="searchQuery"
+                    placeholder="Search parts, models, or keywords..."
+                    outlined
+                    dense
+                    hide-details
+                    @input="handleInput"
+                    @keyup.enter="performSearch"
+                  >
+                    <template v-slot:prepend-inner>
+                      <v-icon color="primary">mdi-magnify</v-icon>
+                    </template>
+                    <template v-slot:append>
+                      <v-btn
+                        small
+                        depressed
+                        color="primary"
+                        @click="performSearch"
+                        class="ml-2"
+                      >
+                        Search
+                      </v-btn>
+                    </template>
+                  </v-text-field>
+                  
+                  <!-- 搜索建议 -->
+                  <v-card v-if="showSuggestions && searchSuggestions.length > 0" class="mt-2" elevation="2">
+                    <v-list dense class="pa-0">
+                      <v-list-item
+                        v-for="(model, index) in searchSuggestions"
+                        :key="model.id"
+                        @click="selectSuggestion(model)"
+                        :class="{ 'active': index === activeSuggestionIndex }"
+                        class="px-2"
+                      >
+                        <v-list-item-content class="py-1">
+                          <v-list-item-title class="text-caption font-weight-medium">
+                            {{ model.brand }}
+                          </v-list-item-title>
+                          <v-list-item-subtitle class="text-caption">
+                            {{ model.name }}
+                          </v-list-item-subtitle>
+                        </v-list-item-content>
+                      </v-list-item>
+                    </v-list>
+                  </v-card>
+                </v-card-text>
+              </v-card>
 
-        <!-- 热门车型 -->
-        <div class="popular-models">
-          <div class="model-tags">
-            <span class="model-tag tt02-quick-entry" @click="searchModel('Tamiya TT-02')">Tamiya TT-02</span>
-          </div>
-          <p class="expansion-hint">More popular RC drift car models coming soon</p>
-        </div>
-      </div>
+              <!-- 快速访问区域 -->
+              <v-card class="mb-4" elevation="2" rounded="lg">
+                <v-card-text class="pa-3">
+                  <div class="d-flex align-center justify-space-between mb-3">
+                    <span class="text-body-1 font-weight-medium">Quick Access</span>
+                    <v-chip small color="primary" text-color="white">
+                      {{ popularModels.length }} models
+                    </v-chip>
+                  </div>
+                  
+                  <!-- 热门车型网格 -->
+                  <v-row dense>
+                    <v-col
+                      v-for="model in popularModels"
+                      :key="model.id"
+                      cols="6"
+                      sm="4"
+                      md="3"
+                    >
+                      <v-card
+                        class="text-center pa-3"
+                        outlined
+                        @click="selectModel(model)"
+                        hover
+                      >
+                        <v-card-text class="pa-1">
+                          <v-icon small color="primary" class="mb-2">mdi-car</v-icon>
+                          <div class="text-caption font-weight-medium">{{ model.name }}</div>
+                          <div class="text-caption grey--text">{{ model.category }}</div>
+                        </v-card-text>
+                      </v-card>
+                    </v-col>
+                  </v-row>
+                </v-card-text>
+              </v-card>
 
-      <!-- TT-02专题入口 - 30%视觉权重 -->
-      <div class="tt02-feature-section">
-        <div class="tt02-card">
-          <h2 class="tt02-title">Tamiya TT-02 - Most Popular Entry-Level Drift Car</h2>
-          <div class="tt02-highlights">
-            <span class="highlight-badge">300+ Compatible Parts</span>
-            <span class="highlight-badge">Detailed Specifications Comparison</span>
-          </div>
-          <button class="tt02-action-btn" @click="navigateToTT02">
-            View TT-02 Parts →
-          </button>
-        </div>
-      </div>
+              <!-- 专题卡片 -->
+              <v-card class="mb-4" color="info" dark elevation="2" rounded="lg">
+                <v-card-text class="pa-3">
+                  <v-row align="center" dense>
+                    <v-col cols="auto">
+                      <v-icon color="white" size="32">mdi-star-circle</v-icon>
+                    </v-col>
+                    <v-col>
+                      <div class="text-body-1 font-weight-bold">Tamiya TT-02 Collection</div>
+                      <div class="text-caption">Popular model with extensive parts selection</div>
+                    </v-col>
+                    <v-col cols="auto">
+                      <v-btn
+                        small
+                        depressed
+                        color="white"
+                        @click="navigateToTT02"
+                        class="text-info font-weight-bold"
+                        style="color: #2196f3 !important;"
+                      >
+                        Explore
+                      </v-btn>
+                    </v-col>
+                  </v-row>
+                </v-card-text>
+              </v-card>
 
-      <!-- 技术文章入口 - 15%视觉权重 -->
-      <div class="tech-articles-section">
-        <div class="tech-articles-card">
-          <h2 class="tech-articles-title">RC Drift Car Technical Guides</h2>
-          <p class="tech-articles-subtitle">Learn professional tuning techniques for better drift performance</p>
-          <div class="tech-categories">
-            <div class="tech-category">
-              <span class="tech-icon">🎮</span>
-              <span>Remote Controllers</span>
-            </div>
-            <div class="tech-category">
-              <span class="tech-icon">🔋</span>
-              <span>Battery Systems</span>
-            </div>
-            <div class="tech-category">
-              <span class="tech-icon">🛞</span>
-              <span>Suspension & Tires</span>
-            </div>
-            <div class="tech-category">
-              <span class="tech-icon">⚡</span>
-              <span>Electronics Setup</span>
-            </div>
-          </div>
-          <button class="tech-articles-btn" @click="navigateToTechArticles">
-            View All Technical Guides →
-          </button>
-        </div>
-      </div>
+              <!-- 统计信息 -->
+              <v-card class="mb-4" elevation="2" rounded="lg">
+                <v-card-text class="pa-3">
+                  <v-row dense align="center">
+                    <v-col cols="6" class="text-center">
+                      <div class="text-h5 font-weight-bold primary--text">50+</div>
+                      <div class="text-caption">Part Categories</div>
+                    </v-col>
+                    <v-col cols="6" class="text-center">
+                      <div class="text-h5 font-weight-bold primary--text">1000+</div>
+                      <div class="text-caption">Part Models</div>
+                    </v-col>
+                  </v-row>
+                </v-card-text>
+              </v-card>
 
-      <!-- 漂移车简单介绍 - 8%视觉权重 -->
-      <div class="drift-intro-section">
-        <p class="drift-intro-text">
-          RC drift cars require professional suspension, power systems, and tires to achieve optimal handling performance. 
-          Finding the right parts is essential for creating the perfect RC drift car setup.
-        </p>
-      </div>
-
-      <!-- 未来扩展提示 - 2%视觉权重 -->
-      <div class="future-expansion-section">
-        <p class="future-hint">
-          More popular drift car models in development: Yokomo YD-2, MST RMX, etc.
-        </p>
-      </div>
-
-      <!-- 联系我们 - 2%视觉权重 -->
-      <div class="contact-section">
-        <div class="contact-card">
-          <h3 class="contact-title">Contact Us</h3>
-          <p class="contact-description">
-            Have questions or suggestions about RC drift car parts? We'd love to hear from you!
-          </p>
-          <div class="contact-email">
-            <span class="email-icon">✉️</span>
-            <a href="mailto:bairdweng@gmail.com" class="email-link">bairdweng@gmail.com</a>
-          </div>
-        </div>
-      </div>
-    </main>
-  </div>
+              <!-- 联系卡片 -->
+              <v-card elevation="2" rounded="lg">
+                <v-card-text class="pa-3 text-center">
+                  <v-icon color="primary" class="mb-2">mdi-email</v-icon>
+                  <div class="text-body-2 font-weight-medium mb-1">Need Help?</div>
+                  <div class="text-caption grey--text mb-2">Contact us for support</div>
+                  <v-btn
+                    small
+                    text
+                    color="primary"
+                    href="mailto:bairdweng@gmail.com"
+                    class="text-caption"
+                  >
+                    bairdweng@gmail.com
+                  </v-btn>
+                </v-card-text>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import { searchModels } from '~/utils/models'
-
 export default {
+  name: 'HomePage',
   data() {
     return {
       searchQuery: '',
-      searchSuggestions: [],
       showSuggestions: false,
       activeSuggestionIndex: -1,
-      searchTimeout: null
+      searchSuggestions: [],
+      popularModels: [
+        {
+          id: 1,
+          name: 'Tamiya TT-02',
+          brand: 'Tamiya',
+          category: 'Drift Car'
+        },
+        {
+          id: 2,
+          name: 'Yokomo YD-2',
+          brand: 'Yokomo',
+          category: 'Competition'
+        },
+        {
+          id: 3,
+          name: 'MST RMX 2.0',
+          brand: 'MST',
+          category: 'RWD Drift'
+        },
+        {
+          id: 4,
+          name: '3Racing Sakura D5',
+          brand: '3Racing',
+          category: 'Budget Drift'
+        }
+      ]
     }
   },
   methods: {
-    handleInput() {
-      if (this.searchTimeout) {
-        clearTimeout(this.searchTimeout)
-      }
-      
-      this.searchTimeout = setTimeout(() => {
-        this.performSearch()
-      }, 300)
-    },
-    
-    performSearch() {
-      if (!this.searchQuery.trim()) {
-        this.searchSuggestions = []
+    handleSearch() {
+      if (this.searchQuery.trim() === '') {
         this.showSuggestions = false
+        this.searchSuggestions = []
         return
       }
       
-      this.searchSuggestions = searchModels(this.searchQuery)
-      this.showSuggestions = true
+      // 模拟搜索建议
+      this.searchSuggestions = this.popularModels.filter(model => 
+        model.name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+        model.brand.toLowerCase().includes(this.searchQuery.toLowerCase())
+      )
+      
+      this.showSuggestions = this.searchSuggestions.length > 0
       this.activeSuggestionIndex = -1
     },
     
-    handleKeydown(event) {
-      switch (event.key) {
-        case 'ArrowDown':
-          event.preventDefault()
-          this.navigateSuggestions(1)
-          break
-        case 'ArrowUp':
-          event.preventDefault()
-          this.navigateSuggestions(-1)
-          break
-        case 'Enter':
-          event.preventDefault()
-          this.confirmSelection()
-          break
-        case 'Escape':
-          this.showSuggestions = false
-          break
-      }
-    },
-    
-    navigateSuggestions(direction) {
-      if (!this.showSuggestions || this.searchSuggestions.length === 0) {
-        return
-      }
-      
-      this.activeSuggestionIndex += direction
-      
-      if (this.activeSuggestionIndex < 0) {
-        this.activeSuggestionIndex = this.searchSuggestions.length - 1
-      } else if (this.activeSuggestionIndex >= this.searchSuggestions.length) {
-        this.activeSuggestionIndex = 0
-      }
-    },
-    
-    confirmSelection() {
-      if (this.activeSuggestionIndex >= 0 && this.activeSuggestionIndex < this.searchSuggestions.length) {
-        this.selectSuggestion(this.searchSuggestions[this.activeSuggestionIndex])
+    handleInput() {
+      if (this.searchQuery.length > 1) {
+        this.showSuggestions = true
+        this.searchSuggestions = this.popularModels.filter(model =>
+          model.name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+          model.brand.toLowerCase().includes(this.searchQuery.toLowerCase())
+        )
       } else {
-        this.handleSearch()
+        this.showSuggestions = false
+        this.searchSuggestions = []
       }
     },
     
     selectSuggestion(model) {
-      this.searchQuery = model.fullName
+      this.searchQuery = `${model.brand} ${model.name}`
       this.showSuggestions = false
-      this.navigateToModel(model.id)
+      this.performSearch()
     },
     
-    handleSearch() {
-      this.showSuggestions = false
-      
-      if (!this.searchQuery.trim()) {
-        return
-      }
-      
-      const results = searchModels(this.searchQuery)
-      
-      if (results.length === 0) {
-        // 极简风格不显示无结果提示
-        return
-      } else if (results.length === 1) {
-        this.navigateToModel(results[0].id)
-      } else {
-        // 多个结果时选择第一个
-        this.navigateToModel(results[0].id)
-      }
+    selectModel(model) {
+      this.searchQuery = `${model.brand} ${model.name}`
+      this.performSearch()
     },
     
-    handleBlur() {
-      setTimeout(() => {
+    performSearch() {
+      if (this.searchQuery.trim()) {
+        console.log('Search query:', this.searchQuery)
         this.showSuggestions = false
-      }, 150)
-    },
-    
-    preventBlur(event) {
-      event.preventDefault()
-    },
-    
-    searchModel(modelName) {
-      this.searchQuery = modelName
-      this.handleSearch()
-    },
-    
-    navigateToModel(modelId) {
-      this.$router.push(`/parts/${modelId}`)
+        
+        // 检查是否是Tamiya TT-02相关搜索
+        const query = this.searchQuery.toLowerCase()
+        if (query.includes('tt-02') || query.includes('tamiya tt-02') || query.includes('tt02')) {
+          // 导航到Tamiya TT-02零件页面
+          this.$router.push('/parts/tamiya-tt-02')
+        } else if (query.includes('yd-2') || query.includes('yokomo')) {
+          // 可以添加其他车型的导航逻辑
+          console.log('Yokomo YD-2 search detected')
+        } else if (query.includes('rmx') || query.includes('mst')) {
+          console.log('MST RMX search detected')
+        } else if (query.includes('sakura') || query.includes('3racing')) {
+          console.log('3Racing Sakura search detected')
+        } else {
+          // 通用搜索，导航到搜索结果页面或显示当前页面的结果
+          console.log('Generic search - implement search results page')
+        }
+      }
     },
     
     navigateToTT02() {
+      // 直接导航到Tamiya TT-02零件页面
       this.$router.push('/parts/tamiya-tt-02')
-    },
-    
-    navigateToTechArticles() {
-      this.$router.push('/tech-articles')
     }
   },
   head() {
     return {
-      title: 'RC Drift Cars Parts - Find Compatible Upgrades',
+      title: 'RC Drift Car Parts - Find Compatible Upgrades',
       meta: [
         {
           hid: 'description',
@@ -271,479 +301,5 @@ export default {
 </script>
 
 <style scoped>
-.drift-parts-homepage {
-  min-height: 100vh;
-  background: #f8fafc;
-  color: #1e293b;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-}
-
-.search-section {
-  max-width: 600px;
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.hero-text {
-  margin-bottom: 20px;
-}
-
-.hero-title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin: 0 0 8px;
-  color: #1e293b;
-  line-height: 1.2;
-}
-
-.hero-subtitle {
-  font-size: 1rem;
-  color: #64748b;
-  margin: 0;
-  font-weight: 400;
-  line-height: 1.4;
-}
-
-.search-container {
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.search-input-wrapper {
-  position: relative;
-  margin-bottom: 20px;
-}
-
-.search-input {
-  width: 100%;
-  padding: 18px 24px;
-  border: 3px solid #e2e8f0;
-  border-radius: 16px;
-  background: white;
-  color: #1e293b;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
-  box-sizing: border-box;
-  font-weight: 500;
-}
-
-.search-input::placeholder {
-  color: #94a3b8;
-  font-weight: 400;
-}
-
-.search-input:focus {
-  outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
-}
-
-.suggestions-dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: white;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  max-height: 200px;
-  overflow-y: auto;
-  z-index: 1000;
-  margin-top: 8px;
-}
-
-.suggestion-item {
-  padding: 14px 20px;
-  cursor: pointer;
-  border-bottom: 1px solid #f1f5f9;
-  transition: background-color 0.2s ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.suggestion-item:last-child {
-  border-bottom: none;
-}
-
-.suggestion-item:hover,
-.suggestion-item.active {
-  background: #f8fafc;
-}
-
-.suggestion-brand {
-  font-weight: 600;
-  color: #1e293b;
-  font-size: 15px;
-  margin-bottom: 4px;
-}
-
-.suggestion-name {
-  color: #64748b;
-  font-size: 14px;
-}
-
-.popular-models {
-  margin-top: 16px;
-}
-
-.model-tags {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 8px;
-}
-
-.model-tag {
-  padding: 10px 20px;
-  background: #f1f5f9;
-  border: 2px solid #e2e8f0;
-  border-radius: 24px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  color: #475569;
-  font-weight: 500;
-}
-
-.model-tag:hover {
-  background: #e2e8f0;
-  color: #334155;
-  transform: translateY(-2px);
-}
-
-.tt02-quick-entry {
-  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-  color: white;
-  border-color: #3b82f6;
-  font-weight: 600;
-}
-
-.tt02-quick-entry:hover {
-  background: linear-gradient(135deg, #2563eb, #1e40af);
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-}
-
-.expansion-hint {
-  font-size: 0.9rem;
-  color: #94a3b8;
-  margin: 0;
-  font-style: italic;
-}
-
-/* TT-02专题入口 - 30%视觉权重 */
-.tt02-feature-section {
-  margin: 15px auto;
-  max-width: 500px;
-}
-
-.tt02-card {
-  background: white;
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e2e8f0;
-  text-align: center;
-}
-
-.tt02-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #1e293b;
-  margin: 0 0 20px;
-  line-height: 1.3;
-}
-
-.tt02-highlights {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-bottom: 24px;
-  flex-wrap: wrap;
-}
-
-.highlight-badge {
-  background: #f0f9ff;
-  color: #0369a1;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  border: 1px solid #bae6fd;
-}
-
-.tt02-action-btn {
-  background: linear-gradient(135deg, #10b981, #059669);
-  color: white;
-  border: none;
-  padding: 14px 32px;
-  border-radius: 12px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-}
-
-.tt02-action-btn:hover {
-  background: linear-gradient(135deg, #059669, #047857);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
-}
-
-/* 漂移车简单介绍 - 8%视觉权重 */
-.drift-intro-section {
-  max-width: 500px;
-  margin: 10px auto;
-  text-align: center;
-}
-
-.drift-intro-text {
-  font-size: 1rem;
-  color: #64748b;
-  line-height: 1.6;
-  margin: 0;
-  font-weight: 400;
-}
-
-/* 未来扩展提示 - 2%视觉权重 */
-.future-expansion-section {
-  max-width: 500px;
-  margin: 8px auto;
-  text-align: center;
-}
-
-.future-hint {
-  font-size: 0.85rem;
-  color: #94a3b8;
-  margin: 0;
-  font-style: italic;
-}
-
-/* 响应式设计 */
-@media (max-width: 768px) {
-  .drift-parts-homepage {
-    padding: 30px 16px;
-  }
-  
-  .hero-title {
-    font-size: 2rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.1rem;
-  }
-  
-  .search-input {
-    padding: 16px 20px;
-    font-size: 1rem;
-  }
-  
-  .tt02-card {
-    padding: 24px;
-    margin: 30px auto;
-  }
-  
-  .tt02-title {
-    font-size: 1.3rem;
-  }
-  
-  .tt02-highlights {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .tt02-action-btn {
-    padding: 12px 24px;
-    font-size: 1rem;
-  }
-  
-  .drift-intro-text {
-    font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 1.8rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 1rem;
-  }
-  
-  .search-input {
-    padding: 14px 18px;
-  }
-  
-  .tt02-card {
-    padding: 20px;
-  }
-  
-  .tt02-title {
-    font-size: 1.2rem;
-  }
-  
-  .contact-section {
-    margin: 20px auto;
-  }
-  
-  .contact-card {
-    padding: 16px;
-  }
-  
-  .contact-title {
-    font-size: 1.1rem;
-  }
-  
-  .contact-description {
-    font-size: 0.9rem;
-  }
-  
-  .contact-email {
-    font-size: 0.9rem;
-  }
-}
-
-/* 技术文章入口 - 15%视觉权重 */
-.tech-articles-section {
-  max-width: 600px;
-  margin: 25px auto;
-}
-
-.tech-articles-card {
-  background: white;
-  border-radius: 16px;
-  padding: 30px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e2e8f0;
-  text-align: center;
-}
-
-.tech-articles-title {
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: #1e293b;
-  margin: 0 0 12px;
-}
-
-.tech-articles-subtitle {
-  font-size: 1.1rem;
-  color: #64748b;
-  line-height: 1.5;
-  margin: 0 0 30px;
-}
-
-.tech-categories {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  margin-bottom: 30px;
-}
-
-.tech-category {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px;
-  background: #f8fafc;
-  border-radius: 12px;
-  border: 1px solid #e2e8f0;
-  transition: all 0.3s ease;
-}
-
-.tech-category:hover {
-  background: #f1f5f9;
-  transform: translateY(-2px);
-}
-
-.tech-icon {
-  font-size: 1.5rem;
-}
-
-.tech-category span:last-child {
-  font-weight: 500;
-  color: #475569;
-}
-
-.tech-articles-btn {
-  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-  color: white;
-  border: none;
-  padding: 14px 32px;
-  border-radius: 12px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
-}
-
-.tech-articles-btn:hover {
-  background: linear-gradient(135deg, #7c3aed, #6d28d9);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(139, 92, 246, 0.4);
-}
-
-/* 联系我们 - 2%视觉权重 */
-.contact-section {
-  max-width: 500px;
-  margin: 15px auto;
-  text-align: center;
-}
-
-.contact-card {
-  background: white;
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-  border: 1px solid #f1f5f9;
-}
-
-.contact-title {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #1e293b;
-  margin: 0 0 12px;
-}
-
-.contact-description {
-  font-size: 1rem;
-  color: #64748b;
-  line-height: 1.5;
-  margin: 0 0 20px;
-}
-
-.contact-email {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  font-size: 1.1rem;
-  font-weight: 500;
-}
-
-.email-icon {
-  font-size: 1.2rem;
-}
-
-.email-link {
-  color: #3b82f6;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.email-link:hover {
-  color: #1d4ed8;
-  text-decoration: underline;
-}
+/* 使用Vuetify自带样式，移除自定义CSS */
 </style>
