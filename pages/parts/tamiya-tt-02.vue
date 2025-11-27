@@ -611,12 +611,88 @@ export default {
   display: none;
 }
 
+/* 页面容器间距 */
+.parts-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 搜索和筛选区域间距 */
+.search-filter-section {
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+}
+
+/* 模型头部信息间距 */
 .model-header {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 40px;
   margin-bottom: 40px;
   align-items: start;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+}
+
+/* 零件网格间距 */
+.parts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 无结果提示间距 */
+.no-results {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 40px 20px;
+  margin: 40px auto;
+  max-width: 1200px;
+}
+
+/* 响应式设计 - 小屏幕调整 */
+@media (max-width: 768px) {
+  .parts-main,
+  .search-filter-section,
+  .model-header,
+  .parts-grid,
+  .no-results {
+    padding: 0 16px;
+  }
+  
+  .model-header {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .parts-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .parts-main,
+  .search-filter-section,
+  .model-header,
+  .parts-grid,
+  .no-results {
+    padding: 0 12px;
+  }
 }
 
 .model-title {
@@ -1327,6 +1403,18 @@ export default {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* 隐藏模型标题 */
+.model-title {
+  display: none !important;
+}
+
+/* 修复导航栏遮挡问题 */
+.model-header,
+.search-filter-section,
+.parts-main {
+  margin-top: 64px; /* 补偿固定导航栏高度 */
 }
 
 /* 响应式设计 */

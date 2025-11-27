@@ -27,7 +27,7 @@
     </div>
 
     <!-- Model Selector -->
-    <div class="model-selector-section">
+    <div class="model-selector-section" style="display: none;">
       <ModelSelector />
     </div>
 
