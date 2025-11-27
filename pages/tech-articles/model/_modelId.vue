@@ -4,9 +4,9 @@
     <nav class="breadcrumb">
       <a href="/">Home</a>
       <span class="separator">/</span>
-      <a href="/tech-articles">Technical Articles</a>
+      <a :href="`/parts/${modelId}`">{{ model ? `${model.name} Parts` : 'Parts' }}</a>
       <span class="separator">/</span>
-      <span class="current">{{ model ? model.fullName : 'Model Articles' }}</span>
+      <span class="current">{{ model ? `${model.name} Articles` : 'Model Articles' }}</span>
     </nav>
 
     <!-- Model Header -->
@@ -145,7 +145,8 @@ export default {
       return {
         model,
         articles,
-        allModels
+        allModels,
+        modelId
       }
     } catch (err) {
       console.error('Error in asyncData:', err)
@@ -158,7 +159,8 @@ export default {
     return {
       model: null,
       articles: [],
-      allModels: []
+      allModels: [],
+      modelId: null
     }
   },
   

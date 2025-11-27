@@ -59,64 +59,71 @@
   </div>
 </template>
 
-<script setup>
-import { ref, computed, onMounted } from 'vue'
+<script>
 import { scanModels } from '~/utils/model-scanner'
 
-const models = ref([])
-const selectedModel = ref(null)
-const searchQuery = ref('')
-const showDropdown = ref(false)
-
-// Load models on component mount
-onMounted(async () => {
-  models.value = await scanModels()
-})
-
-// Filter models based on search query
-const filteredModels = computed(() => {
-  if (!searchQuery.value) {
-    return models.value
-  }
+export default {
+  data() {
+    return {
+      models: [],
+      selectedModel: null,
+      searchQuery: '',
+      showDropdown: false
+    }
+  },
   
-  const query = searchQuery.value.toLowerCase()
-  return models.value.filter(model => 
-    model.name.toLowerCase().includes(query) ||
-    model.brand.toLowerCase().includes(query) ||
-    model.fullName.toLowerCase().includes(query)
-  )
-})
-
-// Handle search input
-const handleSearch = () => {
-  showDropdown.value = true
-}
-
-// Select a model
-const selectModel = (model) => {
-  selectedModel.value = model
-  searchQuery.value = ''
-  showDropdown.value = false
-}
-
-// Navigate to model-specific articles
-const navigateToModelArticles = () => {
-  if (selectedModel.value) {
-    window.location.href = `/tech-articles/model/${selectedModel.value.id}`
+  computed: {
+    filteredModels() {
+      if (!this.searchQuery) {
+        return this.models
+      }
+      
+      const query = this.searchQuery.toLowerCase()
+      return this.models.filter(model => 
+        model.name.toLowerCase().includes(query) ||
+        model.brand.toLowerCase().includes(query) ||
+        model.fullName.toLowerCase().includes(query)
+      )
+    }
+  },
+  
+  async mounted() {
+    this.models = await scanModels()
+    
+    // Add click outside listener
+    document.addEventListener('click', this.handleClickOutside)
+  },
+  
+  beforeDestroy() {
+    // Remove click outside listener
+    document.removeEventListener('click', this.handleClickOutside)
+  },
+  
+  methods: {
+    handleSearch() {
+      this.showDropdown = true
+    },
+    
+    selectModel(model) {
+      this.selectedModel = model
+      this.searchQuery = ''
+      this.showDropdown = false
+    },
+    
+    navigateToModelArticles() {
+      if (this.selectedModel) {
+        // Use Vue Router for client-side navigation with proper route format
+        this.$router.push(`/tech-articles/model/${this.selectedModel.id}`)
+      }
+    },
+    
+    handleClickOutside(event) {
+      if (!event.target.closest('.dropdown-wrapper')) {
+        this.showDropdown = false
+      }
+    }
   }
 }
-
-// Close dropdown when clicking outside
-const handleClickOutside = (event) => {
-  if (!event.target.closest('.dropdown-wrapper')) {
-    showDropdown.value = false
-  }
-}
-
-// Add click outside listener
-onMounted(() => {
-  document.addEventListener('click', handleClickOutside)
-})
 </script>
 
 <style scoped>

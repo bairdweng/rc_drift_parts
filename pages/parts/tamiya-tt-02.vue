@@ -1,11 +1,43 @@
 <template>
-  <div class="parts-page">
-    <!-- Breadcrumb Navigation -->
-    <nav class="breadcrumb">
-      <a href="/" class="breadcrumb-link">Home</a>
-      <span class="breadcrumb-separator">/</span>
-      <span class="breadcrumb-current">Tamiya TT-02 Parts</span>
-    </nav>
+  <v-app>
+    <!-- Top Navigation Bar with Breadcrumb -->
+    <v-app-bar color="primary" dark flat dense app>
+      <!-- Breadcrumb Navigation inside Navigation Bar -->
+      <div class="breadcrumb-nav">
+        <nav class="breadcrumb-container">
+          <a href="/" class="breadcrumb-link">
+            <v-icon small class="mr-1">mdi-home</v-icon>
+            Home
+          </a>
+          <span class="breadcrumb-divider">/</span>
+          <span class="breadcrumb-current">
+            <v-icon small class="mr-1">mdi-car</v-icon>
+            Tamiya TT-02 Parts
+          </span>
+        </nav>
+      </div>
+      
+      <v-spacer></v-spacer>
+      
+      <!-- Main Navigation Buttons -->
+      <v-btn icon @click="$router.push('/')" class="mr-2" style="display: none;">
+        <v-icon>mdi-home</v-icon>
+      </v-btn>
+      <v-toolbar-title class="text-h6 font-weight-bold" style="display: none;">
+        RC Drift Parts Finder
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      
+      <!-- Articles Buttons - Integrated in Navigation Bar -->
+      <v-btn text @click="$router.push('/tech-articles')" class="mr-2 articles-nav-btn">
+        <v-icon left small>mdi-book-open-variant</v-icon>
+        General Articles
+      </v-btn>
+      <v-btn text @click="$router.push('/tech-articles/model/tamiya-tt-02')" class="mr-2 articles-nav-btn">
+        <v-icon left small>mdi-car-sports</v-icon>
+        TT-02 Articles
+      </v-btn>
+    </v-app-bar>
 
     <!-- Model Header Information -->
     <header class="model-header">
@@ -42,86 +74,113 @@
       </div>
     </header>
 
-    <!-- Model Selector for Article Navigation -->
-    <div class="model-selector-section">
-      <div class="selector-container">
-        <h3 class="selector-title">Browse Technical Articles</h3>
-        <p class="selector-description">Find installation guides and technical articles for this model</p>
-        <ModelSelector />
-      </div>
-    </div>
+
 
     <!-- Search and Filter Section -->
     <div class="search-filter-section">
-      <!-- Parts Search Box -->
-      <div class="search-section">
-        <div class="search-container">
-          <div class="search-input-wrapper">
-            <input
-              ref="searchInput"
-              v-model="searchQuery"
-              type="text"
-              class="search-input"
-              placeholder="Search parts by name..."
-              @input="handleInput"
-              @keydown="handleKeydown"
-              @focus="showSuggestions = true"
-              @blur="handleBlur"
-            />
-            <button class="search-btn" @click="handleSearch">
-              🔍 Search
-            </button>
+      <!-- Search Card -->
+      <v-card class="mb-4" elevation="4" rounded="lg">
+        <v-card-text class="pa-4">
+          <div class="text-center mb-4">
+            <v-icon color="primary" size="48" class="mb-2">mdi-car-sports</v-icon>
+            <h2 class="text-h5 font-weight-bold primary--text mb-2">Find Tamiya TT-02 Parts</h2>
+            <p class="text-body-2 grey--text">Search for parts by name, category, or specifications</p>
           </div>
           
-          <!-- Search Suggestions Dropdown -->
-          <div v-if="showSuggestions && searchSuggestions.length > 0" class="search-suggestions">
-            <div
-              v-for="(part, index) in searchSuggestions"
-              :key="part.id"
-              :class="['suggestion-item', { active: activeSuggestionIndex === index }]"
-              @mousedown="preventBlur"
-              @click="selectSuggestion(part)"
-            >
-              <span class="suggestion-name">{{ part.name }}</span>
-              <span class="suggestion-description">{{ part.description }}</span>
-            </div>
-          </div>
+          <v-text-field
+            ref="searchInput"
+            v-model="searchQuery"
+            placeholder="Search parts, models, or keywords..."
+            outlined
+            dense
+            hide-details
+            @input="handleInput"
+            @keydown="handleKeydown"
+            @focus="showSuggestions = true"
+            @blur="handleBlur"
+          >
+            <template v-slot:prepend-inner>
+              <v-icon color="primary">mdi-magnify</v-icon>
+            </template>
+            <template v-slot:append>
+              <v-btn
+                small
+                depressed
+                color="primary"
+                @click="handleSearch"
+                class="ml-2"
+              >
+                Search
+              </v-btn>
+            </template>
+          </v-text-field>
           
-          <!-- Search Results Statistics -->
-          <div v-if="searchQuery" class="search-stats">
-            <span class="results-count">{{ filteredParts.length }} parts found</span>
-            <span v-if="searchQuery" class="search-query">for "{{ searchQuery }}"</span>
-          </div>
-        </div>
-      </div>
+          <!-- Search Suggestions -->
+          <v-card v-if="showSuggestions && searchSuggestions.length > 0" class="mt-2" elevation="2">
+            <v-list dense class="pa-0">
+              <v-list-item
+                v-for="(part, index) in searchSuggestions"
+                :key="part.id"
+                @click="selectSuggestion(part)"
+                :class="{ 'active': index === activeSuggestionIndex }"
+                class="px-2"
+              >
+                <v-list-item-content class="py-1">
+                  <v-list-item-title class="text-caption font-weight-medium">
+                    {{ part.name }}
+                  </v-list-item-title>
+                  <v-list-item-subtitle class="text-caption">
+                    {{ part.description }}
+                  </v-list-item-subtitle>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list>
+          </v-card>
+        </v-card-text>
+      </v-card>
 
       <!-- Category Filter Section -->
-      <div class="filter-section">
-        <div class="filter-container">
-          <div class="filter-header">
-            <h3 class="filter-title">Filter by Category</h3>
-            <div class="filter-stats">
-              <span v-if="selectedCategory" class="active-filter">
-                Showing: {{ selectedCategory }}
-                <button class="clear-filter" @click="clearCategoryFilter">× Clear</button>
-              </span>
-              <span v-else class="total-count">{{ parts.length }} parts total</span>
-            </div>
+      <v-card class="filter-section" outlined>
+        <v-card-title class="filter-header">
+          <h3 class="filter-title">Filter by Category</h3>
+          <v-spacer></v-spacer>
+          <div class="filter-stats">
+            <span v-if="selectedCategory" class="active-filter">
+              Showing: {{ selectedCategory }}
+              <v-btn 
+                small 
+                text 
+                color="primary" 
+                @click="clearCategoryFilter"
+                class="clear-filter"
+              >
+                Clear
+              </v-btn>
+            </span>
+            <span v-else class="total-count">{{ parts.length }} parts total</span>
           </div>
-          
-          <div class="category-filters">
-            <button
+        </v-card-title>
+        
+        <v-card-text class="category-filters">
+          <v-chip-group
+            column
+            active-class="primary--text"
+          >
+            <v-chip
               v-for="category in categories"
               :key="category.id"
-              :class="['category-filter-btn', { active: selectedCategory === category.name }]"
+              :input-value="selectedCategory === category.name"
+              filter
+              outlined
               @click="toggleCategoryFilter(category.name)"
+              class="category-chip"
             >
               <span class="category-name">{{ category.name }}</span>
-              <span class="category-count">{{ getCategoryCount(category.name) }}</span>
-            </button>
-          </div>
-        </div>
-      </div>
+              <span class="category-count">({{ getCategoryCount(category.name) }})</span>
+            </v-chip>
+          </v-chip-group>
+        </v-card-text>
+      </v-card>
     </div>
 
     <!-- Parts List -->
@@ -210,7 +269,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </v-app>
 </template>
 
 <script>
@@ -408,6 +467,37 @@ export default {
       return this.parts.filter(part => part.category === categoryName).length
     },
     
+    // 获取分类颜色
+    getCategoryColor(categoryName) {
+      const colorMap = {
+        'Chassis': 'blue',
+        'Drivetrain': 'green',
+        'Suspension': 'orange',
+        'Steering': 'purple',
+        'Motor / Motor Mount': 'red',
+        'Wheels & Tires': 'teal',
+        'Hardware': 'grey',
+        'body': 'brown',
+        'electronics': 'indigo'
+      }
+      return colorMap[categoryName] || 'grey'
+    },
+    
+    // 获取分类图标
+    getCategoryIcon(categoryName) {
+      const iconMap = {
+        'Chassis': 'mdi-car-suspension',
+        'Drivetrain': 'mdi-cog',
+        'Suspension': 'mdi-car-suspension',
+        'Steering': 'mdi-steering',
+        'Motor / Motor Mount': 'mdi-engine',
+        'Wheels & Tires': 'mdi-car-tire-alert',
+        'Hardware': 'mdi-wrench',
+        'body': 'mdi-car-body',
+        'electronics': 'mdi-chip'
+      }
+      return iconMap[categoryName] || 'mdi-cog'
+    },
 
     searchEbay(part) {
       const searchQuery = encodeURIComponent(`Tamiya TT-02 ${part.name}`)
@@ -431,6 +521,20 @@ export default {
     handleKeydownModal(event) {
       if (event.key === 'Escape' && this.selectedImagePart) {
         this.closeImageModal()
+      }
+    },
+    
+    // 导航到文章页面
+    navigateToArticle(slug) {
+      this.$router.push(`/tech-articles/${slug}`)
+    },
+    
+    // 导航到文章列表页面
+    navigateToArticleList(type) {
+      if (type === 'general') {
+        this.$router.push('/tech-articles')
+      } else if (type === 'tt02') {
+        this.$router.push('/tech-articles?model=tamiya-tt-02')
       }
     }
   },
@@ -462,30 +566,49 @@ export default {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-.breadcrumb {
+.breadcrumb-nav {
   display: flex;
   align-items: center;
-  margin-bottom: 30px;
-  font-size: 0.9rem;
-  color: #666;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-right: 20px;
+}
+
+.breadcrumb-container {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: white;
 }
 
 .breadcrumb-link {
-  color: #667eea;
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .breadcrumb-link:hover {
+  color: white;
   text-decoration: underline;
 }
 
-.breadcrumb-separator {
-  margin: 0 10px;
+.breadcrumb-current {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-weight: 500;
 }
 
-.breadcrumb-current {
-  color: #333;
-  font-weight: 500;
+.breadcrumb-divider {
+  margin: 0 8px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* 隐藏导航按钮的文字内容 */
+.v-btn__content {
+  display: none;
 }
 
 .model-header {
@@ -560,6 +683,11 @@ export default {
 
 .image-placeholder {
   font-size: 1.5rem;
+}
+
+/* Articles Buttons in Navigation Bar */
+.articles-nav-btn {
+  font-size: 0.875rem !important;
 }
 
 /* Model Selector Section */

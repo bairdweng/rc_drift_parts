@@ -1,124 +1,143 @@
 <template>
-  <div class="tech-articles-page">
-    <!-- Navigation Bar -->
-    <nav class="navigation-bar">
-      <div class="container">
-        <div class="nav-content">
-          <!-- Breadcrumb Navigation -->
-          <div class="breadcrumb">
-            <nuxt-link to="/" class="breadcrumb-link">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="home-icon">
-                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" stroke="currentColor" stroke-width="2"/>
-                <path d="M9 22V12h6v10" stroke="currentColor" stroke-width="2"/>
-              </svg>
-              Home
-            </nuxt-link>
-            <span class="breadcrumb-separator">/</span>
-            <nuxt-link to="/rc-drift-cars" class="breadcrumb-link">RC Drift Cars</nuxt-link>
-            <span class="breadcrumb-separator">/</span>
-            <span class="breadcrumb-current">Technical Guides</span>
-          </div>
-          
-          <!-- Quick Actions -->
-          <div class="nav-buttons">
-            <nuxt-link to="/rc-drift-cars" class="nav-btn secondary">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 16.5v-9l6 4.5-6 4.5z"/>
-              </svg>
-              RC Drift Cars
-            </nuxt-link>
-            <nuxt-link to="/" class="nav-btn primary">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-              </svg>
-              Back to Home
-            </nuxt-link>
-          </div>
-        </div>
+  <v-app>
+    <!-- Navigation Bar with Breadcrumbs -->
+    <v-app-bar color="primary" dark flat dense app>
+      <!-- Breadcrumb Navigation -->
+      <div class="breadcrumb-nav">
+        <nav class="breadcrumb-container">
+          <a href="/" class="breadcrumb-link">
+            <v-icon small class="mr-1">mdi-home</v-icon>
+            Home
+          </a>
+          <span class="breadcrumb-divider">/</span>
+          <a :href="backToPartsLink" class="breadcrumb-link">
+            <v-icon small class="mr-1">mdi-car</v-icon>
+            {{ currentModel ? `${currentModel} Parts` : 'Tamiya TT-02 Parts' }}
+          </a>
+          <span class="breadcrumb-divider">/</span>
+          <span class="breadcrumb-current">
+            <v-icon small class="mr-1">mdi-book-open-variant</v-icon>
+            {{ breadcrumbText }}
+          </span>
+        </nav>
       </div>
-    </nav>
+      
+      <v-spacer></v-spacer>
+      
+      <!-- Navigation Buttons -->
+      <v-btn text @click="$router.push(backToPartsLink)" class="mr-2">
+        <v-icon left>mdi-arrow-left</v-icon>
+        Back to Parts
+      </v-btn>
+      <v-btn text @click="$router.push('/')">
+        <v-icon left>mdi-home</v-icon>
+        Back to Home
+      </v-btn>
+    </v-app-bar>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="container">
-        <h1 class="hero-title">RC Drift Car Technical Guides</h1>
-        <p class="hero-subtitle">Expert knowledge to master your RC drift machine</p>
-        <div class="search-box">
-          <input 
-            v-model="searchQuery" 
-            type="text" 
-            placeholder="Search technical articles..."
-            class="search-input"
-          />
-          <button class="search-button">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2"/>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </section>
+    <!-- Main Content -->
+    <v-main class="tech-articles-main">
+      <v-container class="pa-4">
+        <!-- Header Section -->
+        <v-row class="mb-4">
+          <v-col cols="12" class="text-center">
+            <h1 class="display-1 font-weight-bold white--text mb-2">RC Drift Car Technical Guides</h1>
+            <p class="subtitle-1 white--text mb-4">Expert knowledge to master your RC drift machine</p>
+            
+            <!-- Search Field -->
+            <v-text-field
+              v-model="searchQuery"
+              placeholder="Search technical articles..."
+              outlined
+              dense
+              prepend-inner-icon="mdi-magnify"
+              class="search-field mx-auto"
+              style="max-width: 500px;"
+              background-color="white"
+            ></v-text-field>
+          </v-col>
+        </v-row>
 
-    <!-- Model Selector -->
-    <section class="model-selector-section">
-      <div class="container">
-        <ModelSelector />
-      </div>
-    </section>
+        <!-- Categories Filter -->
+        <v-row class="mb-4">
+          <v-col cols="12">
+            <div class="text-center">
+              <v-chip
+                v-for="category in categories"
+                :key="category"
+                :class="['ma-1', { 'primary': selectedCategory === category }]"
+                @click="toggleCategory(category)"
+                outlined
+                large
+              >
+                {{ category }}
+              </v-chip>
+            </div>
+          </v-col>
+        </v-row>
 
-    <!-- Categories Filter -->
-    <section class="categories-section">
-      <div class="container">
-        <div class="categories">
-          <button 
-            v-for="category in categories" 
-            :key="category"
-            :class="['category-btn', { active: selectedCategory === category }]"
-            @click="toggleCategory(category)"
-          >
-            {{ category }}
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Articles Grid -->
-    <section class="articles-section">
-      <div class="container">
-        <div class="articles-grid">
-          <article 
+        <!-- Articles Grid -->
+        <v-row>
+          <v-col 
             v-for="article in filteredArticles" 
             :key="article.slug"
-            class="article-card"
-            @click="navigateToArticle(article.slug)"
+            cols="12" 
+            sm="6" 
+            md="4"
+            class="mb-4"
           >
-            <div class="article-image">
-              <img :src="article.image || '/images/article-placeholder.jpg'" :alt="article.title" />
-              <div v-if="article.featured" class="featured-badge">Featured</div>
-            </div>
-            <div class="article-content">
-              <span class="article-category">{{ article.category }}</span>
-              <h3 class="article-title">{{ article.title }}</h3>
-              <p class="article-description">{{ article.description }}</p>
-              <div class="article-meta">
-                <span class="reading-time">{{ article.readingTime }} min read</span>
-                <span class="article-date">{{ formatDate(article.date) }}</span>
-              </div>
-            </div>
-          </article>
-        </div>
+            <v-card 
+              class="article-card"
+              @click="navigateToArticle(article.slug)"
+              hover
+              elevation="2"
+            >
+              <v-img
+                :src="article.image || '/images/article-placeholder.jpg'"
+                :alt="article.title"
+                height="200"
+                class="article-image"
+              >
+                <v-chip 
+                  v-if="article.featured" 
+                  color="primary" 
+                  small 
+                  class="ma-2"
+                >
+                  Featured
+                </v-chip>
+              </v-img>
+              
+              <v-card-text class="pa-3">
+                <v-chip 
+                  small 
+                  color="secondary" 
+                  class="mb-2"
+                >
+                  {{ article.category }}
+                </v-chip>
+                <h3 class="title font-weight-bold mb-2">{{ article.title }}</h3>
+                <p class="body-2 text--secondary mb-3">{{ article.description }}</p>
+                <div class="d-flex justify-space-between caption text--secondary">
+                  <span>{{ article.readingTime }} min read</span>
+                  <span>{{ formatDate(article.date) }}</span>
+                </div>
+              </v-card-text>
+            </v-card>
+          </v-col>
+        </v-row>
 
         <!-- Empty State -->
-        <div v-if="filteredArticles.length === 0" class="empty-state">
-          <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" fill="currentColor"/>
-          </svg>
-          <h3>No articles found</h3>
-          <p>Try adjusting your search terms or filter categories</p>
-        </div>
-      </div>
-    </section>
-  </div>
+        <v-row v-if="filteredArticles.length === 0">
+          <v-col cols="12" class="text-center">
+            <v-icon size="64" color="white" class="mb-3">mdi-file-document-outline</v-icon>
+            <h3 class="white--text mb-2">No articles found</h3>
+            <p class="white--text">Try adjusting your search terms or filter categories</p>
+          </v-col>
+        </v-row>
+      </v-container>
+     </v-main>
+  </v-app>
 </template>
 
 <script>
@@ -146,7 +165,8 @@ export default {
   data() {
     return {
       searchQuery: '',
-      selectedCategory: null
+      selectedCategory: null,
+      currentModel: null
     }
   },
   
@@ -169,13 +189,57 @@ export default {
         filtered = filtered.filter(article => article.category === this.selectedCategory)
       }
       
-      // Filter out model-specific articles (only show general articles)
-      filtered = filtered.filter(article => {
-        const isGeneralArticle = !article.models || article.models.length === 0
-        return isGeneralArticle
-      })
+      // Filter by model if specified
+      if (this.currentModel) {
+        filtered = filtered.filter(article => {
+          const hasModel = article.models && article.models.includes(this.currentModel)
+          const isGeneralArticle = !article.models || article.models.length === 0
+          return hasModel || isGeneralArticle
+        })
+      } else {
+        // Show only general articles when no model is selected
+        filtered = filtered.filter(article => {
+          const isGeneralArticle = !article.models || article.models.length === 0
+          return isGeneralArticle
+        })
+      }
       
       return filtered
+    },
+    
+    backToPartsLink() {
+      return this.currentModel ? `/parts/${this.currentModel}` : '/parts/tamiya-tt-02'
+    },
+    
+    breadcrumbText() {
+      return this.currentModel ? `${this.currentModel} Articles` : 'Technical Guides'
+    },
+    
+    breadcrumbItems() {
+      return [
+        {
+          text: 'Home',
+          disabled: false,
+          href: '/'
+        },
+        {
+          text: this.currentModel ? `${this.currentModel} Parts` : 'Tamiya TT-02 Parts',
+          disabled: false,
+          href: this.backToPartsLink
+        },
+        {
+          text: this.breadcrumbText,
+          disabled: true
+        }
+      ]
+    }
+  },
+  
+  mounted() {
+    // Check for model parameter in URL
+    const model = this.$route.query.model
+    if (model) {
+      this.currentModel = model
     }
   },
   
@@ -216,144 +280,22 @@ export default {
 </script>
 
 <style scoped>
-.tech-articles-page {
-  min-height: 100vh;
+.tech-articles-main {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
 }
 
-.container {
+.tech-articles-main .v-container {
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
 }
 
-/* Navigation Bar */
-.navigation-bar {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 16px 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+.article-card {
+  cursor: pointer;
+  transition: transform 0.2s;
 }
 
-.nav-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.breadcrumb {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.95rem;
-}
-
-.breadcrumb-link {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: #4a5568;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  font-weight: 500;
-}
-
-.breadcrumb-link:hover {
-  color: #667eea;
-}
-
-.home-icon {
-  color: #667eea;
-}
-
-.breadcrumb-separator {
-  color: #a0aec0;
-  margin: 0 4px;
-}
-
-.breadcrumb-current {
-  color: #2d3748;
-  font-weight: 600;
-}
-
-.nav-buttons {
-    display: flex;
-    gap: 15px;
-  }
-
-  .nav-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    font-size: 0.9rem;
-  }
-
-  .nav-btn.primary {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-  }
-
-  .nav-btn.secondary {
-    background: rgba(255, 255, 255, 0.05);
-    color: rgba(255, 255, 255, 0.8);
-  }
-
-  .nav-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-1px);
-    color: white;
-  }
-
-/* Hero Section */
-.hero-section {
-  padding: 80px 0 60px;
-  text-align: center;
-  color: white;
-}
-
-.hero-title {
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  background: linear-gradient(45deg, #fff, #f0f0f0);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.hero-subtitle {
-  font-size: 1.3rem;
-  opacity: 0.9;
-  margin-bottom: 2rem;
-}
-
-.search-box {
-  display: flex;
-  max-width: 500px;
-  margin: 0 auto;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 50px;
-  padding: 8px;
-  backdrop-filter: blur(10px);
-}
-
-.search-input {
-  flex: 1;
-  border: none;
-  background: transparent;
-  padding: 12px 20px;
-  color: white;
-  font-size: 1rem;
-  outline: none;
+.article-card:hover {
+  transform: translateY(-2px);
 }
 
 .search-input::placeholder {
@@ -418,6 +360,72 @@ export default {
 .articles-section {
   padding: 60px 0;
   background: #f8f9fa;
+}
+
+/* Breadcrumb Navigation Styles (统一设计) */
+.breadcrumb-nav {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  font-size: 0.85rem;
+}
+
+.breadcrumb-nav .v-breadcrumbs__item {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.breadcrumb-nav .v-breadcrumbs__item:hover {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.breadcrumb-nav .v-breadcrumbs__item--disabled {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 600;
+}
+
+.breadcrumb-nav .v-breadcrumbs__divider {
+  color: rgba(255, 255, 255, 0.5) !important;
+}/* 隐藏导航按钮 */
+.v-btn {
+  display: none !important;
+}
+
+/* 隐藏模型选择器 */
+.model-selector {
+  display: none !important;
+}
+
+/* 面包屑导航样式 */
+.breadcrumb-container {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: white;
+}
+
+.breadcrumb-link {
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb-link:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.breadcrumb-current {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-weight: 500;
+}
+
+.breadcrumb-divider {
+  margin: 0 8px;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .articles-grid {
