@@ -152,7 +152,7 @@
           <p>Join thousands of enthusiasts who have mastered the art of RC drifting with our expert guides and professional parts.</p>
           <div class="cta-buttons">
             <nuxt-link to="/tech-articles" class="cta-button primary">Browse All Guides</nuxt-link>
-            <nuxt-link to="/products" class="cta-button secondary">Shop Parts</nuxt-link>
+            <nuxt-link to="/parts" class="cta-button secondary">Shop Parts</nuxt-link>
           </div>
         </div>
       </div>
