@@ -421,10 +421,7 @@
            </v-btn>
          </v-card-title>
          
-         <!-- Debug Info -->
-         <v-card-subtitle v-if="selectedPart" class="pa-2 debug-info">
-           <v-chip small color="warning">Debug: Part ID {{ selectedPart.id }}</v-chip>
-         </v-card-subtitle>
+
          
          <v-card-text class="pa-4">
            <v-row>
@@ -561,8 +558,6 @@ export default {
       // 加载模型数据
       const modelData = require('~/data/models/tamiya-tt-02.json')
       
-      console.log('原始零件数据:', partsData) // Debug log
-      
       // 将零件数据与分类数据关联
       const partsWithCategoryNames = partsData.map(part => {
         const category = categoriesData.categories.find(cat => cat.id === part.category_id)
@@ -571,11 +566,8 @@ export default {
           category: category ? category.name : 'Unknown',
           category_description: category ? category.description : ''
         }
-        console.log('处理后的零件:', processedPart) // Debug log
         return processedPart
       })
-      
-      console.log('最终零件数据:', partsWithCategoryNames) // Debug log
       
       return {
         parts: partsWithCategoryNames,
@@ -792,11 +784,6 @@ export default {
     
     // Show part details
     showPartDetails(part) {
-      console.log('Selected part:', part) // Debug log
-      console.log('Part ID:', part.id) // Debug specific field
-      console.log('Part Name:', part.name) // Debug specific field
-      console.log('Part Category:', part.category) // Debug specific field
-      console.log('Part Image:', part.image) // Debug specific field
       this.selectedPart = part
       this.showPartModal = true
     },
