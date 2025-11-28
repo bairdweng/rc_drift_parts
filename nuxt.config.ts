@@ -12,33 +12,32 @@ export default {
   generate: {
     dir: 'dist',
     routes: async () => {
-      const fs = require('fs')
-      const path = require('path')
-      
-      // 获取所有文章slug
-      const articlesDir = path.join(__dirname, 'content', 'articles')
-      const articleFiles: string[] = fs.readdirSync(articlesDir).filter((file: string) => file.endsWith('.md'))
-      const articleSlugs = articleFiles.map(file => file.replace('.md', ''))
-      
-      // 获取所有模型ID
-      const modelsDir = path.join(__dirname, 'data', 'models')
-      const modelFiles: string[] = fs.readdirSync(modelsDir).filter((file: string) => file.endsWith('.json'))
-      const modelIds = modelFiles.map(file => file.replace('.json', ''))
-      
-      // 生成所有静态路由
+      // 简化路由生成逻辑，避免文件系统操作
       const staticRoutes = [
         '/',
         '/models',
+        '/parts',
         '/parts/tamiya-tt-02',
         '/rc-drift-cars',
         '/tech-articles'
       ]
       
-      // 添加所有技术文章详情页路由
-      const articleRoutes = articleSlugs.map(slug => `/tech-articles/${slug}`)
+      // 技术文章路由
+      const articleRoutes = [
+        '/tech-articles/battery-basics-guide',
+        '/tech-articles/battery-systems-guide',
+        '/tech-articles/electronics-tuning-guide',
+        '/tech-articles/lipo-battery-safety-guide',
+        '/tech-articles/suspension-tire-setup',
+        '/tech-articles/tamiya-tt-02-suspension-guide',
+        '/tech-articles/transmitter-setup-guide',
+        '/tech-articles/what-does-gyro-do-in-rc-drift-car'
+      ]
       
-      // 添加所有模型文章页面路由
-      const modelRoutes = modelIds.map(modelId => `/tech-articles/model/${modelId}`)
+      // 模型文章路由
+      const modelRoutes = [
+        '/tech-articles/model/tamiya-tt-02'
+      ]
       
       return [...staticRoutes, ...articleRoutes, ...modelRoutes]
     },
