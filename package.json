@@ -22,7 +22,11 @@
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^2.1.0",
-    "typescript": "^4.9.5"
+    "sass": "^1.94.2",
+    "sass-loader": "^10.4.1",
+    "typescript": "^4.9.5",
+    "vue-template-compiler": "^2.7.14",
+    "webpack": "^4.46.0"
   },
   "engines": {
     "node": ">=14.0.0",

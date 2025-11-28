@@ -1,49 +1,44 @@
 {
   "categories": [
     {
-      "id": "chassis",
-      "name": "Chassis",
-      "description": "Supports the entire car, holding drivetrain, suspension, and battery"
+      "id": "steering_control",
+      "name": "Steering & Control",
+      "description": "Improve steering precision and overall car control for all RC vehicles."
     },
     {
       "id": "drivetrain",
-      "name": "Drivetrain",
-      "description": "Transfers power to the wheels"
+      "name": "Drivetrain & Smoothness",
+      "description": "Transfers power efficiently and ensures smooth drive for RC cars and trucks."
     },
     {
       "id": "suspension",
-      "name": "Suspension",
-      "description": "Absorbs shocks and improves handling"
+      "name": "Suspension & Handling",
+      "description": "Absorbs shocks, improves handling and stability on various terrains."
     },
     {
-      "id": "steering",
-      "name": "Steering",
-      "description": "Controls front wheel direction"
-    },
-    {
-      "id": "motor",
-      "name": "Motor / Motor Mount",
-      "description": "Provides power for the car"
+      "id": "motor_electronics",
+      "name": "Motor & Electronics",
+      "description": "Provides power, cooling, and electronic control for consistent performance."
     },
     {
       "id": "wheels_tires",
       "name": "Wheels & Tires",
-      "description": "Connects to the ground and provides traction"
+      "description": "Provides traction and grip on different surfaces, including drift, off-road, and climbing."
     },
     {
-      "id": "hardware",
-      "name": "Hardware",
-      "description": "Connects parts together"
+      "id": "hardware_mounts",
+      "name": "Hardware & Mounts",
+      "description": "Connects parts and improves durability of RC vehicles."
     },
     {
-      "id": "body",
-      "name": "Body",
-      "description": "Protects internal parts and provides aesthetics"
+      "id": "stabilizers_controllers",
+      "name": "Stabilizers & Controllers",
+      "description": "Helps maintain stability, control, and precise handling for all RC vehicles."
     },
     {
-      "id": "electronics",
-      "name": "Electronics",
-      "description": "Controls and powers the car"
+      "id": "body_accessories",
+      "name": "Body & Accessories",
+      "description": "Protects internal parts and enhances appearance of RC cars and trucks."
     }
   ]
 }

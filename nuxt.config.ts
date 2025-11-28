@@ -69,12 +69,7 @@ export default {
         async: true
       },
       {
-        innerHTML: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-KGTL7ESMEK');
-        `
+        innerHTML: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-KGTL7ESMEK');`
       }
     ]
   },
@@ -87,7 +82,8 @@ export default {
 
   // Plugins to run before rendering page: https://nuxtjs.org/docs/configuration-glossary/configuration-plugins
   plugins: [
-    '~/plugins/sitemap.js'
+    '~/plugins/sitemap.js',
+    '~/plugins/performance.js'
   ],
 
   // Auto import components: https://nuxtjs.org/docs/configuration-glossary/configuration-components
@@ -119,7 +115,9 @@ export default {
           warning: '#FFC107'
         }
       }
-    }
+    },
+    // 启用树摇优化以减少打包体积
+    treeShake: true
   },
   
   // Content module configuration
@@ -151,10 +149,15 @@ export default {
     terser: {
       terserOptions: {
         compress: {
-          drop_console: process.env.NODE_ENV === 'production'
+          drop_console: process.env.NODE_ENV === 'production',
+          pure_funcs: ['console.log', 'console.debug']
         }
       }
-    }
+    },
+    // 优化Vuetify体积
+    transpile: ['vuetify/lib'],
+    // 启用硬件加速
+    hardSource: process.env.NODE_ENV === 'development'
   },
   
   // Development server configuration
@@ -170,5 +173,27 @@ export default {
     static: {
       maxAge: '1y'
     }
+  },
+  
+  // 性能优化配置
+  loading: {
+    color: '#1976D2',
+    height: '3px'
+  },
+  
+  // 图片优化
+  image: {
+    // 启用图片懒加载
+    lazy: true,
+    // 图片质量优化
+    quality: 80,
+    // 响应式图片
+    responsive: true
+  },
+  
+  // 字体优化
+  webfonts: {
+    // 预加载关键字体
+    preload: true
   }
 }

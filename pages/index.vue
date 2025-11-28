@@ -173,6 +173,37 @@
           </v-row>
         </v-container>
       </v-container>
+
+      <!-- No Data Dialog -->
+      <div v-if="showNoDataDialog" class="dialog-overlay" @click="showNoDataDialog = false">
+        <div class="dialog" @click.stop>
+          <div class="dialog-header">
+            <v-icon color="warning" class="mr-2">mdi-tools</v-icon>
+            <span class="dialog-title">Development in Progress</span>
+            <v-btn icon small @click="showNoDataDialog = false" class="close-btn">
+              <v-icon>mdi-close</v-icon>
+            </v-btn>
+          </div>
+          <div class="dialog-content">
+            <v-icon color="info" size="48" class="mb-3">mdi-hammer-wrench</v-icon>
+            <h3 class="dialog-model-name">{{ selectedModelName }}</h3>
+            <p class="dialog-message">
+              This model is currently under development. We're working hard to add parts data for {{ selectedModelName }}.
+              Please check back soon for updates!
+            </p>
+          </div>
+          <div class="dialog-actions">
+            <v-btn
+              color="primary"
+              depressed
+              @click="showNoDataDialog = false"
+              class="dialog-btn"
+            >
+              Got it
+            </v-btn>
+          </div>
+        </div>
+      </div>
     </v-main>
   </v-app>
 </template>
@@ -191,27 +222,33 @@ export default {
           id: 1,
           name: 'Tamiya TT-02',
           brand: 'Tamiya',
-          category: 'Drift Car'
+          category: 'Drift Car',
+          hasData: true
         },
         {
           id: 2,
           name: 'Yokomo YD-2',
           brand: 'Yokomo',
-          category: 'Competition'
+          category: 'Competition',
+          hasData: false
         },
         {
           id: 3,
           name: 'MST RMX 2.0',
           brand: 'MST',
-          category: 'RWD Drift'
+          category: 'RWD Drift',
+          hasData: false
         },
         {
           id: 4,
           name: '3Racing Sakura D5',
           brand: '3Racing',
-          category: 'Budget Drift'
+          category: 'Budget Drift',
+          hasData: false
         }
-      ]
+      ],
+      showNoDataDialog: false,
+      selectedModelName: ''
     }
   },
   methods: {
@@ -253,7 +290,15 @@ export default {
     
     selectModel(model) {
       this.searchQuery = `${model.brand} ${model.name}`
-      this.performSearch()
+      
+      // 检查模型是否有数据
+      if (model.hasData) {
+        this.performSearch()
+      } else {
+        // 显示开发提示对话框
+        this.selectedModelName = model.name
+        this.showNoDataDialog = true
+      }
     },
     
     performSearch() {
@@ -302,4 +347,100 @@ export default {
 
 <style scoped>
 /* 使用Vuetify自带样式，移除自定义CSS */
+
+/* No Data Dialog Styles */
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.dialog {
+  background: white;
+  border-radius: 12px;
+  padding: 0;
+  max-width: 400px;
+  width: 90%;
+  max-height: 80vh;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: dialogSlideIn 0.3s ease;
+}
+
+.dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  background: #fafafa;
+}
+
+.dialog-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.close-btn {
+  margin-left: 8px;
+}
+
+.dialog-content {
+  padding: 24px;
+  text-align: center;
+}
+
+.dialog-model-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1976d2;
+  margin: 0 0 16px 0;
+}
+
+.dialog-message {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #666;
+  margin: 0;
+}
+
+.dialog-actions {
+  padding: 16px 24px 24px;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+}
+
+.dialog-btn {
+  min-width: 120px;
+  font-weight: 600;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes dialogSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
 </style>

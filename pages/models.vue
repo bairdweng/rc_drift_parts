@@ -99,6 +99,30 @@
         Clear All Filters
       </button>
     </div>
+
+    <!-- No Data Dialog -->
+    <div v-if="showNoDataDialog" class="dialog-overlay" @click="showNoDataDialog = false">
+      <div class="dialog" @click.stop>
+        <div class="dialog-header">
+          <h3>Development in Progress</h3>
+          <button class="dialog-close" @click="showNoDataDialog = false">×</button>
+        </div>
+        <div class="dialog-content">
+          <div class="dialog-icon">🚧</div>
+          <p class="dialog-message">
+            Parts database for <strong>{{ selectedModelName }}</strong> is currently under development.
+          </p>
+          <p class="dialog-submessage">
+            We're working hard to add more models to our database. Please check back later!
+          </p>
+        </div>
+        <div class="dialog-actions">
+          <button class="dialog-btn primary" @click="showNoDataDialog = false">
+            Got it!
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -113,9 +137,59 @@ export default {
       // For now, we'll manually import the available models
       const tamiyaTT02 = await import('~/data/models/tamiya-tt-02.json')
       
-      const models = [
-        tamiyaTT02.default || tamiyaTT02
+      // Add placeholder models that don't have data yet
+      const placeholderModels = [
+        {
+          id: 'yokomo-yd2',
+          name: 'YD-2',
+          fullName: 'Yokomo YD-2',
+          brand: 'Yokomo',
+          description: 'Competition-grade RWD drift chassis with advanced suspension design.',
+          scale: '1/10',
+          driveType: 'RWD',
+          type: 'Competition',
+          releaseYear: 2015,
+          popularity: 85,
+          status: 'active',
+          hasData: false
+        },
+        {
+          id: 'mst-rmx20',
+          name: 'RMX 2.0',
+          fullName: 'MST RMX 2.0',
+          brand: 'MST',
+          description: 'Popular RWD drift platform with excellent tuning capabilities.',
+          scale: '1/10',
+          driveType: 'RWD',
+          type: 'RWD Drift',
+          releaseYear: 2018,
+          popularity: 78,
+          status: 'active',
+          hasData: false
+        },
+        {
+          id: '3racing-sakura-d5',
+          name: 'Sakura D5',
+          fullName: '3Racing Sakura D5',
+          brand: '3Racing',
+          description: 'Budget-friendly RWD drift chassis with good performance.',
+          scale: '1/10',
+          driveType: 'RWD',
+          type: 'Budget Drift',
+          releaseYear: 2019,
+          popularity: 65,
+          status: 'active',
+          hasData: false
+        }
       ]
+      
+      // Mark Tamiya TT-02 as having data
+      const tamiyaModel = {
+        ...(tamiyaTT02.default || tamiyaTT02),
+        hasData: true
+      }
+      
+      const models = [tamiyaModel, ...placeholderModels]
       
       // Extract unique brands
       const brands = [...new Set(models.map(model => model.brand))]
@@ -136,7 +210,9 @@ export default {
   data() {
     return {
       searchQuery: '',
-      activeBrand: null
+      activeBrand: null,
+      showNoDataDialog: false,
+      selectedModelName: ''
     }
   },
   
@@ -169,6 +245,11 @@ export default {
     },
     
     goToModel(model) {
+      if (!model.hasData) {
+        this.selectedModelName = model.fullName
+        this.showNoDataDialog = true
+        return
+      }
       this.$router.push(`/parts/${model.id}`)
     },
     
@@ -487,6 +568,119 @@ export default {
 
 .clear-filters-btn:hover {
   background: #545b62;
+}
+
+/* Dialog Styles */
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.dialog {
+  background: white;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  animation: dialogSlideIn 0.3s ease-out;
+}
+
+@keyframes dialogSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px 0 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.dialog-header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 1.3rem;
+}
+
+.dialog-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialog-close:hover {
+  color: #333;
+}
+
+.dialog-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.dialog-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.dialog-message {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.dialog-submessage {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.dialog-actions {
+  padding: 0 20px 20px 20px;
+  text-align: center;
+}
+
+.dialog-btn {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.dialog-btn.primary {
+  background: #007bff;
+  color: white;
+}
+
+.dialog-btn.primary:hover {
+  background: #0056b3;
 }
 
 @media (max-width: 768px) {

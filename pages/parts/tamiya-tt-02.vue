@@ -3,16 +3,16 @@
     <!-- Top Navigation Bar with Breadcrumb -->
     <v-app-bar color="primary" dark flat dense app>
       <!-- Breadcrumb Navigation inside Navigation Bar -->
-      <div class="breadcrumb-nav">
-        <nav class="breadcrumb-container">
-          <a href="/" class="breadcrumb-link">
-            <v-icon small class="mr-1">mdi-home</v-icon>
-            Home
+      <div class="breadcrumb-nav" style="display: flex; align-items: center; margin-left: 16px;">
+        <nav class="breadcrumb-container" style="display: flex; align-items: center;">
+          <a href="/" class="breadcrumb-link" style="color: white; text-decoration: none; display: flex; align-items: center;">
+            <v-icon small class="mr-1" style="color: white;">mdi-home</v-icon>
+            <span style="color: white;">Home</span>
           </a>
-          <span class="breadcrumb-divider">/</span>
-          <span class="breadcrumb-current">
-            <v-icon small class="mr-1">mdi-car</v-icon>
-            Tamiya TT-02 Parts
+          <span class="breadcrumb-divider" style="color: white; margin: 0 8px;">/</span>
+          <span class="breadcrumb-current" style="color: white; display: flex; align-items: center;">
+            <v-icon small class="mr-1" style="color: white;">mdi-car</v-icon>
+            <span style="color: white;">Tamiya TT-02 Parts</span>
           </span>
         </nav>
       </div>
@@ -39,237 +39,509 @@
       </v-btn>
     </v-app-bar>
 
-    <!-- Model Header Information -->
-    <header class="model-header">
-      <div class="model-info">
-        <h1 class="model-title">Tamiya TT-02</h1>
-        <p class="model-description">The legendary entry-level 4WD touring car chassis, perfect for drift conversions</p>
-        
-        <div class="model-specs">
-          <div class="spec-item">
-            <span class="spec-label">Drive Type:</span>
-            <span class="spec-value">4WD</span>
-          </div>
-          <div class="spec-item">
-            <span class="spec-label">Scale:</span>
-            <span class="spec-value">1/10</span>
-          </div>
-          <div class="spec-item">
-            <span class="spec-label">Skill Level:</span>
-            <span class="spec-value">Beginner to Intermediate</span>
-          </div>
-        </div>
-      </div>
-      
-      <div class="model-image">
-        <img 
-          v-if="model.images && model.images.main" 
-          :src="model.images.main" 
-          :alt="model.fullName || model.name"
-          class="model-image-real"
-        />
-        <div v-else class="image-placeholder">
-          🚗 Tamiya TT-02 Image
-        </div>
-      </div>
-    </header>
-
-
-
-    <!-- Search and Filter Section -->
-    <div class="search-filter-section">
-      <!-- Search Card -->
-      <v-card class="mb-4" elevation="4" rounded="lg">
-        <v-card-text class="pa-4">
-          <div class="text-center mb-4">
-            <v-icon color="primary" size="48" class="mb-2">mdi-car-sports</v-icon>
-            <h2 class="text-h5 font-weight-bold primary--text mb-2">Find Tamiya TT-02 Parts</h2>
-            <p class="text-body-2 grey--text">Search for parts by name, category, or specifications</p>
-          </div>
-          
-          <v-text-field
-            ref="searchInput"
-            v-model="searchQuery"
-            placeholder="Search parts, models, or keywords..."
-            outlined
-            dense
-            hide-details
-            @input="handleInput"
-            @keydown="handleKeydown"
-            @focus="showSuggestions = true"
-            @blur="handleBlur"
-          >
-            <template v-slot:prepend-inner>
-              <v-icon color="primary">mdi-magnify</v-icon>
-            </template>
-            <template v-slot:append>
-              <v-btn
-                small
-                depressed
-                color="primary"
-                @click="handleSearch"
-                class="ml-2"
-              >
-                Search
-              </v-btn>
-            </template>
-          </v-text-field>
-          
-          <!-- Search Suggestions -->
-          <v-card v-if="showSuggestions && searchSuggestions.length > 0" class="mt-2" elevation="2">
-            <v-list dense class="pa-0">
-              <v-list-item
-                v-for="(part, index) in searchSuggestions"
-                :key="part.id"
-                @click="selectSuggestion(part)"
-                :class="{ 'active': index === activeSuggestionIndex }"
-                class="px-2"
-              >
-                <v-list-item-content class="py-1">
-                  <v-list-item-title class="text-caption font-weight-medium">
-                    {{ part.name }}
-                  </v-list-item-title>
-                  <v-list-item-subtitle class="text-caption">
-                    {{ part.description }}
-                  </v-list-item-subtitle>
-                </v-list-item-content>
-              </v-list-item>
-            </v-list>
+    <!-- Enhanced Model Header -->
+    <v-container class="enhanced-header-container" fluid style="margin-top: 80px;">
+      <v-row justify="center">
+        <v-col cols="12" lg="10" xl="8">
+          <v-card class="enhanced-header-card" elevation="2" rounded="lg">
+            <v-card-text class="pa-6">
+              <v-row align="center">
+                <v-col cols="12" md="8">
+                  <h1 class="text-h4 font-weight-bold primary--text mb-2">Tamiya TT-02 Parts Library</h1>
+                  <p class="text-body-1 grey--text mb-4">Discover high-performance drift parts designed specifically for the legendary TT-02 chassis</p>
+                  
+                  <v-row class="specs-grid">
+                    <v-col cols="12" sm="4">
+                      <div class="spec-item d-flex align-center">
+                        <v-icon color="primary" class="mr-2">mdi-car-shift-pattern</v-icon>
+                        <div>
+                          <div class="text-caption grey--text">Drive Type</div>
+                          <div class="text-body-2 font-weight-medium">4WD</div>
+                        </div>
+                      </div>
+                    </v-col>
+                    <v-col cols="12" sm="4">
+                      <div class="spec-item d-flex align-center">
+                        <v-icon color="primary" class="mr-2">mdi-ruler</v-icon>
+                        <div>
+                          <div class="text-caption grey--text">Scale</div>
+                          <div class="text-body-2 font-weight-medium">1/10</div>
+                        </div>
+                      </div>
+                    </v-col>
+                    <v-col cols="12" sm="4">
+                      <div class="spec-item d-flex align-center">
+                        <v-icon color="primary" class="mr-2">mdi-account-star</v-icon>
+                        <div>
+                          <div class="text-caption grey--text">Skill Level</div>
+                          <div class="text-body-2 font-weight-medium">Beginner to Intermediate</div>
+                        </div>
+                      </div>
+                    </v-col>
+                  </v-row>
+                </v-col>
+                
+                <v-col cols="12" md="4" class="text-center">
+                  <div class="quick-actions-section">
+                    <v-btn 
+                      outlined 
+                      @click="$router.push('/tech-articles/model/tamiya-tt-02')"
+                      class="mb-2 action-btn"
+                      block
+                    >
+                      <v-icon left>mdi-book-open-variant</v-icon>
+                      TT-02 Guides
+                    </v-btn>
+                    <v-btn 
+                      outlined 
+                      @click="$router.push('/tech-articles')"
+                      class="action-btn"
+                      block
+                    >
+                      <v-icon left>mdi-library</v-icon>
+                      All Articles
+                    </v-btn>
+                  </div>
+                </v-col>
+              </v-row>
+            </v-card-text>
           </v-card>
-        </v-card-text>
-      </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
 
-      <!-- Category Filter Section -->
-      <v-card class="filter-section" outlined>
-        <v-card-title class="filter-header">
-          <h3 class="filter-title">Filter by Category</h3>
-          <v-spacer></v-spacer>
-          <div class="filter-stats">
-            <span v-if="selectedCategory" class="active-filter">
-              Showing: {{ selectedCategory }}
-              <v-btn 
-                small 
-                text 
-                color="primary" 
-                @click="clearCategoryFilter"
-                class="clear-filter"
-              >
-                Clear
-              </v-btn>
-            </span>
-            <span v-else class="total-count">{{ parts.length }} parts total</span>
-          </div>
-        </v-card-title>
-        
-        <v-card-text class="category-filters">
-          <v-chip-group
-            column
-            active-class="primary--text"
-          >
-            <v-chip
-              v-for="category in categories"
-              :key="category.id"
-              :input-value="selectedCategory === category.name"
-              filter
-              outlined
-              @click="toggleCategoryFilter(category.name)"
-              class="category-chip"
-            >
-              <span class="category-name">{{ category.name }}</span>
-              <span class="category-count">({{ getCategoryCount(category.name) }})</span>
-            </v-chip>
-          </v-chip-group>
-        </v-card-text>
-      </v-card>
-    </div>
+    <!-- Enhanced Search and Filter Section -->
+    <v-container class="enhanced-search-section" fluid>
+       <v-row justify="center">
+         <v-col cols="12" lg="10" xl="8">
+           <v-row class="mb-6">
+             <v-col cols="12">
+               <!-- Smart Search Card -->
+               <v-card class="smart-search-card" elevation="2" rounded="lg">
+                 <v-card-text class="pa-4">
+                   <v-row align="center" class="mb-4">
+                     <v-col cols="auto">
+                       <v-icon color="primary" size="32">mdi-magnify</v-icon>
+                     </v-col>
+                     <v-col>
+                       <h2 class="text-h5 font-weight-bold primary--text">Find Your Perfect Parts</h2>
+                       <p class="text-body-2 grey--text mb-0">Search by part name, function, or specifications</p>
+                     </v-col>
+                     <v-col cols="auto">
+                       <span class="text-caption grey--text">{{ parts.length }} parts available</span>
+                     </v-col>
+                   </v-row>
+                   
+                   <v-text-field
+                     ref="searchInput"
+                     v-model="searchQuery"
+                     placeholder="Search by part name, function, or specifications..."
+                     outlined
+                     dense
+                     hide-details
+                     @input="handleInput"
+                     @keydown="handleKeydown"
+                     @focus="showSuggestions = true"
+                     @blur="handleBlur"
+                   >
+                     <template v-slot:prepend-inner>
+                       <v-icon color="primary">mdi-magnify</v-icon>
+                     </template>
+                     <template v-slot:append>
+                       <v-btn
+                         small
+                         depressed
+                         color="primary"
+                         @click="handleSearch"
+                       >
+                         Search
+                       </v-btn>
+                     </template>
+                   </v-text-field>
+                   
+                   <!-- Enhanced Search Suggestions -->
+                   <v-card v-if="showSuggestions && searchSuggestions.length > 0" class="mt-2" elevation="4">
+                     <v-list dense class="pa-0">
+                       <v-list-item
+                         v-for="(part, index) in searchSuggestions"
+                         :key="part.id"
+                         @click="selectSuggestion(part)"
+                         :class="{ 'v-list-item--active': index === activeSuggestionIndex }"
+                         class="px-2"
+                       >
+                         <v-list-item-avatar size="40" class="mr-3">
+                           <v-icon :color="getCategoryColor(part.category)" size="24">
+                             {{ getCategoryIcon(part.category) }}
+                           </v-icon>
+                         </v-list-item-avatar>
+                         <v-list-item-content class="py-1">
+                           <v-list-item-title class="text-caption font-weight-medium">
+                             {{ part.name }}
+                           </v-list-item-title>
+                           <v-list-item-subtitle class="text-caption">
+                             <v-chip 
+                               small 
+                               :color="getCategoryColor(part.category)" 
+                               text-color="white"
+                               class="mr-1"
+                             >
+                               {{ part.category }}
+                             </v-chip>
+                             {{ part.function }}
+                           </v-list-item-subtitle>
+                         </v-list-item-content>
+                       </v-list-item>
+                     </v-list>
+                   </v-card>
+                 </v-card-text>
+               </v-card>
+             </v-col>
+           </v-row>
+           
+           <!-- Enhanced Category Filter -->
+           <v-row>
+             <v-col cols="12">
+               <v-card class="enhanced-filter-card" elevation="2" rounded="lg">
+                 <v-card-title>
+                   <v-icon color="primary" class="mr-2">mdi-filter</v-icon>
+                   <span class="text-h6">Browse by Function</span>
+                   <v-spacer></v-spacer>
+                   <div v-if="selectedCategory">
+                     <span class="text-caption grey--text mr-2">Active Filter:</span>
+                     <v-chip 
+                       :color="getCategoryColor(selectedCategory)" 
+                       text-color="white"
+                       class="mr-2"
+                     >
+                       {{ selectedCategory }}
+                     </v-chip>
+                     <v-btn 
+                       small 
+                       text 
+                       color="primary" 
+                       @click="clearCategoryFilter"
+                     >
+                       Clear
+                     </v-btn>
+                   </div>
+                 </v-card-title>
+                 
+                 <v-card-text>
+                   <v-row>
+                     <v-col 
+                       v-for="category in availableCategories"
+                       :key="category.id"
+                       cols="12"
+                       sm="6"
+                       md="4"
+                     >
+                       <v-card
+                         :class="['category-card', { 'active': selectedCategory === category.name }]"
+                         @click="toggleCategoryFilter(category.name)"
+                         :style="{ borderLeft: `4px solid ${getCategoryColor(category.name)}` }"
+                         elevation="1"
+                         hover
+                       >
+                         <v-card-text class="pa-3">
+                           <v-row align="center" no-gutters>
+                             <v-col cols="auto">
+                               <v-icon :color="getCategoryColor(category.name)" size="28" class="mr-3">
+                                 {{ getCategoryIcon(category.name) }}
+                               </v-icon>
+                             </v-col>
+                             <v-col>
+                               <h4 class="text-body-1 font-weight-medium mb-1">{{ category.name }}</h4>
+                               <p class="text-caption grey--text mb-1">{{ category.description }}</p>
+                               <span class="text-caption font-weight-medium">{{ getCategoryCount(category.name) }} parts</span>
+                             </v-col>
+                           </v-row>
+                         </v-card-text>
+                       </v-card>
+                     </v-col>
+                   </v-row>
+                 </v-card-text>
+               </v-card>
+             </v-col>
+           </v-row>
+         </v-col>
+       </v-row>
+     </v-container>
 
-    <!-- Parts List -->
-    <main class="parts-main">
-      <!-- No Results Message -->
-      <div v-if="searchQuery && filteredParts.length === 0" class="no-results">
-        <div class="no-results-icon">🔍</div>
-        <div class="no-results-text">
-          <p>No parts found for "{{ searchQuery }}"</p>
-          <p class="no-results-suggestion">Try searching with different keywords or browse all parts below</p>
-        </div>
-      </div>
-      
-      <!-- Parts Grid -->
-      <div v-else class="parts-grid">
-        <div 
-          v-for="part in filteredParts" 
-          :key="part.id"
-          class="part-card"
-        >
-          <!-- Part Image -->
-          <div class="part-image">
-            <img 
-              v-if="part.image" 
-              :src="part.image" 
-              :alt="part.name"
-              class="part-image-real"
-              @click="openImageModal(part)"
-            />
-            <div v-else class="image-placeholder-small">📷</div>
-          </div>
-          
-          <!-- Core Information -->
-        <div class="part-info">
-          <!-- Name -->
-          <div class="part-header">
-            <h3 class="part-name">{{ part.name }}</h3>
-          </div>
-          
-          <!-- Category -->
-          <div class="part-category">
-            <span class="category-label">Category:</span>
-            <span class="category-value">{{ part.category }}</span>
-          </div>
-          
-          <!-- Specifications as Text -->
-          <div class="part-specs-text">
-            <div class="spec-item">
-              <span class="spec-label">Specifications:</span>
-              <span class="spec-value">{{ part.specs }}</span>
-            </div>
-          </div>
-        </div>
-        </div>
-      </div>
-    </main>
+     <!-- Enhanced Parts List -->
+     <v-container class="enhanced-parts-section" fluid>
+       <v-row justify="center">
+         <v-col cols="12" lg="10" xl="8">
+           <!-- Results Header -->
+           <v-row class="mb-4">
+             <v-col cols="12">
+               <v-card elevation="1" class="pa-4">
+                 <v-row align="center">
+                   <v-col>
+                     <h3 class="text-h6 font-weight-medium">
+                       <span class="primary--text font-weight-bold">{{ filteredParts.length }}</span>
+                       <span class="grey--text"> parts found</span>
+                       <span v-if="selectedCategory" class="ml-2">
+                         in <v-chip 
+                           :color="getCategoryColor(selectedCategory)" 
+                           text-color="white"
+                           small
+                         >
+                           {{ selectedCategory }}
+                         </v-chip>
+                       </span>
+                     </h3>
+                     <p class="text-caption grey--text mb-0">Browse through our collection of high-quality RC drift parts</p>
+                   </v-col>
+                   <v-col cols="auto">
+                     <v-btn 
+                       small 
+                       outlined 
+                       color="primary" 
+                       @click="clearFilters"
+                     >
+                       Clear All Filters
+                     </v-btn>
+                   </v-col>
+                 </v-row>
+               </v-card>
+             </v-col>
+           </v-row>
 
-    <!-- 安装指南模态框 -->
-    <div v-if="selectedPart" class="modal-overlay" @click="selectedPart = null">
-      <div class="modal-content" @click.stop>
-        <button class="modal-close" @click="selectedPart = null">×</button>
-        <h2>{{ selectedPart.name }} Installation Guide</h2>
-        <div class="guide-content">
-          <p>{{ selectedPart.guide }}</p>
-        </div>
-      </div>
-    </div>
+           <!-- Enhanced Parts Grid -->
+           <v-row>
+             <v-col
+               v-for="part in filteredParts"
+               :key="part.id"
+               cols="12"
+               sm="6"
+               md="4"
+               lg="3"
+             >
+               <v-card
+                 class="enhanced-part-card"
+                 @click="showPartDetails(part)"
+                 elevation="2"
+                 hover
+               >
+                 <v-card-text class="part-card-content pa-4">
+                   <!-- Part Header -->
+                   <div class="part-header mb-3">
+                     <div class="part-image-section">
+                       <div class="image-container">
+                         <v-img
+                           v-if="part.image"
+                           :src="part.image"
+                           :alt="part.name"
+                           class="part-image"
+                           cover
+                         >
+                           <template v-slot:placeholder>
+                             <div class="image-placeholder">
+                               <v-icon large color="grey lighten-1">mdi-cog</v-icon>
+                             </div>
+                           </template>
+                         </v-img>
+                         <div v-else class="image-placeholder">
+                           <v-icon large color="grey lighten-1">mdi-cog</v-icon>
+                         </div>
+                         <div class="image-overlay">
+                           <v-icon color="white" large>mdi-eye</v-icon>
+                         </div>
+                       </div>
+                     </div>
+                     
+                     <div class="part-title-section">
+                       <h4 class="text-body-1 font-weight-bold mb-1">{{ part.name }}</h4>
+                       <div class="part-id-category">
+                         <v-chip small color="grey lighten-3" class="mr-2">
+                           <v-icon x-small left>mdi-tag</v-icon>
+                           {{ part.id }}
+                         </v-chip>
+                         <v-chip small :color="getCategoryColor(part.category)" text-color="white">
+                           {{ part.category }}
+                         </v-chip>
+                       </div>
+                     </div>
+                   </div>
 
-    <!-- 图片查看模态框 -->
-    <div v-if="selectedImagePart" class="modal-overlay image-modal-overlay" @click="closeImageModal" @keydown="handleKeydownModal">
-      <div class="modal-content image-modal-content" @click.stop>
-        <button class="modal-close image-modal-close" @click="closeImageModal">×</button>
-        <div class="image-modal-header">
-          <h2>{{ selectedImagePart.name }}</h2>
-          <p class="image-modal-category">{{ selectedImagePart.category }}</p>
-        </div>
-        <div class="image-modal-body">
-          <img 
-            :src="selectedImagePart.image" 
-            :alt="selectedImagePart.name"
-            class="image-modal-image"
-          />
-        </div>
-        <div class="image-modal-footer">
-          <p class="image-modal-specs">{{ selectedImagePart.specs }}</p>
-        </div>
-      </div>
-    </div>
-  </v-app>
+                   <!-- Function Section -->
+                   <div class="function-section mb-3">
+                     <div class="section-header">
+                       <v-icon small color="primary" class="mr-1">mdi-function</v-icon>
+                       <span class="text-caption font-weight-bold primary--text">FUNCTION</span>
+                     </div>
+                     <p class="text-body-2 mb-0 function-text">{{ part.function }}</p>
+                   </div>
+
+                   <!-- Specs Section -->
+                   <div class="specs-section mb-3">
+                     <div class="section-header">
+                       <v-icon small color="green" class="mr-1">mdi-wrench</v-icon>
+                       <span class="text-caption font-weight-bold green--text">SPECIFICATIONS</span>
+                     </div>
+                     <p class="text-body-2 mb-0 specs-text">{{ part.specs }}</p>
+                   </div>
+
+                   <!-- Compatibility Section -->
+                   <div class="compatibility-section">
+                     <div class="section-header">
+                       <v-icon small color="orange" class="mr-1">mdi-car</v-icon>
+                       <span class="text-caption font-weight-bold orange--text">COMPATIBILITY</span>
+                     </div>
+                     <div class="compatibility-chips">
+                       <v-chip
+                         v-for="model in part.compatibility"
+                         :key="model"
+                         x-small
+                         color="orange lighten-4"
+                         text-color="orange darken-3"
+                         class="mr-1 mb-1"
+                       >
+                         {{ model }}
+                       </v-chip>
+                     </div>
+                   </div>
+                 </v-card-text>
+               </v-card>
+             </v-col>
+           </v-row>
+         </v-col>
+       </v-row>
+     </v-container>
+
+     <!-- Part Details Modal -->
+     <v-dialog v-model="showPartModal" max-width="800" persistent>
+       <v-card>
+         <v-card-title class="headline primary white--text">
+           <v-icon left>mdi-package-variant</v-icon>
+           {{ selectedPart ? selectedPart.name : 'No Part Selected' }}
+           <v-spacer></v-spacer>
+           <v-btn icon @click="showPartModal = false" class="white--text">
+             <v-icon>mdi-close</v-icon>
+           </v-btn>
+         </v-card-title>
+         
+         <!-- Debug Info -->
+         <v-card-subtitle v-if="selectedPart" class="pa-2 debug-info">
+           <v-chip small color="warning">Debug: Part ID {{ selectedPart.id }}</v-chip>
+         </v-card-subtitle>
+         
+         <v-card-text class="pa-4">
+           <v-row>
+             <!-- Part Image -->
+             <v-col cols="12" md="4">
+               <v-img 
+                 :src="selectedPart ? selectedPart.image : ''" 
+                 :alt="selectedPart ? selectedPart.name : ''"
+                 height="200"
+                 contain
+                 class="mb-4 rounded"
+               />
+             </v-col>
+             
+             <!-- Part Details -->
+             <v-col cols="12" md="8">
+               <v-list dense class="transparent">
+                 <v-list-item>
+                   <v-list-item-icon>
+                     <v-icon color="primary">mdi-tag</v-icon>
+                   </v-list-item-icon>
+                   <v-list-item-content>
+                     <v-list-item-title>Category</v-list-item-title>
+                     <v-list-item-subtitle class="text--primary">{{ selectedPart ? selectedPart.category : '' }}</v-list-item-subtitle>
+                   </v-list-item-content>
+                 </v-list-item>
+                 
+                 <v-list-item>
+                   <v-list-item-icon>
+                     <v-icon color="primary">mdi-label</v-icon>
+                   </v-list-item-icon>
+                   <v-list-item-content>
+                     <v-list-item-title>Subcategory</v-list-item-title>
+                     <v-list-item-subtitle class="text--primary">{{ selectedPart ? selectedPart.subcategory || 'N/A' : 'N/A' }}</v-list-item-subtitle>
+                   </v-list-item-content>
+                 </v-list-item>
+               </v-list>
+             </v-col>
+           </v-row>
+           
+           <!-- Specifications -->
+           <v-divider class="my-4"></v-divider>
+           
+           <v-row>
+             <v-col cols="12" md="6">
+               <h3 class="subtitle-1 primary--text mb-2">
+                 <v-icon left color="primary">mdi-wrench</v-icon>
+                 Specifications
+               </h3>
+               <p class="body-2">{{ selectedPart ? selectedPart.specs : '' }}</p>
+             </v-col>
+             
+             <v-col cols="12" md="6">
+               <h3 class="subtitle-1 primary--text mb-2">
+                 <v-icon left color="primary">mdi-function</v-icon>
+                 Function
+               </h3>
+               <p class="body-2">{{ selectedPart ? selectedPart.function : '' }}</p>
+             </v-col>
+           </v-row>
+           
+           <!-- Compatibility -->
+           <v-divider class="my-4"></v-divider>
+           
+           <h3 class="subtitle-1 primary--text mb-2">
+             <v-icon left color="primary">mdi-car</v-icon>
+             Compatibility
+           </h3>
+           <div class="d-flex flex-wrap gap-2">
+             <v-chip 
+               v-for="model in (selectedPart ? selectedPart.compatibility : [])" 
+               :key="model"
+               color="secondary"
+               small
+             >
+               {{ model }}
+             </v-chip>
+           </div>
+         </v-card-text>
+         
+         <v-card-actions class="pa-4">
+           <v-spacer></v-spacer>
+           <v-btn color="primary" @click="showPartModal = false">Close</v-btn>
+         </v-card-actions>
+       </v-card>
+     </v-dialog>
+
+     <!-- Image Viewing Modal -->
+     <v-dialog v-model="selectedImagePart" max-width="800" persistent>
+       <v-card>
+         <v-card-title class="headline secondary white--text">
+           {{ selectedImagePart ? selectedImagePart.name : '' }}
+           <v-spacer></v-spacer>
+           <v-btn icon @click="closeImageModal" class="white--text">
+             <v-icon>mdi-close</v-icon>
+           </v-btn>
+         </v-card-title>
+         <v-card-subtitle class="pa-4 pb-0">
+           <v-chip color="primary" small>{{ selectedImagePart ? selectedImagePart.category : '' }}</v-chip>
+         </v-card-subtitle>
+         <v-card-text class="pa-4 text-center">
+           <v-img 
+             :src="selectedImagePart ? selectedImagePart.image : ''" 
+             :alt="selectedImagePart ? selectedImagePart.name : ''"
+             max-height="400"
+             contain
+             class="mb-4"
+           />
+           <p class="body-2">{{ selectedImagePart ? selectedImagePart.specs : '' }}</p>
+         </v-card-text>
+         <v-card-actions class="pa-4">
+           <v-spacer></v-spacer>
+           <v-btn color="primary" @click="closeImageModal">Close</v-btn>
+         </v-card-actions>
+       </v-card>
+     </v-dialog>
+   </v-app>
 </template>
 
 <script>
@@ -284,16 +556,37 @@ export default {
     try {
       // 加载零件数据
       const partsData = require('~/data/parts/tamiya-tt-02-parts.json')
+      // 加载分类数据
+      const categoriesData = require('~/data/categories.json')
       // 加载模型数据
       const modelData = require('~/data/models/tamiya-tt-02.json')
+      
+      console.log('原始零件数据:', partsData) // Debug log
+      
+      // 将零件数据与分类数据关联
+      const partsWithCategoryNames = partsData.map(part => {
+        const category = categoriesData.categories.find(cat => cat.id === part.category_id)
+        const processedPart = {
+          ...part,
+          category: category ? category.name : 'Unknown',
+          category_description: category ? category.description : ''
+        }
+        console.log('处理后的零件:', processedPart) // Debug log
+        return processedPart
+      })
+      
+      console.log('最终零件数据:', partsWithCategoryNames) // Debug log
+      
       return {
-        parts: partsData,
+        parts: partsWithCategoryNames,
+        categories: categoriesData.categories,
         model: modelData
       }
     } catch (error) {
       console.error('加载数据失败:', error)
       return {
         parts: [],
+        categories: [],
         model: {}
       }
     }
@@ -308,23 +601,14 @@ export default {
       searchTimeout: null,
       selectedPart: null,
       selectedImagePart: null,
-      selectedCategory: null
+      selectedCategory: null,
+      showPartModal: false
     }
   },
   computed: {
-    categories() {
-      // 从categories.json获取标准分类
-      return [
-        { id: 'chassis', name: 'Chassis' },
-        { id: 'drivetrain', name: 'Drivetrain' },
-        { id: 'suspension', name: 'Suspension' },
-        { id: 'steering', name: 'Steering' },
-        { id: 'motor', name: 'Motor / Motor Mount' },
-        { id: 'wheels_tires', name: 'Wheels & Tires' },
-        { id: 'hardware', name: 'Hardware' },
-        { id: 'body', name: 'body' },
-        { id: 'electronics', name: 'electronics' }
-      ]
+    availableCategories() {
+      // 使用从categories.json加载的标准分类
+      return this.$data.categories || []
     },
     
     filteredParts() {
@@ -341,7 +625,9 @@ export default {
         filtered = filtered.filter(part => 
           part.name.toLowerCase().includes(searchTerm) ||
           part.category.toLowerCase().includes(searchTerm) ||
-          (part.specs && part.specs.toLowerCase().includes(searchTerm))
+          (part.specs && part.specs.toLowerCase().includes(searchTerm)) ||
+          (part.function && part.function.toLowerCase().includes(searchTerm)) ||
+          (part.subcategory && part.subcategory.toLowerCase().includes(searchTerm))
         )
       }
       
@@ -372,7 +658,9 @@ export default {
       this.searchSuggestions = this.parts.filter(part => 
         part.name.toLowerCase().includes(searchTerm) ||
         part.category.toLowerCase().includes(searchTerm) ||
-        (part.specs && part.specs.toLowerCase().includes(searchTerm))
+        (part.specs && part.specs.toLowerCase().includes(searchTerm)) ||
+        (part.function && part.function.toLowerCase().includes(searchTerm)) ||
+        (part.subcategory && part.subcategory.toLowerCase().includes(searchTerm))
       ).slice(0, 5) // Limit to 5 suggestions
       
       this.showSuggestions = true
@@ -470,15 +758,14 @@ export default {
     // 获取分类颜色
     getCategoryColor(categoryName) {
       const colorMap = {
-        'Chassis': 'blue',
-        'Drivetrain': 'green',
-        'Suspension': 'orange',
-        'Steering': 'purple',
-        'Motor / Motor Mount': 'red',
+        'Steering & Control': 'purple',
+        'Drivetrain & Smoothness': 'green',
+        'Suspension & Handling': 'orange',
+        'Motor & Electronics': 'red',
         'Wheels & Tires': 'teal',
-        'Hardware': 'grey',
-        'body': 'brown',
-        'electronics': 'indigo'
+        'Hardware & Mounts': 'grey',
+        'Stabilizers & Controllers': 'indigo',
+        'Body & Accessories': 'brown'
       }
       return colorMap[categoryName] || 'grey'
     },
@@ -486,15 +773,14 @@ export default {
     // 获取分类图标
     getCategoryIcon(categoryName) {
       const iconMap = {
-        'Chassis': 'mdi-car-suspension',
-        'Drivetrain': 'mdi-cog',
-        'Suspension': 'mdi-car-suspension',
-        'Steering': 'mdi-steering',
-        'Motor / Motor Mount': 'mdi-engine',
+        'Steering & Control': 'mdi-steering',
+        'Drivetrain & Smoothness': 'mdi-cog',
+        'Suspension & Handling': 'mdi-car-suspension',
+        'Motor & Electronics': 'mdi-engine',
         'Wheels & Tires': 'mdi-car-tire-alert',
-        'Hardware': 'mdi-wrench',
-        'body': 'mdi-car-body',
-        'electronics': 'mdi-chip'
+        'Hardware & Mounts': 'mdi-wrench',
+        'Stabilizers & Controllers': 'mdi-chip',
+        'Body & Accessories': 'mdi-car-body'
       }
       return iconMap[categoryName] || 'mdi-cog'
     },
@@ -503,6 +789,25 @@ export default {
       const searchQuery = encodeURIComponent(`Tamiya TT-02 ${part.name}`)
       window.open(`https://www.ebay.com/sch/i.html?_nkw=${searchQuery}`, '_blank')
     },
+    
+    // Show part details
+    showPartDetails(part) {
+      console.log('Selected part:', part) // Debug log
+      console.log('Part ID:', part.id) // Debug specific field
+      console.log('Part Name:', part.name) // Debug specific field
+      console.log('Part Category:', part.category) // Debug specific field
+      console.log('Part Image:', part.image) // Debug specific field
+      this.selectedPart = part
+      this.showPartModal = true
+    },
+    
+    // Clear all filters
+    clearFilters() {
+      this.searchQuery = ''
+      this.selectedCategory = null
+      this.showSuggestions = false
+    },
+    
     showGuide(part) {
       this.selectedPart = part
     },
@@ -559,693 +864,229 @@ export default {
 </script>
 
 <style scoped>
-.parts-page {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+/* Enhanced Page Layout */
+.enhanced-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
-.breadcrumb-nav {
-  display: flex;
-  align-items: center;
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.9);
-  margin-right: 20px;
-}
-
-.breadcrumb-container {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
+/* Enhanced Model Header */
+.enhanced-model-header {
+  padding: 60px 0 40px;
   color: white;
+  text-align: center;
 }
 
-.breadcrumb-link {
-  display: flex;
-  align-items: center;
-  color: rgba(255, 255, 255, 0.9);
-  text-decoration: none;
-  transition: color 0.2s ease;
+/* Enhanced Parts Section */
+.enhanced-parts-section {
+  background: #f8f9fa;
+  padding: 40px 0;
 }
 
-.breadcrumb-link:hover {
-  color: white;
-  text-decoration: underline;
+/* Enhanced Part Card Styles */
+.enhanced-part-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.breadcrumb-current {
-  display: flex;
-  align-items: center;
-  color: white;
-  font-weight: 500;
+.enhanced-part-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
 }
 
-.breadcrumb-divider {
-  margin: 0 8px;
-  color: rgba(255, 255, 255, 0.7);
+.part-card-header {
+  border-bottom: 1px solid #e0e0e0;
 }
 
-/* 隐藏导航按钮的文字内容 */
-.v-btn__content {
-  display: none;
-}
-
-/* 页面容器间距 */
-.parts-main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* 搜索和筛选区域间距 */
-.search-filter-section {
-  margin-bottom: 40px;
+.part-card-content {
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto 40px;
-  padding: 0 20px;
 }
 
-/* 模型头部信息间距 */
-.model-header {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 40px;
-  margin-bottom: 40px;
-  align-items: start;
-  max-width: 1200px;
-  margin: 0 auto 40px;
-  padding: 0 20px;
+.part-image-section {
+  position: relative;
+  overflow: hidden;
 }
 
-/* 零件网格间距 */
-.parts-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 24px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 4px;
 }
 
-/* 无结果提示间距 */
-.no-results {
+.part-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 40px 20px;
-  margin: 40px auto;
-  max-width: 1200px;
+  background: #f5f5f5;
 }
 
-/* 响应式设计 - 小屏幕调整 */
-@media (max-width: 768px) {
-  .parts-main,
-  .search-filter-section,
-  .model-header,
-  .parts-grid,
-  .no-results {
-    padding: 0 16px;
-  }
-  
-  .model-header {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  
-  .parts-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .parts-main,
-  .search-filter-section,
-  .model-header,
-  .parts-grid,
-  .no-results {
-    padding: 0 12px;
-  }
-}
-
-.model-title {
-  font-size: 2.5rem;
-  color: #333;
-  margin: 0 0 16px;
-  font-weight: 700;
-}
-
-.model-description {
-  font-size: 1.2rem;
-  color: #666;
-  margin: 0 0 24px;
-  line-height: 1.5;
-}
-
-.model-specs {
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
-  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-container:hover .image-overlay {
+  opacity: 1;
+}
+
+.image-container:hover .part-image {
+  transform: scale(1.05);
+}
+
+/* New Part Card Layout Styles */
+.part-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.part-image-section {
+  flex-shrink: 0;
+  width: 80px;
+}
+
+.part-image-section .image-container {
+  height: 80px;
+  width: 80px;
+}
+
+.part-title-section {
+  flex: 1;
+}
+
+.part-id-category {
+  display: flex;
+  align-items: center;
   flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Section Styles */
+.section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.function-section {
+  background: linear-gradient(135deg, #f8fbff 0%, #e3f2fd 100%);
+  padding: 0.75rem;
+  border-radius: 8px;
+  border-left: 4px solid #2196f3;
+}
+
+.function-text {
+  line-height: 1.4;
+  color: #1565c0;
+}
+
+.specs-section {
+  background: linear-gradient(135deg, #f1f8e9 0%, #e8f5e8 100%);
+  padding: 0.75rem;
+  border-radius: 8px;
+  border-left: 4px solid #4caf50;
+}
+
+.specs-text {
+  line-height: 1.4;
+  color: #2e7d32;
+}
+
+.compatibility-section {
+  background: linear-gradient(135deg, #fff3e0 0%, #ffecb3 100%);
+  padding: 0.75rem;
+  border-radius: 8px;
+  border-left: 4px solid #ff9800;
+}
+
+.compatibility-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.part-info-section {
+  flex: 1;
+}
+
+.part-specs {
+  border-top: 1px solid #f0f0f0;
+  padding-top: 0.75rem;
 }
 
 .spec-item {
   display: flex;
-  flex-direction: column;
-}
-
-.spec-label {
-  font-size: 0.9rem;
-  color: #999;
-  margin-bottom: 4px;
-}
-
-.spec-value {
-  font-size: 1.1rem;
-  color: #333;
-  font-weight: 500;
-}
-
-.model-image {
-  background: #f8f9fa;
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-  color: #666;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  min-height: 200px;
-}
-
-.model-image-real {
-  max-width: 100%;
-  max-height: 300px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.model-image-real:hover {
-  transform: scale(1.02);
-}
-
-.image-placeholder {
-  font-size: 1.5rem;
-}
-
-/* Articles Buttons in Navigation Bar */
-.articles-nav-btn {
-  font-size: 0.875rem !important;
-}
-
-/* Model Selector Section */
-.model-selector-section {
-  background: #f8f9fa;
-  border-radius: 16px;
-  padding: 24px;
-  margin-bottom: 30px;
-}
-
-.selector-container {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.selector-title {
-  font-size: 1.3rem;
-  color: #333;
-  margin: 0 0 8px;
-  font-weight: 600;
-}
-
-.selector-description {
-  color: #666;
-  margin: 0 0 16px;
-  font-size: 0.95rem;
-}
-
-/* 搜索和筛选区域布局 */
-.search-filter-section {
-  margin-bottom: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-/* 搜索区域样式 */
-.search-section {
-  margin-bottom: 0;
-}
-
-.search-container {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.search-input-wrapper {
-  position: relative;
-  display: flex;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-
-.search-input {
-  flex: 1;
-  padding: 16px 20px;
-  border: 2px solid #e0e0e0;
-  border-radius: 12px;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
-
-.search-input:focus {
-  outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-}
-
-.search-btn {
-  padding: 16px 32px;
-  background: #667eea;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.search-btn:hover {
-  background: #5a6fd8;
-  transform: translateY(-2px);
-}
-
-/* 搜索建议下拉列表 */
-.search-suggestions {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: white;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-  max-height: 300px;
-  overflow-y: auto;
-  z-index: 1000;
-  animation: slideDown 0.2s ease;
-  margin-top: 8px;
-}
-
-/* 分类筛选区域样式 */
-.filter-section {
-  margin-bottom: 40px;
-  background: #f8f9fa;
-  border-radius: 16px;
-  padding: 24px;
-}
-
-.filter-container {
-  max-width: 100%;
-}
-
-.filter-header {
-  display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  padding: 0.25rem 0;
 }
 
-.filter-title {
-  font-size: 1.3rem;
-  color: #333;
-  margin: 0;
-  font-weight: 600;
-}
-
-.filter-stats {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.active-filter {
-  background: #667eea;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  white-space: nowrap;
-  line-height: 1;
-}
-
-.clear-filter {
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  color: white;
-  border-radius: 20px;
-  padding: 4px 12px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  transition: all 0.2s ease;
-  flex-shrink: 0;
-  line-height: 1;
-  margin: 0;
-  position: relative;
-  white-space: nowrap;
-}
-
-.clear-filter:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: scale(1.1);
-}
-
-.total-count {
-  color: #666;
-  font-size: 0.9rem;
-}
-
-.category-filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin: 0;
-  padding: 0;
-}
-
-.category-filter-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 20px;
-  background: white;
-  border: 2px solid #e0e0e0;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: #333;
-  margin: 0;
-  white-space: nowrap;
-}
-
-.category-filter-btn:hover {
-  border-color: #667eea;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
-}
-
-.category-filter-btn.active {
-  background: #667eea;
-  border-color: #667eea;
-  color: white;
-}
-
-.category-name {
-  font-weight: 500;
-}
-
-.category-count {
-  background: rgba(102, 126, 234, 0.1);
-  color: #667eea;
-  padding: 2px 8px;
-  border-radius: 12px;
-  font-size: 0.8rem;
-  font-weight: 600;
-}
-
-.category-filter-btn.active .category-count {
-  background: rgba(255, 255, 255, 0.3);
-  color: white;
-}
-
-.suggestion-item {
-  padding: 16px 20px;
-  cursor: pointer;
-  border-bottom: 1px solid #f1f5f9;
-  transition: all 0.2s ease;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.suggestion-item:last-child {
+.spec-item:last-child {
   border-bottom: none;
 }
 
-.suggestion-item:hover,
-.suggestion-item.active {
-  background: #f8fafc;
-  border-left: 4px solid #667eea;
-}
-
-.suggestion-name {
-  font-weight: 500;
-  color: #333;
-}
-
-.suggestion-description {
-  font-size: 0.9rem;
-  color: #666;
-  background: #f1f5f9;
-  padding: 4px 8px;
-  border-radius: 4px;
-  max-width: 200px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* 搜索结果统计 */
-.search-stats {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 0.9rem;
-  color: #666;
-}
-
-.results-count {
-  font-weight: 500;
-  color: #333;
-}
-
-.search-query {
-  background: #f1f5f9;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-style: italic;
-}
-
-/* 无结果提示 */
-.no-results {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 40px 20px;
-  margin: 40px 0;
-}
-
-.no-results-icon {
-  font-size: 3rem;
-  margin-right: 20px;
-  opacity: 0.7;
-}
-
-.no-results-text p {
-  margin: 0 0 8px;
-  color: #64748b;
-}
-
-.no-results-text p:last-child {
-  margin-bottom: 0;
-}
-
-.no-results-suggestion {
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-
-/* 零件网格 */
-.parts-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 20px;
-}
-
-.part-card {
-  background: white;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  padding: 16px;
+/* Category Card Styles */
+.category-card {
   transition: all 0.3s ease;
-  display: flex;
-  gap: 12px;
-  min-height: 120px;
-  height: auto;
+  cursor: pointer;
 }
 
-.part-card:hover {
+.category-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
 }
 
-.part-image {
-  flex-shrink: 0;
+.category-card.active {
+  background-color: #f8f9fa !important;
 }
 
-.image-placeholder-small {
-  width: 60px;
-  height: 60px;
-  background: #f8f9fa;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  color: #666;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .enhanced-model-header {
+    padding: 40px 0 20px;
+  }
+  
+  .enhanced-parts-section {
+    padding: 20px 0;
+  }
+  
+  .image-container {
+    height: 150px;
+  }
 }
 
-.part-image-real {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 8px;
-  border: 1px solid #e2e8f0;
-}
-
-.part-info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.part-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 8px;
-}
-
-.part-name {
-  font-size: 1rem;
-  color: #333;
-  margin: 0;
-  font-weight: 600;
-  line-height: 1.3;
-  flex: 1;
-}
-
-.part-header {
-  margin-bottom: 8px;
-}
-
-.part-name {
-  font-size: 1rem;
-  color: #333;
-  margin: 0;
-  font-weight: 600;
-  line-height: 1.3;
-}
-
-/* 零件类别 */
-.part-category {
-  margin-bottom: 8px;
-  display: none; /* 隐藏分类信息 */
-  align-items: center;
-  gap: 8px;
-}
-
-.category-label {
-  font-size: 0.7rem;
-  color: #999;
-  font-weight: 500;
-}
-
-.category-value {
-  font-size: 0.8rem;
-  color: #667eea;
-  background: #f1f5f9;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-weight: 500;
-}
-
-/* 文本格式规格参数 - 突出显示 */
-.part-specs-text {
-  margin-top: auto;
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-  border-radius: 8px;
-  padding: 8px 12px;
-  border-left: 4px solid #667eea;
-  min-height: 40px;
-  display: flex;
-  align-items: center;
-}
-
-.part-specs-text .spec-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  width: 100%;
-}
-
-.part-specs-text .spec-label {
-  font-size: 0.7rem;
-  color: #667eea;
-  white-space: nowrap;
-  flex-shrink: 0;
-  font-weight: 600;
-  background: rgba(102, 126, 234, 0.1);
-  padding: 2px 6px;
-  border-radius: 4px;
-  margin-top: 2px;
-}
-
-.part-specs-text .spec-value {
-  font-size: 0.8rem;
-  color: #2d3748;
-  font-weight: 600;
-  line-height: 1.4;
-  flex: 1;
-  background: white;
-  padding: 4px 8px;
-  border-radius: 4px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  hyphens: auto;
-}
-
+/* Modal Styles */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1254,19 +1095,28 @@ export default {
 
 .modal-content {
   background: white;
-  padding: 30px;
   border-radius: 12px;
   max-width: 500px;
   width: 90%;
   max-height: 80vh;
   overflow-y: auto;
-  position: relative;
+}
+
+.modal-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 .modal-close {
-  position: absolute;
-  top: 15px;
-  right: 15px;
   background: none;
   border: none;
   font-size: 1.5rem;
@@ -1274,180 +1124,39 @@ export default {
   color: #666;
 }
 
-.modal-content h2 {
-  margin: 0 0 20px;
-  color: #333;
+.modal-body {
+  padding: 1.5rem;
 }
 
-.guide-content {
-  line-height: 1.6;
-  color: #666;
-}
-
-/* 图片查看模态框样式 */
-.image-modal-overlay {
-  background: rgba(0,0,0,0.9);
-  backdrop-filter: blur(5px);
-}
-
-.image-modal-content {
-  max-width: 800px;
-  width: 95%;
-  max-height: 90vh;
-  padding: 0;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.image-modal-close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: rgba(0,0,0,0.7);
-  color: white;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  z-index: 10;
-  transition: all 0.3s ease;
-}
-
-.image-modal-close:hover {
-  background: rgba(0,0,0,0.9);
-  transform: scale(1.1);
-}
-
-.image-modal-header {
-  padding: 30px 30px 20px;
-  background: white;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.image-modal-header h2 {
-  margin: 0 0 8px;
-  font-size: 1.5rem;
-  color: #333;
-}
-
-.image-modal-category {
-  margin: 0;
-  color: #667eea;
-  font-size: 0.9rem;
-  font-weight: 500;
-}
-
-.image-modal-body {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
-  background: #f8f9fa;
-  overflow: hidden;
-}
-
-.image-modal-image {
-  max-width: 100%;
-  max-height: 400px;
+.modal-image {
+  width: 100%;
+  max-height: 300px;
   object-fit: contain;
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+  margin-bottom: 1rem;
 }
 
-.image-modal-image:hover {
-  transform: scale(1.02);
+.modal-specs {
+  margin-bottom: 1rem;
 }
 
-.image-modal-footer {
-  padding: 20px 30px;
-  background: white;
-  border-top: 1px solid #e0e0e0;
+.modal-spec-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f0f0f0;
 }
 
-.image-modal-specs {
-  margin: 0;
-  color: #2d3748;
-  font-size: 1rem;
-  line-height: 1.5;
-  font-weight: 600;
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-  padding: 12px 16px;
-  border-radius: 8px;
-  border-left: 4px solid #667eea;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+.modal-spec-item:last-child {
+  border-bottom: none;
 }
 
-/* 为小图片添加点击提示 */
-.part-image-real {
-  cursor: pointer;
-  transition: all 0.3s ease;
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
 }
 
-.part-image-real:hover {
-  transform: scale(1.05);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* 隐藏模型标题 */
-.model-title {
-  display: none !important;
-}
-
-/* 修复导航栏遮挡问题 */
-.model-header,
-.search-filter-section,
-.parts-main {
-  margin-top: 64px; /* 补偿固定导航栏高度 */
-}
-
-/* 响应式设计 */
-@media (max-width: 768px) {
-  .model-header {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  
-  .model-title {
-    font-size: 2rem;
-  }
-  
-  .search-input-wrapper {
-    flex-direction: column;
-  }
-  
-  .parts-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .part-card {
-    flex-direction: column;
-  }
-  
-  .part-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
-  
-  .part-actions {
-    flex-direction: column;
-  }
+.modal-actions .v-btn {
+  flex: 1;
 }
 </style>

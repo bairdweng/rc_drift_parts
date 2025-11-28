@@ -1,135 +1,214 @@
 <template>
-  <div class="article-page">
-    <!-- Article Header -->
-    <section class="article-header">
-      <div class="container">
-        <nav class="breadcrumb">
-          <nuxt-link to="/tech-articles" class="breadcrumb-link">Technical Guides</nuxt-link>
-          <span class="breadcrumb-separator">/</span>
-          <span class="breadcrumb-current">{{ article.category }}</span>
+  <v-app>
+    <!-- Navigation Bar with Breadcrumbs -->
+    <v-app-bar color="primary" dark flat dense app>
+      <!-- Breadcrumb Navigation -->
+      <div class="breadcrumb-nav">
+        <nav class="breadcrumb-container">
+          <a href="/" class="breadcrumb-link">
+            <v-icon small class="mr-1">mdi-home</v-icon>
+            Home
+          </a>
+          <span class="breadcrumb-divider">/</span>
+          <a href="/tech-articles" class="breadcrumb-link">
+            <v-icon small class="mr-1">mdi-book-open-variant</v-icon>
+            Technical Guides
+          </a>
+          <span class="breadcrumb-divider">/</span>
+          <span class="breadcrumb-current">
+            <v-icon small class="mr-1">mdi-file-document</v-icon>
+            {{ article.title }}
+          </span>
         </nav>
-        
-        <div v-if="article.featured" class="featured-badge">Featured Article</div>
-        
-        <h1 class="article-title">{{ article.title }}</h1>
-        <p class="article-description">{{ article.description }}</p>
-        
-        <div class="article-meta">
-          <div class="meta-item">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
-            </svg>
-            <span>{{ article.readingTime }} min read</span>
-          </div>
-          <div class="meta-item">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm1-10.06L14.06 11l1.06-1.06L16.18 11l-1.06 1.06-1.06 1.06-1.06-1.06L12 9.94 9.94 12 11 13.06 9.94 14.12 8.88 13.06 7.82 14.12l1.06 1.06-1.06 1.06L6.7 14.12l1.06-1.06-1.06-1.06 1.06-1.06L8.82 11 7.76 9.94l1.06-1.06L9.88 9.94 11 8.88l1.06 1.06z"/>
-            </svg>
-            <span>{{ formatDate(article.date) }}</span>
-          </div>
-          <div class="meta-item">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-            </svg>
-            <span>By {{ article.author }}</span>
-          </div>
-        </div>
-        
-        <div class="article-image">
-          <img :src="article.image || '/images/article-placeholder.jpg'" :alt="article.title" />
-        </div>
       </div>
-    </section>
-
-    <!-- Floating Table of Contents -->
-    <div class="floating-toc" :class="{ 'toc-open': isTocOpen }">
-      <button class="toc-toggle" @click="toggleToc">
-        <span class="toc-icon">📋</span>
-        <span class="toc-text">{{ isTocOpen ? 'Hide TOC' : 'Show TOC' }}</span>
-      </button>
       
-      <div class="toc-content" v-if="isTocOpen">
-        <h3 class="toc-title">Table of Contents</h3>
-        <nav class="toc-nav">
-          <ul>
-            <li 
-              v-for="(heading, index) in mainHeadings" 
-              :key="index"
-              :class="['toc-item', { 'toc-active': heading.id === activeHeading }, `toc-level-${heading.level}`]"
-            >
-              <a 
-                :href="`#${heading.id}`"
-                @click.prevent="scrollToHeading(heading.id)"
-                class="toc-link"
-              >
-                {{ heading.text }}
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
+      <v-spacer></v-spacer>
+      
+      <!-- Navigation Buttons -->
+      <v-btn text @click="$router.push('/tech-articles')" class="mr-2">
+        <v-icon left>mdi-arrow-left</v-icon>
+        Back to Articles
+      </v-btn>
+      <v-btn text @click="$router.push('/')">
+        <v-icon left>mdi-home</v-icon>
+        Back to Home
+      </v-btn>
+    </v-app-bar>
 
-    <!-- Article Content -->
-    <section class="article-content-section">
-      <div class="container">
-        <div class="article-content">
-          <nuxt-content :document="article" />
-        </div>
-        
-        <!-- Related Articles -->
-        <div v-if="relatedArticles.length > 0" class="related-articles">
-          <h3 class="related-title">Related Articles</h3>
-          <div class="related-grid">
-            <article 
-              v-for="related in relatedArticles" 
-              :key="related.slug"
-              class="related-card"
-              @click="navigateToArticle(related.slug)"
-            >
-              <div class="related-image">
-                <img :src="related.image || '/images/article-placeholder.jpg'" :alt="related.title" />
-              </div>
-              <div class="related-content">
-                <span class="related-category">{{ related.category }}</span>
-                <h4 class="related-title">{{ related.title }}</h4>
-                <p class="related-description">{{ related.description }}</p>
-              </div>
-            </article>
-          </div>
-        </div>
-        
-        <!-- Navigation -->
-        <div class="article-navigation">
-          <button 
-            v-if="prevArticle" 
-            @click="navigateToArticle(prevArticle.slug)"
-            class="nav-button prev-button"
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-            </svg>
-            Previous Article
-          </button>
+    <!-- Main Content -->
+    <v-main class="article-main">
+      <v-container class="pa-4">
+        <!-- Article Header -->
+        <v-row class="mb-6">
+          <v-col cols="12">
+            <!-- Featured Badge -->
+            <v-chip v-if="article.featured" color="primary" class="mb-3">
+              <v-icon left>mdi-star</v-icon>
+              Featured Article
+            </v-chip>
+            
+            <!-- Article Title -->
+            <h1 class="display-1 font-weight-bold white--text mb-3">{{ article.title }}</h1>
+            <p class="subtitle-1 white--text mb-4">{{ article.description }}</p>
+            
+            <!-- Article Meta -->
+            <v-card class="meta-card pa-3 mb-4" flat color="rgba(255,255,255,0.1)">
+              <v-row align="center" no-gutters>
+                <v-col cols="auto" class="mr-4">
+                  <v-icon small class="mr-1">mdi-clock-outline</v-icon>
+                  <span class="caption">{{ article.readingTime }} min read</span>
+                </v-col>
+                <v-col cols="auto" class="mr-4">
+                  <v-icon small class="mr-1">mdi-calendar</v-icon>
+                  <span class="caption">{{ formatDate(article.date) }}</span>
+                </v-col>
+                <v-col cols="auto" class="mr-4">
+                  <v-icon small class="mr-1">mdi-account</v-icon>
+                  <span class="caption">By {{ article.author }}</span>
+                </v-col>
+                <v-col cols="auto">
+                  <v-chip small color="secondary">
+                    {{ article.category }}
+                  </v-chip>
+                </v-col>
+              </v-row>
+            </v-card>
+            
+            <!-- Article Image -->
+            <v-img
+              :src="article.image || '/images/article-placeholder.jpg'"
+              :alt="article.title"
+              height="300"
+              class="article-image mb-4"
+              contain
+            ></v-img>
+          </v-col>
+        </v-row>
+
+        <!-- Article Content -->
+        <v-row>
+          <v-col cols="12" lg="9">
+            <!-- Floating Table of Contents -->
+            <v-card class="toc-card mb-4" v-if="mainHeadings.length > 0">
+              <v-card-title class="d-flex align-center">
+                <v-icon left>mdi-table-of-contents</v-icon>
+                Table of Contents
+                <v-spacer></v-spacer>
+                <v-btn icon @click="isTocOpen = !isTocOpen">
+                  <v-icon>{{ isTocOpen ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
+                </v-btn>
+              </v-card-title>
+              <v-expand-transition>
+                <div v-show="isTocOpen">
+                  <v-divider></v-divider>
+                  <v-card-text>
+                    <nav class="toc-nav">
+                      <v-list dense>
+                        <v-list-item
+                          v-for="(heading, index) in mainHeadings"
+                          :key="index"
+                          :class="['toc-item', { 'toc-active': heading.id === activeHeading }]"
+                          :style="{ 'padding-left': (heading.level === 'h3' ? '24px' : '16px') }"
+                          @click="scrollToHeading(heading.id)"
+                        >
+                          <v-list-item-content>
+                            <v-list-item-title class="toc-link">
+                              {{ heading.text }}
+                            </v-list-item-title>
+                          </v-list-item-content>
+                        </v-list-item>
+                      </v-list>
+                    </nav>
+                  </v-card-text>
+                </div>
+              </v-expand-transition>
+            </v-card>
+            
+            <!-- Article Content -->
+            <v-card class="article-content-card pa-4 mb-6">
+              <nuxt-content :document="article" />
+            </v-card>
+            
+            <!-- Article Navigation -->
+            <v-row class="article-navigation mb-6">
+              <v-col cols="12" sm="4">
+                <v-btn 
+                  v-if="prevArticle" 
+                  @click="navigateToArticle(prevArticle.slug)"
+                  block 
+                  outlined 
+                  color="primary"
+                  class="prev-button"
+                >
+                  <v-icon left>mdi-chevron-left</v-icon>
+                  Previous
+                </v-btn>
+              </v-col>
+              <v-col cols="12" sm="4" class="text-center">
+                <v-btn 
+                  @click="$router.push('/tech-articles')"
+                  block 
+                  outlined 
+                  color="primary"
+                  class="back-button"
+                >
+                  <v-icon left>mdi-view-list</v-icon>
+                  All Articles
+                </v-btn>
+              </v-col>
+              <v-col cols="12" sm="4">
+                <v-btn 
+                  v-if="nextArticle" 
+                  @click="navigateToArticle(nextArticle.slug)"
+                  block 
+                  outlined 
+                  color="primary"
+                  class="next-button"
+                >
+                  Next
+                  <v-icon right>mdi-chevron-right</v-icon>
+                </v-btn>
+              </v-col>
+            </v-row>
+          </v-col>
           
-          <nuxt-link to="/tech-articles" class="back-button">
-            Back to All Articles
-          </nuxt-link>
-          
-          <button 
-            v-if="nextArticle" 
-            @click="navigateToArticle(nextArticle.slug)"
-            class="nav-button next-button"
-          >
-            Next Article
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </section>
-  </div>
+          <!-- Related Articles Sidebar -->
+          <v-col cols="12" lg="3">
+            <v-card v-if="relatedArticles.length > 0" class="related-articles-card">
+              <v-card-title class="d-flex align-center">
+                <v-icon left>mdi-bookmark-multiple</v-icon>
+                Related Articles
+              </v-card-title>
+              <v-divider></v-divider>
+              <v-list dense>
+                <v-list-item
+                  v-for="related in relatedArticles"
+                  :key="related.slug"
+                  @click="navigateToArticle(related.slug)"
+                  class="related-card"
+                >
+                  <v-list-item-avatar size="48">
+                    <v-img
+                      :src="related.image || '/images/article-placeholder.jpg'"
+                      :alt="related.title"
+                    ></v-img>
+                  </v-list-item-avatar>
+                  <v-list-item-content>
+                    <v-list-item-title class="body-2 font-weight-bold">
+                      {{ related.title }}
+                    </v-list-item-title>
+                    <v-list-item-subtitle class="caption">
+                      {{ related.category }}
+                    </v-list-item-subtitle>
+                  </v-list-item-content>
+                </v-list-item>
+              </v-list>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
