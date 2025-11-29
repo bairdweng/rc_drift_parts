@@ -5,7 +5,7 @@
       <!-- Breadcrumb Navigation inside Navigation Bar -->
       <div class="breadcrumb-nav" style="display: flex; align-items: center; margin-left: 16px;">
         <nav class="breadcrumb-container" style="display: flex; align-items: center;">
-          <a href="/" class="breadcrumb-link" style="color: white; text-decoration: none; display: flex; align-items: center;">
+          <a href="#" @click.prevent="$router.push('/')" class="breadcrumb-link" style="color: white; text-decoration: none; display: flex; align-items: center;">
             <v-icon small class="mr-1" style="color: white;">mdi-home</v-icon>
             <span style="color: white;">Home</span>
           </a>
@@ -410,104 +410,11 @@
      </v-container>
 
      <!-- Part Details Modal -->
-     <v-dialog v-model="showPartModal" max-width="800" persistent>
-       <v-card>
-         <v-card-title class="headline primary white--text">
-           <v-icon left>mdi-package-variant</v-icon>
-           {{ selectedPart ? selectedPart.name : 'No Part Selected' }}
-           <v-spacer></v-spacer>
-           <v-btn icon @click="showPartModal = false" class="white--text">
-             <v-icon>mdi-close</v-icon>
-           </v-btn>
-         </v-card-title>
-         
-
-         
-         <v-card-text class="pa-4">
-           <v-row>
-             <!-- Part Image -->
-             <v-col cols="12" md="4">
-               <v-img 
-                 :src="selectedPart ? selectedPart.image : ''" 
-                 :alt="selectedPart ? selectedPart.name : ''"
-                 height="200"
-                 contain
-                 class="mb-4 rounded"
-               />
-             </v-col>
-             
-             <!-- Part Details -->
-             <v-col cols="12" md="8">
-               <v-list dense class="transparent">
-                 <v-list-item>
-                   <v-list-item-icon>
-                     <v-icon color="primary">mdi-tag</v-icon>
-                   </v-list-item-icon>
-                   <v-list-item-content>
-                     <v-list-item-title>Category</v-list-item-title>
-                     <v-list-item-subtitle class="text--primary">{{ selectedPart ? selectedPart.category : '' }}</v-list-item-subtitle>
-                   </v-list-item-content>
-                 </v-list-item>
-                 
-                 <v-list-item>
-                   <v-list-item-icon>
-                     <v-icon color="primary">mdi-label</v-icon>
-                   </v-list-item-icon>
-                   <v-list-item-content>
-                     <v-list-item-title>Subcategory</v-list-item-title>
-                     <v-list-item-subtitle class="text--primary">{{ selectedPart ? selectedPart.subcategory || 'N/A' : 'N/A' }}</v-list-item-subtitle>
-                   </v-list-item-content>
-                 </v-list-item>
-               </v-list>
-             </v-col>
-           </v-row>
-           
-           <!-- Specifications -->
-           <v-divider class="my-4"></v-divider>
-           
-           <v-row>
-             <v-col cols="12" md="6">
-               <h3 class="subtitle-1 primary--text mb-2">
-                 <v-icon left color="primary">mdi-wrench</v-icon>
-                 Specifications
-               </h3>
-               <p class="body-2">{{ selectedPart ? selectedPart.specs : '' }}</p>
-             </v-col>
-             
-             <v-col cols="12" md="6">
-               <h3 class="subtitle-1 primary--text mb-2">
-                 <v-icon left color="primary">mdi-function</v-icon>
-                 Function
-               </h3>
-               <p class="body-2">{{ selectedPart ? selectedPart.function : '' }}</p>
-             </v-col>
-           </v-row>
-           
-           <!-- Compatibility -->
-           <v-divider class="my-4"></v-divider>
-           
-           <h3 class="subtitle-1 primary--text mb-2">
-             <v-icon left color="primary">mdi-car</v-icon>
-             Compatibility
-           </h3>
-           <div class="d-flex flex-wrap gap-2">
-             <v-chip 
-               v-for="model in (selectedPart ? selectedPart.compatibility : [])" 
-               :key="model"
-               color="secondary"
-               small
-             >
-               {{ model }}
-             </v-chip>
-           </div>
-         </v-card-text>
-         
-         <v-card-actions class="pa-4">
-           <v-spacer></v-spacer>
-           <v-btn color="primary" @click="showPartModal = false">Close</v-btn>
-         </v-card-actions>
-       </v-card>
-     </v-dialog>
+     <PartDetailModal 
+       :show="showPartModal" 
+       :part="selectedPart"
+       @update:show="showPartModal = $event"
+     />
 
      <!-- Image Viewing Modal -->
      <v-dialog v-model="selectedImagePart" max-width="800" persistent>
@@ -543,20 +450,75 @@
 
 <script>
 import ModelSelector from '~/components/ModelSelector.vue'
+import PartDetailModal from '~/components/PartDetailModal.vue'
 
 // 使用异步数据加载，减少初始包大小
 export default {
   components: {
-    ModelSelector
+    ModelSelector,
+    PartDetailModal
   },
-  async asyncData({ $fetch }) {
+  methods: {
+    // 开发模式数据处理函数 - 简化版本，直接使用预处理数据
+    async processDevData() {
+      try {
+        // 开发模式：直接使用预处理数据
+        const enhancedParts = await import('~/static/data/parts-enhanced.json')
+        console.log(`🔍 开发模式: 加载 ${enhancedParts.default.length} 个预处理零件数据`)
+        return enhancedParts.default
+      } catch (error) {
+        console.warn('开发模式加载预处理数据失败，使用原始数据:', error)
+        const originalPartsData = require('~/data/parts/tamiya-tt-02-parts.json')
+        return originalPartsData
+      }
+    }
+  },
+
+  async asyncData({ $content, isDev }) {
     try {
-      // 加载零件数据
-      const partsData = require('~/data/parts/tamiya-tt-02-parts.json')
       // 加载分类数据
       const categoriesData = require('~/data/categories.json')
       // 加载模型数据
       const modelData = require('~/data/models/tamiya-tt-02.json')
+      
+      let partsData
+      
+      // 开发模式数据处理函数
+      const processDevData = async () => {
+        try {
+          // 开发模式：直接使用预处理数据
+          const enhancedParts = await import('~/static/data/parts-enhanced.json')
+          console.log(`🔍 开发模式: 加载 ${enhancedParts.default.length} 个预处理零件数据`)
+          return enhancedParts.default
+        } catch (error) {
+          console.warn('开发模式加载预处理数据失败，使用原始数据:', error)
+          const originalPartsData = require('~/data/parts/tamiya-tt-02-parts.json')
+          return originalPartsData
+        }
+      }
+      
+      if (isDev && typeof window === 'undefined') {
+        // 开发模式：使用预处理数据
+        try {
+          const enhancedParts = await processDevData()
+          partsData = enhancedParts
+        } catch (error) {
+          console.warn('开发模式数据处理失败，使用原始数据:', error)
+          const originalPartsData = require('~/data/parts/tamiya-tt-02-parts.json')
+          partsData = originalPartsData
+        }
+      } else {
+        // 生产模式：尝试使用预处理数据，如果不存在则使用原始数据
+        try {
+          const enhancedParts = await import('~/static/data/parts-enhanced.json')
+          partsData = enhancedParts.default
+        } catch (error) {
+          // 如果预处理数据不存在，使用原始数据
+          console.warn('预处理数据不存在，使用原始零件数据:', error)
+          const originalPartsData = require('~/data/parts/tamiya-tt-02-parts.json')
+          partsData = originalPartsData
+        }
+      }
       
       // 将零件数据与分类数据关联
       const partsWithCategoryNames = partsData.map(part => {
@@ -816,6 +778,12 @@ export default {
       }
     },
     
+    // 在新标签页中打开文章
+    openArticleInNewTab(slug) {
+      const articleUrl = `${window.location.origin}/tech-articles/${slug}`
+      window.open(articleUrl, '_blank')
+    },
+    
     // 导航到文章页面
     navigateToArticle(slug) {
       this.$router.push(`/tech-articles/${slug}`)
@@ -828,6 +796,19 @@ export default {
       } else if (type === 'tt02') {
         this.$router.push('/tech-articles?model=tamiya-tt-02')
       }
+    },
+    
+    // 获取相关文章
+    getRelatedArticles(part) {
+      if (!part) return []
+      
+      // 使用预处理数据中的relatedArticles字段
+      if (part.relatedArticles && Array.isArray(part.relatedArticles) && part.relatedArticles.length > 0) {
+        return part.relatedArticles
+      }
+      
+      // 如果没有预处理数据，使用备用方案
+      return []
     }
   },
   head() {

@@ -10,6 +10,7 @@ image: "/image/articles/suspension-tire-setup.webp"
 keywords: "rc drift cars suspension tuning"
 models: []
 compatibleModels: []
+partIds: []
 ---
 
 ## *With Useful Diagrams for Camber, Shock Angle, and Offset*

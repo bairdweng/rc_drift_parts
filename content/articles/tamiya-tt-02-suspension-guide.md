@@ -10,6 +10,7 @@ image: "/image/articles/suspension-tire-setup.webp"
 keywords: "tamiya tt-02 suspension, tt02 drift setup, tamiya drift tuning"
 models: ["tamiya-tt-02"]
 compatibleModels: ["tamiya-tt-02"]
+partIds: []
 ---
 
 # **Tamiya TT-02 Suspension Setup Guide**

@@ -10,6 +10,7 @@ image: "/image/articles/electronics-tuning.webp"
 keywords: "rc drift cars electronics tuning esc motor gyro"
 models: []
 compatibleModels: []
+partIds: []
 ---
 
 # **RC Drift Car ESC & Motor Basics – Simple Q&A Guide for Beginners**

@@ -10,6 +10,7 @@ image: "/image/articles/battery-systems.webp"
 keywords: "rc drift cars battery systems"
 models: []
 compatibleModels: []
+partIds: []
 ---
 
 # RC Drift Car Battery Systems: Powering Your Drift Machine

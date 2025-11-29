@@ -2,7 +2,7 @@
   <div class="parts-index-page">
     <!-- Breadcrumb Navigation -->
     <nav class="breadcrumb">
-      <a href="/" class="breadcrumb-link">Home</a>
+      <a href="#" @click.prevent="$router.push('/')" class="breadcrumb-link">Home</a>
       <span class="breadcrumb-separator">/</span>
       <span class="breadcrumb-current">All RC Drift Models</span>
     </nav>

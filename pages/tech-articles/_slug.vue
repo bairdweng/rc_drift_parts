@@ -5,12 +5,12 @@
       <!-- Breadcrumb Navigation -->
       <div class="breadcrumb-nav">
         <nav class="breadcrumb-container">
-          <a href="/" class="breadcrumb-link">
+          <a href="#" @click.prevent="$router.push('/')" class="breadcrumb-link">
             <v-icon small class="mr-1">mdi-home</v-icon>
             Home
           </a>
           <span class="breadcrumb-divider">/</span>
-          <a href="/tech-articles" class="breadcrumb-link">
+          <a href="#" @click.prevent="$router.push('/tech-articles')" class="breadcrumb-link">
             <v-icon small class="mr-1">mdi-book-open-variant</v-icon>
             Technical Guides
           </a>
@@ -25,13 +25,9 @@
       <v-spacer></v-spacer>
       
       <!-- Navigation Buttons -->
-      <v-btn text @click="$router.push('/tech-articles')" class="mr-2">
+      <v-btn text @click="goBack()" class="mr-2">
         <v-icon left>mdi-arrow-left</v-icon>
-        Back to Articles
-      </v-btn>
-      <v-btn text @click="$router.push('/')">
-        <v-icon left>mdi-home</v-icon>
-        Back to Home
+        Back
       </v-btn>
     </v-app-bar>
 
@@ -76,11 +72,14 @@
             
             <!-- Article Image -->
             <v-img
-              :src="article.image || '/images/article-placeholder.jpg'"
+              v-if="article.image && imageLoaded"
+              :src="article.image"
               :alt="article.title"
               height="300"
               class="article-image mb-4"
               contain
+              @error="imageLoaded = false"
+              @load="imageLoaded = true"
             ></v-img>
           </v-col>
         </v-row>
@@ -131,7 +130,7 @@
             
             <!-- Article Navigation -->
             <v-row class="article-navigation mb-6">
-              <v-col cols="12" sm="4">
+              <v-col cols="12" sm="6">
                 <v-btn 
                   v-if="prevArticle" 
                   @click="navigateToArticle(prevArticle.slug)"
@@ -144,19 +143,7 @@
                   Previous
                 </v-btn>
               </v-col>
-              <v-col cols="12" sm="4" class="text-center">
-                <v-btn 
-                  @click="$router.push('/tech-articles')"
-                  block 
-                  outlined 
-                  color="primary"
-                  class="back-button"
-                >
-                  <v-icon left>mdi-view-list</v-icon>
-                  All Articles
-                </v-btn>
-              </v-col>
-              <v-col cols="12" sm="4">
+              <v-col cols="12" sm="6">
                 <v-btn 
                   v-if="nextArticle" 
                   @click="navigateToArticle(nextArticle.slug)"
@@ -187,10 +174,12 @@
                   @click="navigateToArticle(related.slug)"
                   class="related-card"
                 >
-                  <v-list-item-avatar size="48">
+                  <v-list-item-avatar size="48" v-if="related.image && related.imageLoaded">
                     <v-img
-                      :src="related.image || '/images/article-placeholder.jpg'"
+                      :src="related.image"
                       :alt="related.title"
+                      @error="related.imageLoaded = false"
+                      @load="related.imageLoaded = true"
                     ></v-img>
                   </v-list-item-avatar>
                   <v-list-item-content>
@@ -232,6 +221,10 @@ export default {
     const relatedArticles = allArticles
       .filter(a => a.category === article.category && a.slug !== params.slug)
       .slice(0, 3)
+      .map(article => ({
+        ...article,
+        imageLoaded: true
+      }))
     
     // Extract main headings (h2 and h3 levels)
     const mainHeadings = []
@@ -294,7 +287,8 @@ export default {
     return {
       isTocOpen: false,
       activeHeading: '',
-      scrollTimeout: null
+      scrollTimeout: null,
+      imageLoaded: true
     }
   },
   
@@ -313,6 +307,10 @@ export default {
   },
   
   methods: {
+    goBack() {
+      this.$router.go(-1)
+    },
+    
     navigateToArticle(slug) {
       this.$router.push(`/tech-articles/${slug}`)
     },

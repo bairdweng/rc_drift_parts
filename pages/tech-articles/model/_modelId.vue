@@ -2,9 +2,9 @@
   <div class="model-articles-page">
     <!-- Breadcrumb Navigation -->
     <nav class="breadcrumb">
-      <a href="/">Home</a>
+      <a href="#" @click.prevent="$router.push('/')">Home</a>
       <span class="separator">/</span>
-      <a :href="`/parts/${modelId}`">{{ model ? `${model.name} Parts` : 'Parts' }}</a>
+      <a href="#" @click.prevent="$router.push(`/parts/${modelId}`)">{{ model ? `${model.name} Parts` : 'Parts' }}</a>
       <span class="separator">/</span>
       <span class="current">{{ model ? `${model.name} Articles` : 'Model Articles' }}</span>
     </nav>
@@ -21,7 +21,7 @@
         </div>
       </div>
       
-      <div class="model-image" v-if="model.images &amp;&amp; model.images.main">
+      <div class="model-image" v-if="model.images && model.images.main">
         <img :src="model.images.main" :alt="`${model.fullName} RC Drift Car`" />
       </div>
     </div>

@@ -10,6 +10,7 @@ image: "/image/articles/gyro-drift-car.webp"
 keywords: "rc drift car gyro, gyro function, drift stabilization, rc electronics"
 models: []
 compatibleModels: []
+partIds: []
 ---
 
 # What Does a Gyro Do in an RC Drift Car?

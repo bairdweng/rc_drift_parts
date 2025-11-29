@@ -1,0 +1,165 @@
+[
+  {
+    "slug": "battery-basics-guide",
+    "title": "RC Drift Car Battery Basics - Understanding 1S, 2S, 3S and C-Ratings",
+    "description": "Complete beginner's guide to RC drift car battery fundamentals. Learn what 1S, 2S, 3S batteries mean, understand C-ratings, and master proper charging techniques for optimal drift performance.",
+    "category": "Battery & Power Systems",
+    "keywords": "rc drift cars battery basics",
+    "models": [
+      ""
+    ],
+    "compatibleModels": [
+      ""
+    ],
+    "partIds": [
+      ""
+    ],
+    "relatedParts": []
+  },
+  {
+    "slug": "battery-systems-guide",
+    "title": "RC Drift Car Battery Systems - Powering Your Drift Machine",
+    "description": "Complete guide to RC drift car battery selection, maintenance, and performance optimization. Learn about LiPo vs LiFe batteries, C-ratings, and proper charging techniques for RC drift cars.",
+    "category": "Battery & Power Systems",
+    "keywords": "rc drift cars battery systems",
+    "models": [
+      ""
+    ],
+    "compatibleModels": [
+      ""
+    ],
+    "partIds": [
+      ""
+    ],
+    "relatedParts": []
+  },
+  {
+    "slug": "electronics-tuning-guide",
+    "title": "RC Drift Car Electronics Tuning Guide - ESC, Motor, Gyro Setup",
+    "description": "Complete guide to RC drift car electronics tuning. Learn ESC programming, motor timing, gyro sensitivity, and radio setup for perfect drift control.",
+    "category": "Electronics & Tuning",
+    "keywords": "rc drift cars electronics tuning esc motor gyro",
+    "models": [
+      ""
+    ],
+    "compatibleModels": [
+      ""
+    ],
+    "partIds": [
+      ""
+    ],
+    "relatedParts": []
+  },
+  {
+    "slug": "lipo-battery-safety-guide",
+    "title": "RC Drift Cars LiPo Battery Safety Guide - How to Identify Dangerous Batteries",
+    "description": "Complete LiPo battery safety guide for RC drift cars. Learn to identify dangerous battery conditions, prevent fires, and handle swollen LiPo batteries safely for Tamiya TT-02, Yokomo, and MST drift cars.",
+    "category": "Battery & Power Systems",
+    "keywords": "rc drift cars lipo battery safety, dangerous rc battery, swollen lipo battery, rc drift car battery fire prevention, tamiya tt-02 battery safety",
+    "models": [
+      ""
+    ],
+    "compatibleModels": [
+      ""
+    ],
+    "partIds": [
+      ""
+    ],
+    "relatedParts": []
+  },
+  {
+    "slug": "suspension-damper-tuning-guide",
+    "title": "RC Drift Car Suspension Damper Tuning Guide - Oil Filled Adjustable Dampers",
+    "description": "Complete guide to tuning oil-filled adjustable dampers for RC drift cars. Learn damping adjustment, oil viscosity selection, and suspension setup for optimal drift performance.",
+    "category": "Suspension & Tires",
+    "keywords": "rc drift car suspension, oil filled dampers, adjustable dampers, damper tuning, suspension setup",
+    "models": [
+      "tamiya-tt-02"
+    ],
+    "compatibleModels": [
+      "TT-02",
+      "MST RMX 2.0",
+      "YD-2"
+    ],
+    "partIds": [
+      "10001"
+    ],
+    "relatedParts": [
+      {
+        "id": "10001",
+        "name": "Aluminum Drift Steering Kit",
+        "category_id": "steering_control",
+        "subcategory": "drift",
+        "image": "/image/parts/tamiya-tt-02/tt02-54574-tt-02-aluminum-racing-steering-set.webp"
+      }
+    ]
+  },
+  {
+    "slug": "suspension-tire-setup",
+    "title": "RC Drift Car Suspension & Tire Setup: Q&A Guide",
+    "description": "Complete guide to RC drift car suspension tuning and tire selection. Learn about camber, toe, spring rates, and tire compounds for optimal drift performance in RC drift cars.",
+    "category": "Suspension & Tires",
+    "keywords": "rc drift cars suspension tuning",
+    "models": [
+      ""
+    ],
+    "compatibleModels": [
+      ""
+    ],
+    "partIds": [
+      ""
+    ],
+    "relatedParts": []
+  },
+  {
+    "slug": "tamiya-tt-02-suspension-guide",
+    "title": "Tamiya TT-02 Suspension Setup Guide - Optimal Drift Tuning",
+    "description": "Complete suspension tuning guide for Tamiya TT-02 drift conversions. Learn camber, toe, shock setup, and alignment for perfect drifting performance.",
+    "category": "Suspension & Tires",
+    "keywords": "tamiya tt-02 suspension, tt02 drift setup, tamiya drift tuning",
+    "models": [
+      "tamiya-tt-02"
+    ],
+    "compatibleModels": [
+      "tamiya-tt-02"
+    ],
+    "partIds": [
+      ""
+    ],
+    "relatedParts": []
+  },
+  {
+    "slug": "transmitter-setup-guide",
+    "title": "RC Drift Car Transmitter Setup Guide",
+    "description": "Complete guide to setting up your RC drift car transmitter for optimal control and drift performance. Learn about steering endpoints, throttle curves, and advanced settings for RC drift cars.",
+    "category": "Transmitter & Electronics",
+    "keywords": "rc drift cars transmitter setup",
+    "models": [
+      ""
+    ],
+    "compatibleModels": [
+      ""
+    ],
+    "partIds": [
+      ""
+    ],
+    "relatedParts": []
+  },
+  {
+    "slug": "what-does-gyro-do-in-rc-drift-car",
+    "title": "What Does a Gyro Do in an RC Drift Car?",
+    "description": "Learn how gyros stabilize RC drift cars, improve control, and enhance drift performance. Understand gyro functions, setup tips, and troubleshooting for RC drift applications.",
+    "category": "Electronics & Tuning",
+    "keywords": "rc drift car gyro, gyro function, drift stabilization, rc electronics",
+    "models": [
+      ""
+    ],
+    "compatibleModels": [
+      ""
+    ],
+    "partIds": [
+      ""
+    ],
+    "relatedParts": []
+  }
+]

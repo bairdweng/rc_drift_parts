@@ -1,0 +1,124 @@
+[
+  {
+    "id": "10001",
+    "name": "Aluminum Drift Steering Kit",
+    "category_id": "steering_control",
+    "subcategory": "drift",
+    "specs": "Aluminum alloy, lightweight, compatible with standard servo spline",
+    "compatibility": [
+      "TT-02",
+      "MST RMX 2.0",
+      "YD-2"
+    ],
+    "function": "Reduces slop and improves precision steering for drift RC cars",
+    "image": "/image/parts/tamiya-tt-02/tt02-54574-tt-02-aluminum-racing-steering-set.webp",
+    "relatedArticles": [
+      {
+        "slug": "suspension-damper-tuning-guide",
+        "title": "RC Drift Car Suspension Damper Tuning Guide - Oil Filled Adjustable Dampers",
+        "description": "Complete guide to tuning oil-filled adjustable dampers for RC drift cars. Learn damping adjustment, oil viscosity selection, and suspension setup for optimal drift performance.",
+        "category": "Suspension & Tires"
+      }
+    ]
+  },
+  {
+    "id": "10002",
+    "name": "High Torque One-Way Gear Set",
+    "category_id": "drivetrain",
+    "subcategory": "drift",
+    "specs": "High-strength steel, fits TT-02 and MST RMX 2.0 drivetrain",
+    "compatibility": [
+      "TT-02",
+      "MST RMX 2.0"
+    ],
+    "function": "Transfers power efficiently and enables smooth one-way rotation for better drifting",
+    "image": "/image/parts/tamiya-tt-02/tt02-54604-body-mount-extension-set.webp",
+    "relatedArticles": []
+  },
+  {
+    "id": "10003",
+    "name": "Oil Filled Adjustable Dampers",
+    "category_id": "suspension",
+    "subcategory": "drift",
+    "specs": "Aluminum body, adjustable oil damping, 68mm length",
+    "compatibility": [
+      "TT-02",
+      "MST RMX 2.0",
+      "YD-2"
+    ],
+    "function": "Absorbs shocks, improves cornering and drift stability",
+    "image": "/image/parts/tamiya-tt-02/tt02-54753-tt-02-cva-super-mini-shock-unit-set.webp",
+    "relatedArticles": []
+  },
+  {
+    "id": "10004",
+    "name": "Brushless Motor 540 + ESC Combo",
+    "category_id": "motor_electronics",
+    "subcategory": "drift",
+    "specs": "Brushless 540 motor with 60A ESC, waterproof",
+    "compatibility": [
+      "TT-02",
+      "MST RMX 2.0"
+    ],
+    "function": "Provides high-speed power and precise electronic control for drift performance",
+    "image": "/image/parts/tamiya-tt-02/tt02-55031-tt-02-brushless-motor-10-5t.webp",
+    "relatedArticles": []
+  },
+  {
+    "id": "10005",
+    "name": "Medium-Narrow Reinforced Drift Tires",
+    "category_id": "wheels_tires",
+    "subcategory": "drift",
+    "specs": "Outer diameter approx. 63 mm × Width 24 mm (fits standard 24 mm touring car wheels)",
+    "compatibility": [
+      "TT-02",
+      "MST RMX 2.0",
+      "YD-2"
+    ],
+    "function": "Provides traction and drift angle control on smooth surfaces",
+    "image": "/image/parts/tamiya-tt-02/tt02-tire-a.webp",
+    "relatedArticles": []
+  },
+  {
+    "id": "10006",
+    "name": "Aluminum Servo Mount Set",
+    "category_id": "hardware_mounts",
+    "subcategory": "drift",
+    "specs": "Aluminum alloy, compatible with TT-02, MST RMX 2.0",
+    "compatibility": [
+      "TT-02",
+      "MST RMX 2.0"
+    ],
+    "function": "Securely mounts steering servo and reduces flex for precise control",
+    "image": "/image/parts/tamiya-tt-02/tt02-54977-tt-02-aluminum-servo-mount.webp",
+    "relatedArticles": []
+  },
+  {
+    "id": "10007",
+    "name": "Gyro Stabilizer V2",
+    "category_id": "stabilizers_controllers",
+    "subcategory": "drift",
+    "specs": "Adjustable sensitivity, compatible with most 2.4GHz radios",
+    "compatibility": [
+      "TT-02",
+      "MST RMX 2.0",
+      "YD-2"
+    ],
+    "function": "Helps maintain counter-steer and drift stability for beginners and pros",
+    "image": "/image/parts/tamiya-tt-02/tt02-55030-tt-02-high-torque-servo.webp",
+    "relatedArticles": []
+  },
+  {
+    "id": "10008",
+    "name": "TT-02 Drift Body Shell",
+    "category_id": "body_accessories",
+    "subcategory": "drift",
+    "specs": "Lexan body, painted, lightweight, fits TT-02 chassis",
+    "compatibility": [
+      "TT-02"
+    ],
+    "function": "Protects internal parts and improves aesthetics of the drift car",
+    "image": "/image/parts/tamiya-tt-02/tt02-body_nissan_gt-tt-02-nissan-gt-r-body.webp",
+    "relatedArticles": []
+  }
+]

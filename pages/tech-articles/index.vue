@@ -5,12 +5,12 @@
       <!-- Breadcrumb Navigation -->
       <div class="breadcrumb-nav">
         <nav class="breadcrumb-container">
-          <a href="/" class="breadcrumb-link">
+          <a href="#" @click.prevent="$router.push('/')" class="breadcrumb-link">
             <v-icon small class="mr-1">mdi-home</v-icon>
             Home
           </a>
           <span class="breadcrumb-divider">/</span>
-          <a :href="backToPartsLink" class="breadcrumb-link">
+          <a href="#" @click.prevent="$router.push(backToPartsLink)" class="breadcrumb-link">
             <v-icon small class="mr-1">mdi-car</v-icon>
             {{ currentModel ? `${currentModel} Parts` : 'Tamiya TT-02 Parts' }}
           </a>
@@ -108,7 +108,7 @@
                 </v-chip>
               </v-img>
               
-              <v-card-text class="pa-3">
+              <v-card-text class="pa-3" @click.stop="navigateToArticle(article.slug)">
                 <v-chip 
                   small 
                   color="secondary" 
