@@ -13,11 +13,6 @@ compatibleModels: ["tamiya-tt-02", "mst-rmx-2.0", "yd-2"]
 partIds: ["10001"]
 ---
 
-Below is the **English version**, fully rewritten to focus on
-**“Reduces slop and improves precision steering for drift RC cars”**
-with clean Markdown formatting **and images embedded** (safe URLs, suitable for your blog).
-
----
 
 # Why Aluminum Steering Kits Are Essential for TT-02 Drift Performance
 
