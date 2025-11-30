@@ -127,6 +127,8 @@ export default {
     extensions: ['md', 'json', 'yaml', 'yml'],
     // Enable full-text search
     fullTextSearchFields: ['title', 'description', 'slug', 'text'],
+    // Disable live editing in development
+    liveEdit: false,
     // Markdown configuration
     markdown: {
       remarkPlugins: [],
@@ -155,8 +157,8 @@ export default {
     },
     // 优化Vuetify体积
     transpile: ['vuetify/lib'],
-    // 启用硬件加速
-    hardSource: process.env.NODE_ENV === 'development'
+    // 禁用Hardsource缓存以避免构建错误
+    hardSource: false
   },
   
   // Development server configuration

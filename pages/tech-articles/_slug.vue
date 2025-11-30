@@ -1,26 +1,11 @@
 <template>
   <v-app>
-    <!-- Navigation Bar with Breadcrumbs -->
+    <!-- Navigation Bar with Title Only -->
     <v-app-bar color="primary" dark flat dense app>
-      <!-- Breadcrumb Navigation -->
-      <div class="breadcrumb-nav">
-        <nav class="breadcrumb-container">
-          <a href="#" @click.prevent="$router.push('/')" class="breadcrumb-link">
-            <v-icon small class="mr-1">mdi-home</v-icon>
-            Home
-          </a>
-          <span class="breadcrumb-divider">/</span>
-          <a href="#" @click.prevent="$router.push('/tech-articles')" class="breadcrumb-link">
-            <v-icon small class="mr-1">mdi-book-open-variant</v-icon>
-            Technical Guides
-          </a>
-          <span class="breadcrumb-divider">/</span>
-          <span class="breadcrumb-current">
-            <v-icon small class="mr-1">mdi-file-document</v-icon>
-            {{ article.title }}
-          </span>
-        </nav>
-      </div>
+      <!-- Article Title -->
+      <v-toolbar-title class="white--text font-weight-bold">
+        {{ article.title }}
+      </v-toolbar-title>
       
       <v-spacer></v-spacer>
       
@@ -87,42 +72,6 @@
         <!-- Article Content -->
         <v-row>
           <v-col cols="12" lg="9">
-            <!-- Floating Table of Contents -->
-            <v-card class="toc-card mb-4" v-if="mainHeadings.length > 0">
-              <v-card-title class="d-flex align-center">
-                <v-icon left>mdi-table-of-contents</v-icon>
-                Table of Contents
-                <v-spacer></v-spacer>
-                <v-btn icon @click="isTocOpen = !isTocOpen">
-                  <v-icon>{{ isTocOpen ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
-                </v-btn>
-              </v-card-title>
-              <v-expand-transition>
-                <div v-show="isTocOpen">
-                  <v-divider></v-divider>
-                  <v-card-text>
-                    <nav class="toc-nav">
-                      <v-list dense>
-                        <v-list-item
-                          v-for="(heading, index) in mainHeadings"
-                          :key="index"
-                          :class="['toc-item', { 'toc-active': heading.id === activeHeading }]"
-                          :style="{ 'padding-left': (heading.level === 'h3' ? '24px' : '16px') }"
-                          @click="scrollToHeading(heading.id)"
-                        >
-                          <v-list-item-content>
-                            <v-list-item-title class="toc-link">
-                              {{ heading.text }}
-                            </v-list-item-title>
-                          </v-list-item-content>
-                        </v-list-item>
-                      </v-list>
-                    </nav>
-                  </v-card-text>
-                </div>
-              </v-expand-transition>
-            </v-card>
-            
             <!-- Article Content -->
             <v-card class="article-content-card pa-4 mb-6">
               <nuxt-content :document="article" />
@@ -195,6 +144,38 @@
             </v-card>
           </v-col>
         </v-row>
+        
+        <!-- Floating Table of Contents -->
+        <div v-if="mainHeadings.length > 0" class="floating-toc">
+          <button @click="toggleToc" class="toc-toggle">
+            <v-icon class="toc-icon">mdi-table-of-contents</v-icon>
+            <span class="toc-text">TOC</span>
+          </button>
+          
+          <transition name="slide">
+            <div v-if="isTocOpen" class="toc-content">
+              <div class="toc-title">Table of Contents</div>
+              <nav class="toc-nav">
+                <ul>
+                  <li
+                    v-for="(heading, index) in mainHeadings"
+                    :key="index"
+                    :class="{ 'toc-active': heading.id === activeHeading }"
+                  >
+                    <a 
+                      href="#" 
+                      @click.prevent="scrollToHeading(heading.id)" 
+                      class="toc-link"
+                      :style="{ 'padding-left': (heading.level === 'h3' ? '24px' : '16px') }"
+                    >
+                      {{ heading.text }}
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </transition>
+        </div>
       </v-container>
     </v-main>
   </v-app>
@@ -872,6 +853,8 @@ export default {
     grid-template-columns: 1fr;
   }
 }
+
+
 </style>
 
 <style>

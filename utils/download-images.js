@@ -4,6 +4,7 @@ import http from 'http';
 import https from 'https';
 import { HttpsProxyAgent } from 'https-proxy-agent';
 import { fileURLToPath } from 'url';
+import { execSync } from 'child_process';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -53,10 +54,31 @@ class ImageDownloader {
 
   // 生成本地文件名（基于零件ID和名称）
   generateLocalFilename(part, url) {
-    const urlFilename = this.getFilenameFromUrl(url);
     const name = part.name.toLowerCase().replace(/[^a-z0-9]/g, '-');
-    const extension = path.extname(urlFilename) || '.jpg';
-    return `tt02-${part.id}-${name}${extension}`;
+    return `tt02-${part.id}-${name}.webp`;
+  }
+
+  // 转换图片为WebP格式
+  convertToWebp(inputPath, outputPath, quality = 75) {
+    try {
+      // 使用Python脚本进行WebP转换
+      const pythonScript = path.join(__dirname, '../scripts/convert_to_webp.py');
+      const command = `python3 "${pythonScript}" --directory "${path.dirname(inputPath)}" --quality ${quality} --no-backup`;
+      
+      execSync(command, { stdio: 'pipe' });
+      
+      // 检查WebP文件是否生成
+      const webpPath = inputPath.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+      if (fs.existsSync(webpPath)) {
+        // 删除原文件
+        fs.unlinkSync(inputPath);
+        return webpPath;
+      }
+      return inputPath;
+    } catch (error) {
+      console.log(`⚠️  WebP转换失败: ${error.message}`);
+      return inputPath; // 返回原文件路径
+    }
   }
 
   // 获取代理配置
@@ -86,6 +108,12 @@ class ImageDownloader {
     return new Promise((resolve, reject) => {
       const protocol = url.startsWith('https') ? https : http;
       
+      // 确保目标目录存在
+      const dir = path.dirname(localPath);
+      if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+      }
+      
       // 禁用SSL证书验证（仅用于开发环境）
       const options = url.startsWith('https') ? {
         rejectUnauthorized: false
@@ -101,16 +129,36 @@ class ImageDownloader {
           return;
         }
 
-        const fileStream = fs.createWriteStream(localPath);
+        // 先下载到临时文件，然后转换为WebP
+        const tempPath = localPath.replace('.webp', '.temp');
+        const fileStream = fs.createWriteStream(tempPath);
         response.pipe(fileStream);
 
-        fileStream.on('finish', () => {
+        fileStream.on('finish', async () => {
           fileStream.close();
-          resolve(localPath);
+          
+          try {
+            // 转换为WebP格式
+            const webpPath = this.convertToWebp(tempPath, localPath, 75);
+            
+            // 如果转换成功，删除临时文件
+            if (webpPath !== tempPath) {
+              fs.unlinkSync(tempPath);
+            }
+            
+            resolve(webpPath);
+          } catch (error) {
+            // 如果转换失败，重命名临时文件为WebP
+            fs.renameSync(tempPath, localPath);
+            console.log(`⚠️  WebP转换失败，保留原格式: ${localPath}`);
+            resolve(localPath);
+          }
         });
 
         fileStream.on('error', (err) => {
-          fs.unlink(localPath, () => {}); // 删除损坏的文件
+          if (fs.existsSync(tempPath)) {
+            fs.unlinkSync(tempPath); // 删除损坏的文件
+          }
           reject(err);
         });
       });

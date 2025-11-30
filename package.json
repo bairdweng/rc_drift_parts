@@ -11,7 +11,10 @@
     "preview": "nuxt preview",
     "preprocess": "node scripts/preprocess-articles.js",
     "preprocess:watch": "node scripts/preprocess-articles.js --watch",
-    "dev:with-preprocess": "npm run preprocess && npm run dev"
+    "dev:with-preprocess": "npm run preprocess && npm run dev",
+    "clean:cache": "node scripts/clean-cache.js",
+    "dev:clean": "npm run clean:cache && npm run dev",
+    "reset:dev": "npm run clean:cache && npm run preprocess && npm run dev"
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",

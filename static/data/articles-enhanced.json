@@ -1,5 +1,32 @@
 [
   {
+    "slug": "aluminum-drift-steering-kit-guide",
+    "title": "Aluminum Drift Steering Kit - Eliminate Steering Slop for Perfect Drift Control",
+    "description": "Complete guide to aluminum steering kits for RC drift cars. Learn how to eliminate steering slop, improve precision, and enhance drift performance with Tamiya TT-02 upgrades.",
+    "category": "Suspension & Tires",
+    "keywords": "aluminum steering kit, drift steering upgrade, tamiya tt-02 steering, steering slop reduction",
+    "models": [
+      "tamiya-tt-02"
+    ],
+    "compatibleModels": [
+      "tamiya-tt-02",
+      "mst-rmx-2.0",
+      "yd-2"
+    ],
+    "partIds": [
+      "10001"
+    ],
+    "relatedParts": [
+      {
+        "id": "10001",
+        "name": "Aluminum Drift Steering Kit",
+        "category_id": "steering_control",
+        "subcategory": "drift",
+        "image": "/image/parts/tamiya-tt-02/tt02-54574-tt-02-aluminum-racing-steering-set.webp"
+      }
+    ]
+  },
+  {
     "slug": "battery-basics-guide",
     "title": "RC Drift Car Battery Basics - Understanding 1S, 2S, 3S and C-Ratings",
     "description": "Complete beginner's guide to RC drift car battery fundamentals. Learn what 1S, 2S, 3S batteries mean, understand C-ratings, and master proper charging techniques for optimal drift performance.",
@@ -82,17 +109,9 @@
       "YD-2"
     ],
     "partIds": [
-      "10001"
+      ""
     ],
-    "relatedParts": [
-      {
-        "id": "10001",
-        "name": "Aluminum Drift Steering Kit",
-        "category_id": "steering_control",
-        "subcategory": "drift",
-        "image": "/image/parts/tamiya-tt-02/tt02-54574-tt-02-aluminum-racing-steering-set.webp"
-      }
-    ]
+    "relatedParts": []
   },
   {
     "slug": "suspension-tire-setup",

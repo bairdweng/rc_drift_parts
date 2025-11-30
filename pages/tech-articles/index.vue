@@ -180,7 +180,7 @@ export default {
         filtered = filtered.filter(article => 
           article.title.toLowerCase().includes(query) ||
           article.description.toLowerCase().includes(query) ||
-          article.body.toLowerCase().includes(query)
+          (typeof article.body === 'string' && article.body.toLowerCase().includes(query))
         )
       }
       
