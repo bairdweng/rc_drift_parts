@@ -23,7 +23,7 @@ class ImageDownloader {
     this.dataFile = path.join(__dirname, '../data/parts/tamiya-tt-02-parts.json');
     this.imageDir = path.join(__dirname, '../static/image/parts/tamiya-tt-02');
     this.maxRetries = 3;
-    this.timeout = 10000; // 10秒超时
+    this.timeout = 30000; // 增加超时到30秒
     this.useProxy = useProxy;
     
     // 代理配置
@@ -61,18 +61,34 @@ class ImageDownloader {
   // 转换图片为WebP格式
   convertToWebp(inputPath, outputPath, quality = 75) {
     try {
-      // 使用Python脚本进行WebP转换
-      const pythonScript = path.join(__dirname, '../scripts/convert_to_webp.py');
-      const command = `python3 "${pythonScript}" --directory "${path.dirname(inputPath)}" --quality ${quality} --no-backup`;
+      // 直接使用PIL库进行WebP转换（参考download-article-images.js的实现）
+      const pythonCode = `
+import sys
+from PIL import Image
+
+try:
+    with Image.open('${inputPath}') as img:
+        # 如果是PNG且有透明度，保持RGBA模式
+        if img.format == 'PNG' and img.mode in ('RGBA', 'LA') or (img.mode == 'P' and 'transparency' in img.info):
+            img = img.convert('RGBA')
+        else:
+            img = img.convert('RGB')
+        
+        img.save('${outputPath}', 'WEBP', quality=${quality}, method=6)
+        print('SUCCESS')
+except Exception as e:
+    print(f'ERROR: {e}')
+    sys.exit(1)
+`;
       
-      execSync(command, { stdio: 'pipe' });
+      // 执行Python代码进行转换
+      execSync(`python3 -c "${pythonCode.replace(/"/g, '\\"')}"`, { stdio: 'pipe' });
       
       // 检查WebP文件是否生成
-      const webpPath = inputPath.replace(/\.(jpg|jpeg|png)$/i, '.webp');
-      if (fs.existsSync(webpPath)) {
+      if (fs.existsSync(outputPath)) {
         // 删除原文件
         fs.unlinkSync(inputPath);
-        return webpPath;
+        return outputPath;
       }
       return inputPath;
     } catch (error) {
@@ -108,7 +124,7 @@ class ImageDownloader {
     return new Promise((resolve, reject) => {
       const protocol = url.startsWith('https') ? https : http;
       
-      // 确保目标目录存在
+      // 确保目标目录存在（参考download-article-images.js的递归创建）
       const dir = path.dirname(localPath);
       if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir, { recursive: true });
@@ -124,6 +140,8 @@ class ImageDownloader {
       Object.assign(options, proxyOptions);
       
       const request = protocol.get(url, options, (response) => {
+        console.log(`📡 HTTP响应状态: ${response.statusCode} ${url}`);
+        
         if (response.statusCode !== 200) {
           reject(new Error(`HTTP ${response.statusCode}: ${url}`));
           return;
@@ -131,11 +149,31 @@ class ImageDownloader {
 
         // 先下载到临时文件，然后转换为WebP
         const tempPath = localPath.replace('.webp', '.temp');
+        console.log(`📥 下载到临时文件: ${tempPath}`);
+        
         const fileStream = fs.createWriteStream(tempPath);
         response.pipe(fileStream);
 
         fileStream.on('finish', async () => {
           fileStream.close();
+          console.log(`✅ 文件流完成: ${tempPath}`);
+          
+          // 检查临时文件是否成功创建
+          if (!fs.existsSync(tempPath)) {
+            console.log(`❌ 临时文件不存在: ${tempPath}`);
+            reject(new Error(`临时文件未创建: ${tempPath}`));
+            return;
+          }
+          
+          // 验证临时文件大小
+          const tempStats = fs.statSync(tempPath);
+          console.log(`📊 临时文件大小: ${tempStats.size} bytes`);
+          
+          if (tempStats.size === 0) {
+            fs.unlinkSync(tempPath);
+            reject(new Error('下载的文件为空'));
+            return;
+          }
           
           try {
             // 转换为WebP格式
@@ -148,14 +186,19 @@ class ImageDownloader {
             
             resolve(webpPath);
           } catch (error) {
-            // 如果转换失败，重命名临时文件为WebP
-            fs.renameSync(tempPath, localPath);
-            console.log(`⚠️  WebP转换失败，保留原格式: ${localPath}`);
-            resolve(localPath);
+            // 如果转换失败，检查临时文件是否存在，然后重命名
+            if (fs.existsSync(tempPath)) {
+              fs.renameSync(tempPath, localPath);
+              console.log(`⚠️  WebP转换失败，保留原格式: ${localPath}`);
+              resolve(localPath);
+            } else {
+              reject(new Error('WebP转换失败且临时文件丢失'));
+            }
           }
         });
 
         fileStream.on('error', (err) => {
+          console.log(`❌ 文件流错误: ${err.message}`);
           if (fs.existsSync(tempPath)) {
             fs.unlinkSync(tempPath); // 删除损坏的文件
           }
@@ -185,8 +228,17 @@ class ImageDownloader {
     const localPath = path.join(this.imageDir, localFilename);
     const localUrl = `/image/parts/tamiya-tt-02/${localFilename}`;
 
-    // 检查文件是否已存在
-    if (fs.existsSync(localPath)) {
+    // 检查文件是否已存在（参考download-article-images.js的错误处理）
+    let fileExists = false;
+    try {
+      fileExists = fs.existsSync(localPath);
+    } catch (error) {
+      // 如果检查文件存在时出错（如目录不存在），继续下载流程
+      console.log(`[${index + 1}] 文件检查失败，继续下载: ${error.message}`);
+      fileExists = false;
+    }
+    
+    if (fileExists) {
       console.log(`[${index + 1}] 已存在: ${part.name} -> ${localFilename}`);
       return { 
         part: { ...part, image: localUrl },
@@ -195,36 +247,45 @@ class ImageDownloader {
     }
 
     // 下载图片
-    for (let attempt = 1; attempt <= this.maxRetries; attempt++) {
-      try {
-        console.log(`[${index + 1}] 下载中 (尝试 ${attempt}): ${part.name}`);
-        await this.downloadImage(part.image, localPath);
-        
-        // 验证文件大小
-        const stats = fs.statSync(localPath);
-        if (stats.size === 0) {
-          fs.unlinkSync(localPath);
-          throw new Error('下载的文件为空');
-        }
+        let downloadSuccess = false;
+        for (let attempt = 1; attempt <= this.maxRetries; attempt++) {
+          try {
+            console.log(`[${index + 1}] 下载中 (尝试 ${attempt}): ${part.name}`);
+            const actualFilePath = await this.downloadImage(part.image, localPath);
+            
+            // 验证文件大小（使用实际返回的文件路径）
+            const stats = fs.statSync(actualFilePath);
+            if (stats.size === 0) {
+              fs.unlinkSync(actualFilePath);
+              throw new Error('下载的文件为空');
+            }
 
-        console.log(`[${index + 1}] ✓ 下载完成: ${part.name} -> ${localFilename} (${stats.size} bytes)`);
-        return { 
-          part: { ...part, image: localUrl },
-          downloaded: true 
-        };
+            console.log(`[${index + 1}] ✓ 下载完成: ${part.name} -> ${path.basename(actualFilePath)} (${stats.size} bytes)`);
+            
+            // 更新零件数据
+            part.image = localUrl;
+            downloadSuccess = true;
+            break;
 
-      } catch (error) {
-        console.log(`[${index + 1}] 尝试 ${attempt} 失败: ${error.message}`);
-        
-        if (attempt === this.maxRetries) {
-          console.log(`[${index + 1}] ✗ 下载失败: ${part.name}`);
-          return { part, downloaded: false, error: error.message };
+          } catch (error) {
+            console.log(`[${index + 1}] 下载失败 (尝试 ${attempt}): ${error.message}`);
+            
+            if (attempt === this.maxRetries) {
+              console.log(`[${index + 1}] ✗ 下载失败: ${part.name}`);
+              return { part, downloaded: false, error: error.message };
+            }
+            
+            // 等待后重试
+            await new Promise(resolve => setTimeout(resolve, 1000));
+          }
         }
         
-        // 等待后重试
-        await new Promise(resolve => setTimeout(resolve, 1000 * attempt));
-      }
-    }
+        if (downloadSuccess) {
+          return { 
+            part: { ...part, image: localUrl },
+            downloaded: true 
+          };
+        }
   }
 
   // 主处理函数

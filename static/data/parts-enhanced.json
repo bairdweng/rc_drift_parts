@@ -32,8 +32,15 @@
       "MST RMX 2.0"
     ],
     "function": "Transfers power efficiently and enables smooth one-way rotation for better drifting",
-    "image": "/image/parts/tamiya-tt-02/tt02-54604-body-mount-extension-set.webp",
-    "relatedArticles": []
+    "image": "https://img.alicdn.com/imgextra/i3/3805918020/O1CN01OF2uBi297DUI3Jiz7_!!3805918020.jpg_.webp",
+    "relatedArticles": [
+      {
+        "slug": "high-torque-one-way-gear-set-guide",
+        "title": "High Torque One-Way Gear Set - Ultimate Drivetrain Upgrade for RC Drift Cars",
+        "description": "Complete guide to high torque one-way gear sets for RC drift cars. Learn how to improve power transfer, enable smooth one-way rotation, and enhance drift performance with Tamiya TT-02 upgrades.",
+        "category": "Drivetrain & Transmission"
+      }
+    ]
   },
   {
     "id": "10003",
@@ -48,7 +55,14 @@
     ],
     "function": "Absorbs shocks, improves cornering and drift stability",
     "image": "/image/parts/tamiya-tt-02/tt02-54753-tt-02-cva-super-mini-shock-unit-set.webp",
-    "relatedArticles": []
+    "relatedArticles": [
+      {
+        "slug": "oil-filled-adjustable-dampers-guide",
+        "title": "Oil Filled Adjustable Dampers - Ultimate Suspension Upgrade for RC Drift Cars",
+        "description": "Complete guide to oil filled adjustable dampers for RC drift cars. Learn how to improve cornering, enhance drift stability, and optimize suspension performance with Tamiya TT-02 upgrades.",
+        "category": "Suspension & Tires"
+      }
+    ]
   },
   {
     "id": "10004",
@@ -62,7 +76,14 @@
     ],
     "function": "Provides high-speed power and precise electronic control for drift performance",
     "image": "/image/parts/tamiya-tt-02/tt02-55031-tt-02-brushless-motor-10-5t.webp",
-    "relatedArticles": []
+    "relatedArticles": [
+      {
+        "slug": "brushless-motor-540-esc-combo-guide",
+        "title": "Brushless Motor 540 + ESC Combo - High-Speed Power System for RC Drift Cars",
+        "description": "Complete guide to brushless motor 540 + ESC combos for RC drift cars. Learn how to achieve high-speed performance, precise electronic control, and waterproof reliability with Tamiya TT-02 upgrades.",
+        "category": "Motor & Electronics"
+      }
+    ]
   },
   {
     "id": "10005",
@@ -77,7 +98,14 @@
     ],
     "function": "Provides traction and drift angle control on smooth surfaces",
     "image": "/image/parts/tamiya-tt-02/tt02-tire-a.webp",
-    "relatedArticles": []
+    "relatedArticles": [
+      {
+        "slug": "medium-narrow-reinforced-drift-tires-guide",
+        "title": "Medium-Narrow Reinforced Drift Tires - Perfect Traction Control for RC Drift Cars",
+        "description": "Complete guide to medium-narrow reinforced drift tires for RC drift cars. Learn how to achieve optimal traction, drift angle control, and surface adaptation with Tamiya TT-02 tire upgrades.",
+        "category": "Suspension & Tires"
+      }
+    ]
   },
   {
     "id": "10006",
@@ -91,7 +119,14 @@
     ],
     "function": "Securely mounts steering servo and reduces flex for precise control",
     "image": "/image/parts/tamiya-tt-02/tt02-54977-tt-02-aluminum-servo-mount.webp",
-    "relatedArticles": []
+    "relatedArticles": [
+      {
+        "slug": "aluminum-servo-mount-set-guide",
+        "title": "Aluminum Servo Mount Set - Precision Steering Foundation for RC Drift Cars",
+        "description": "Complete guide to aluminum servo mount sets for RC drift cars. Learn how to eliminate servo flex, improve steering precision, and enhance control response with Tamiya TT-02 upgrades.",
+        "category": "Hardware & Mounts"
+      }
+    ]
   },
   {
     "id": "10007",
@@ -106,7 +141,14 @@
     ],
     "function": "Helps maintain counter-steer and drift stability for beginners and pros",
     "image": "/image/parts/tamiya-tt-02/tt02-55030-tt-02-high-torque-servo.webp",
-    "relatedArticles": []
+    "relatedArticles": [
+      {
+        "slug": "gyro-stabilizer-v2-guide",
+        "title": "Gyro Stabilizer V2 - Ultimate Drift Control System for RC Drift Cars",
+        "description": "Complete guide to gyro stabilizer V2 systems for RC drift cars. Learn how to maintain counter-steer, improve drift stability, and enhance control for beginners and professionals with Tamiya TT-02 upgrades.",
+        "category": "Stabilizers & Controllers"
+      }
+    ]
   },
   {
     "id": "10008",
@@ -119,6 +161,13 @@
     ],
     "function": "Protects internal parts and improves aesthetics of the drift car",
     "image": "/image/parts/tamiya-tt-02/tt02-body_nissan_gt-tt-02-nissan-gt-r-body.webp",
-    "relatedArticles": []
+    "relatedArticles": [
+      {
+        "slug": "tt-02-drift-body-shell-guide",
+        "title": "TT-02 Drift Body Shell - Aesthetic Protection and Performance Enhancement",
+        "description": "Complete guide to TT-02 drift body shells for RC drift cars. Learn how to protect internal components, improve aerodynamics, and enhance visual appeal with Tamiya TT-02 body upgrades.",
+        "category": "Body & Accessories"
+      }
+    ]
   }
 ]
