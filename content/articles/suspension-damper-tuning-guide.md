@@ -1,7 +1,7 @@
 ---
 title: "RC Drift Car Suspension Damper Tuning Guide - Oil Filled Adjustable Dampers"
 description: "Complete guide to tuning oil-filled adjustable dampers for RC drift cars. Learn damping adjustment, oil viscosity selection, and suspension setup for optimal drift performance."
-category: "Suspension & Tires"
+category: "Setup & Tuning"
 date: "2025-11-29"
 author: "RC Drift Parts Team"
 readingTime: 6

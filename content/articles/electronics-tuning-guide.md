@@ -1,7 +1,7 @@
 ---
 title: "RC Drift Car Electronics Tuning Guide - ESC, Motor, Gyro Setup"
 description: "Complete guide to RC drift car electronics tuning. Learn ESC programming, motor timing, gyro sensitivity, and radio setup for perfect drift control."
-category: "Electronics & Tuning"
+category: "Setup & Tuning"
 date: "2025-01-18"
 author: "RC Drift Parts Team"
 readingTime: 15

@@ -1,7 +1,7 @@
 ---
 title: "High Torque One-Way Gear Set - Ultimate Drivetrain Upgrade for RC Drift Cars"
 description: "Complete guide to high torque one-way gear sets for RC drift cars. Learn how to improve power transfer, enable smooth one-way rotation, and enhance drift performance with Tamiya TT-02 upgrades."
-category: "Drivetrain & Transmission"
+category: "Upgrades & Mods"
 date: "2025-10-08"
 author: "RC Drift Parts Team"
 readingTime: 10

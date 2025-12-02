@@ -1,7 +1,7 @@
 ---
 title: "Aluminum Drift Steering Kit - Eliminate Steering Slop for Perfect Drift Control"
 description: "Complete guide to aluminum steering kits for RC drift cars. Learn how to eliminate steering slop, improve precision, and enhance drift performance with Tamiya TT-02 upgrades."
-category: "Suspension & Tires"
+category: "Upgrades & Mods"
 date: "2025-09-15"
 author: "RC Drift Parts Team"
 readingTime: 12

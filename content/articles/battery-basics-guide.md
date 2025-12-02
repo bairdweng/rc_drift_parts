@@ -1,7 +1,7 @@
 ---
 title: "RC Drift Car Battery Basics - Understanding 1S, 2S, 3S and C-Ratings"
 description: "Complete beginner's guide to RC drift car battery fundamentals. Learn what 1S, 2S, 3S batteries mean, understand C-ratings, and master proper charging techniques for optimal drift performance."
-category: "Battery & Power Systems"
+category: "Maintenance & Repairs"
 date: "2025-01-20"
 author: "RC Drift Parts Team"
 readingTime: 8

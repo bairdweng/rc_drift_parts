@@ -1,7 +1,7 @@
 ---
 title: "RC Drift Cars LiPo Battery Safety Guide - How to Identify Dangerous Batteries"
 description: "Complete LiPo battery safety guide for RC drift cars. Learn to identify dangerous battery conditions, prevent fires, and handle swollen LiPo batteries safely for Tamiya TT-02, Yokomo, and MST drift cars."
-category: "Battery & Power Systems"
+category: "Maintenance & Repairs"
 date: "2025-11-21"
 author: "RC Drift Parts Team"
 readingTime: 10

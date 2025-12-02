@@ -1,7 +1,7 @@
 ---
 title: "Medium-Narrow Reinforced Drift Tires - Perfect Traction Control for RC Drift Cars"
 description: "Complete guide to medium-narrow reinforced drift tires for RC drift cars. Learn how to achieve optimal traction, drift angle control, and surface adaptation with Tamiya TT-02 tire upgrades."
-category: "Suspension & Tires"
+category: "Upgrades & Mods"
 date: "2025-09-28"
 author: "RC Drift Parts Team"
 readingTime: 11

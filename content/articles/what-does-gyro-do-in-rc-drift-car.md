@@ -1,7 +1,7 @@
 ---
 title: "What Does a Gyro Do in an RC Drift Car?"
 description: "Learn how gyros stabilize RC drift cars, improve control, and enhance drift performance. Understand gyro functions, setup tips, and troubleshooting for RC drift applications."
-category: "Electronics & Tuning"
+category: "Setup & Tuning"
 date: "2025-11-28"
 author: "RC Drift Parts Team"
 readingTime: 10

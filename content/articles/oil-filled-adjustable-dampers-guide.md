@@ -1,7 +1,7 @@
 ---
 title: "Oil Filled Adjustable Dampers - Ultimate Suspension Upgrade for RC Drift Cars"
 description: "Complete guide to oil filled adjustable dampers for RC drift cars. Learn how to improve cornering, enhance drift stability, and optimize suspension performance with Tamiya TT-02 upgrades."
-category: "Suspension & Tires"
+category: "Upgrades & Mods"
 date: "2025-08-22"
 author: "RC Drift Parts Team"
 readingTime: 12

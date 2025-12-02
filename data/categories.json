@@ -40,5 +40,42 @@
       "name": "Body & Accessories",
       "description": "Protects internal parts and enhances appearance of RC cars and trucks."
     }
+  ],
+  "article_categories": [
+    {
+      "id": "getting_started",
+      "name": "Getting Started",
+      "description": "Beginner-friendly guides to help new RC enthusiasts get started with their first car, basic components, and terminology."
+    },
+    {
+      "id": "upgrades_mods",
+      "name": "Upgrades & Mods",
+      "description": "Guides on upgrading parts, improving performance, and modifying RC cars for better handling and drift."
+    },
+    {
+      "id": "maintenance_repairs",
+      "name": "Maintenance & Repairs",
+      "description": "Tips and tutorials on maintaining, repairing, and troubleshooting RC vehicles to extend their lifespan."
+    },
+    {
+      "id": "setup_tuning",
+      "name": "Setup & Tuning",
+      "description": "Detailed guides on chassis, suspension, steering, motor, and electronic tuning for optimal performance."
+    },
+    {
+      "id": "tips_tricks",
+      "name": "Tips & Tricks",
+      "description": "Practical advice, insider tips, and tricks to improve control, drift angles, and driving techniques."
+    },
+    {
+      "id": "product_reviews",
+      "name": "Product Reviews",
+      "description": "Comprehensive reviews of RC cars, parts, and accessories, highlighting pros, cons, and real-world performance."
+    },
+    {
+      "id": "comparison_guides",
+      "name": "Comparison Guides",
+      "description": "Side-by-side comparisons of different RC models, components, or upgrades to help users make informed choices."
+    }
   ]
 }

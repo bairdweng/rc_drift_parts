@@ -1,7 +1,7 @@
 ---
 title: "Aluminum Servo Mount Set - Precision Steering Foundation for RC Drift Cars"
 description: "Complete guide to aluminum servo mount sets for RC drift cars. Learn how to eliminate servo flex, improve steering precision, and enhance control response with Tamiya TT-02 upgrades."
-category: "Hardware & Mounts"
+category: "Upgrades & Mods"
 date: "2025-10-17"
 author: "RC Drift Parts Team"
 readingTime: 9

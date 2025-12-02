@@ -153,12 +153,20 @@ export default {
       .sortBy('date', 'desc')
       .fetch()
     
-    // Extract unique categories
-    const categories = [...new Set(articles.map(article => article.category))]
+    // Use all article categories from categories.json
+    const articleCategories = [
+      "Getting Started",
+      "Upgrades & Mods", 
+      "Maintenance & Repairs",
+      "Setup & Tuning",
+      "Tips & Tricks",
+      "Product Reviews",
+      "Comparison Guides"
+    ]
     
     return {
       articles,
-      categories
+      categories: articleCategories
     }
   },
   

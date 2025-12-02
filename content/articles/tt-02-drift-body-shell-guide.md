@@ -1,7 +1,7 @@
 ---
 title: "TT-02 Drift Body Shell - Aesthetic Protection and Performance Enhancement"
 description: "Complete guide to TT-02 drift body shells for RC drift cars. Learn how to protect internal components, improve aerodynamics, and enhance visual appeal with Tamiya TT-02 body upgrades."
-category: "Body & Accessories"
+category: "Upgrades & Mods"
 date: "2025-08-30"
 author: "RC Drift Parts Team"
 readingTime: 10

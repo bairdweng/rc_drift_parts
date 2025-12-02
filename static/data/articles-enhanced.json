@@ -3,7 +3,7 @@
     "slug": "aluminum-drift-steering-kit-guide",
     "title": "Aluminum Drift Steering Kit - Eliminate Steering Slop for Perfect Drift Control",
     "description": "Complete guide to aluminum steering kits for RC drift cars. Learn how to eliminate steering slop, improve precision, and enhance drift performance with Tamiya TT-02 upgrades.",
-    "category": "Suspension & Tires",
+    "category": "Upgrades & Mods",
     "keywords": "aluminum steering kit, drift steering upgrade, tamiya tt-02 steering, steering slop reduction",
     "models": [
       "tamiya-tt-02"
@@ -30,7 +30,7 @@
     "slug": "aluminum-servo-mount-set-guide",
     "title": "Aluminum Servo Mount Set - Precision Steering Foundation for RC Drift Cars",
     "description": "Complete guide to aluminum servo mount sets for RC drift cars. Learn how to eliminate servo flex, improve steering precision, and enhance control response with Tamiya TT-02 upgrades.",
-    "category": "Hardware & Mounts",
+    "category": "Upgrades & Mods",
     "keywords": "servo mount, aluminum mount, steering precision, tamiya tt-02 servo, drift control",
     "models": [
       "tamiya-tt-02"
@@ -56,7 +56,7 @@
     "slug": "battery-basics-guide",
     "title": "RC Drift Car Battery Basics - Understanding 1S, 2S, 3S and C-Ratings",
     "description": "Complete beginner's guide to RC drift car battery fundamentals. Learn what 1S, 2S, 3S batteries mean, understand C-ratings, and master proper charging techniques for optimal drift performance.",
-    "category": "Battery & Power Systems",
+    "category": "Maintenance & Repairs",
     "keywords": "rc drift cars battery basics",
     "models": [
       ""
@@ -73,7 +73,7 @@
     "slug": "battery-systems-guide",
     "title": "RC Drift Car Battery Systems - Powering Your Drift Machine",
     "description": "Complete guide to RC drift car battery selection, maintenance, and performance optimization. Learn about LiPo vs LiFe batteries, C-ratings, and proper charging techniques for RC drift cars.",
-    "category": "Battery & Power Systems",
+    "category": "Maintenance & Repairs",
     "keywords": "rc drift cars battery systems",
     "models": [
       ""
@@ -90,7 +90,7 @@
     "slug": "brushless-motor-540-esc-combo-guide",
     "title": "Brushless Motor 540 + ESC Combo - High-Speed Power System for RC Drift Cars",
     "description": "Complete guide to brushless motor 540 + ESC combos for RC drift cars. Learn how to achieve high-speed performance, precise electronic control, and waterproof reliability with Tamiya TT-02 upgrades.",
-    "category": "Motor & Electronics",
+    "category": "Upgrades & Mods",
     "keywords": "brushless motor, esc combo, drift electronics, tamiya tt-02 motor, waterproof esc",
     "models": [
       "tamiya-tt-02"
@@ -116,7 +116,7 @@
     "slug": "electronics-tuning-guide",
     "title": "RC Drift Car Electronics Tuning Guide - ESC, Motor, Gyro Setup",
     "description": "Complete guide to RC drift car electronics tuning. Learn ESC programming, motor timing, gyro sensitivity, and radio setup for perfect drift control.",
-    "category": "Electronics & Tuning",
+    "category": "Setup & Tuning",
     "keywords": "rc drift cars electronics tuning esc motor gyro",
     "models": [
       ""
@@ -134,14 +134,15 @@
     "title": "Gyro Stabilizer V2 - Ultimate Drift Control System for RC Drift Cars",
     "description": "Complete guide to gyro stabilizer V2 systems for RC drift cars. Learn how to maintain counter-steer, improve drift stability, and enhance control for beginners and professionals with Tamiya TT-02 upgrades.",
     "category": "Stabilizers & Controllers",
-    "keywords": "gyro stabilizer, drift gyro, counter-steer control, tamiya tt-02 gyro, stability system",
+    "keywords": "gyro stabilizer, drift gyro, counter-steer control, tamiya tt-02 gyro, stability system, rc drift car electronics",
     "models": [
       "tamiya-tt-02"
     ],
     "compatibleModels": [
       "tamiya-tt-02",
       "mst-rmx-2.0",
-      "yd-2"
+      "yd-2",
+      "sakura-d4"
     ],
     "partIds": [
       "10007"
@@ -160,7 +161,7 @@
     "slug": "high-torque-one-way-gear-set-guide",
     "title": "High Torque One-Way Gear Set - Ultimate Drivetrain Upgrade for RC Drift Cars",
     "description": "Complete guide to high torque one-way gear sets for RC drift cars. Learn how to improve power transfer, enable smooth one-way rotation, and enhance drift performance with Tamiya TT-02 upgrades.",
-    "category": "Drivetrain & Transmission",
+    "category": "Upgrades & Mods",
     "keywords": "one-way gear set, drift drivetrain, tamiya tt-02 gear, high torque gear, power transfer upgrade",
     "models": [
       "tamiya-tt-02"
@@ -186,7 +187,7 @@
     "slug": "lipo-battery-safety-guide",
     "title": "RC Drift Cars LiPo Battery Safety Guide - How to Identify Dangerous Batteries",
     "description": "Complete LiPo battery safety guide for RC drift cars. Learn to identify dangerous battery conditions, prevent fires, and handle swollen LiPo batteries safely for Tamiya TT-02, Yokomo, and MST drift cars.",
-    "category": "Battery & Power Systems",
+    "category": "Maintenance & Repairs",
     "keywords": "rc drift cars lipo battery safety, dangerous rc battery, swollen lipo battery, rc drift car battery fire prevention, tamiya tt-02 battery safety",
     "models": [
       ""
@@ -203,7 +204,7 @@
     "slug": "medium-narrow-reinforced-drift-tires-guide",
     "title": "Medium-Narrow Reinforced Drift Tires - Perfect Traction Control for RC Drift Cars",
     "description": "Complete guide to medium-narrow reinforced drift tires for RC drift cars. Learn how to achieve optimal traction, drift angle control, and surface adaptation with Tamiya TT-02 tire upgrades.",
-    "category": "Suspension & Tires",
+    "category": "Upgrades & Mods",
     "keywords": "drift tires, medium narrow tires, reinforced tires, tamiya tt-02 tires, traction control",
     "models": [
       "tamiya-tt-02"
@@ -230,7 +231,7 @@
     "slug": "oil-filled-adjustable-dampers-guide",
     "title": "Oil Filled Adjustable Dampers - Ultimate Suspension Upgrade for RC Drift Cars",
     "description": "Complete guide to oil filled adjustable dampers for RC drift cars. Learn how to improve cornering, enhance drift stability, and optimize suspension performance with Tamiya TT-02 upgrades.",
-    "category": "Suspension & Tires",
+    "category": "Upgrades & Mods",
     "keywords": "oil dampers, adjustable suspension, drift suspension, tamiya tt-02 dampers, shock absorbers",
     "models": [
       "tamiya-tt-02"
@@ -254,10 +255,95 @@
     ]
   },
   {
+    "slug": "rc-drift-beginners-guide",
+    "title": "RC Drift Car Beginner's Guide - How to Start Drifting in 2025",
+    "description": "Complete step-by-step guide for RC drift beginners. Learn how to choose your first drift car, essential parts, setup tips, and master basic drifting techniques for success.",
+    "category": "Getting Started",
+    "keywords": "rc drift beginner guide, how to start rc drifting, first rc drift car, drift car setup, rc drifting techniques",
+    "models": [
+      ""
+    ],
+    "compatibleModels": [
+      ""
+    ],
+    "partIds": [
+      ""
+    ],
+    "relatedParts": []
+  },
+  {
+    "slug": "rc-drift-comparison-guides",
+    "title": "RC Drift Car Comparison Guide - Side-by-Side Analysis of Top Models and Components",
+    "description": "Comprehensive comparison of RC drift cars, chassis, electronics, and tires. Make informed decisions with our detailed side-by-side analysis and performance metrics.",
+    "category": "Comparison Guides",
+    "keywords": "rc drift comparison guide chassis electronics tires side-by-side analysis",
+    "models": [
+      ""
+    ],
+    "compatibleModels": [
+      ""
+    ],
+    "partIds": [
+      ""
+    ],
+    "relatedParts": []
+  },
+  {
+    "slug": "rc-drift-product-reviews-guide",
+    "title": "RC Drift Car Product Reviews - Comprehensive Analysis of Top Components",
+    "description": "In-depth reviews of the best RC drift car components. Compare performance, value, and real-world results for motors, ESCs, gyros, and suspension systems.",
+    "category": "Product Reviews",
+    "keywords": "rc drift product reviews component analysis motor esc gyro suspension comparison",
+    "models": [
+      ""
+    ],
+    "compatibleModels": [
+      ""
+    ],
+    "partIds": [
+      ""
+    ],
+    "relatedParts": []
+  },
+  {
+    "slug": "rc-drift-tips-tricks-guide",
+    "title": "RC Drift Car Tips & Tricks - Advanced Techniques for Perfect Drifting",
+    "description": "Master advanced RC drifting techniques with our comprehensive tips and tricks guide. Learn throttle control, suspension tuning, weight transfer, and maintenance secrets.",
+    "category": "Tips & Tricks",
+    "keywords": "rc drift tips tricks techniques advanced drifting throttle control suspension tuning",
+    "models": [
+      ""
+    ],
+    "compatibleModels": [
+      ""
+    ],
+    "partIds": [
+      ""
+    ],
+    "relatedParts": []
+  },
+  {
+    "slug": "rc-drift-upgrades-mods-guide",
+    "title": "RC Drift Car Upgrades & Mods Guide - Transform Your Car in 2025",
+    "description": "Complete guide to RC drift car upgrades and modifications. Learn which upgrades deliver the biggest performance gains, proper installation techniques, and how to transform your car step by step.",
+    "category": "Upgrades & Mods",
+    "keywords": "rc drift upgrades, drift car modifications, performance upgrades, suspension upgrades, electronics upgrades",
+    "models": [
+      ""
+    ],
+    "compatibleModels": [
+      ""
+    ],
+    "partIds": [
+      ""
+    ],
+    "relatedParts": []
+  },
+  {
     "slug": "suspension-damper-tuning-guide",
     "title": "RC Drift Car Suspension Damper Tuning Guide - Oil Filled Adjustable Dampers",
     "description": "Complete guide to tuning oil-filled adjustable dampers for RC drift cars. Learn damping adjustment, oil viscosity selection, and suspension setup for optimal drift performance.",
-    "category": "Suspension & Tires",
+    "category": "Setup & Tuning",
     "keywords": "rc drift car suspension, oil filled dampers, adjustable dampers, damper tuning, suspension setup",
     "models": [
       "tamiya-tt-02"
@@ -276,7 +362,7 @@
     "slug": "suspension-tire-setup",
     "title": "RC Drift Car Suspension & Tire Setup: Q&A Guide",
     "description": "Complete guide to RC drift car suspension tuning and tire selection. Learn about camber, toe, spring rates, and tire compounds for optimal drift performance in RC drift cars.",
-    "category": "Suspension & Tires",
+    "category": "Setup & Tuning",
     "keywords": "rc drift cars suspension tuning",
     "models": [
       ""
@@ -293,7 +379,7 @@
     "slug": "tamiya-tt-02-suspension-guide",
     "title": "Tamiya TT-02 Suspension Setup Guide - Optimal Drift Tuning",
     "description": "Complete suspension tuning guide for Tamiya TT-02 drift conversions. Learn camber, toe, shock setup, and alignment for perfect drifting performance.",
-    "category": "Suspension & Tires",
+    "category": "Setup & Tuning",
     "keywords": "tamiya tt-02 suspension, tt02 drift setup, tamiya drift tuning",
     "models": [
       "tamiya-tt-02"
@@ -310,7 +396,7 @@
     "slug": "transmitter-setup-guide",
     "title": "RC Drift Car Transmitter Setup Guide",
     "description": "Complete guide to setting up your RC drift car transmitter for optimal control and drift performance. Learn about steering endpoints, throttle curves, and advanced settings for RC drift cars.",
-    "category": "Transmitter & Electronics",
+    "category": "Setup & Tuning",
     "keywords": "rc drift cars transmitter setup",
     "models": [
       ""
@@ -327,7 +413,7 @@
     "slug": "tt-02-drift-body-shell-guide",
     "title": "TT-02 Drift Body Shell - Aesthetic Protection and Performance Enhancement",
     "description": "Complete guide to TT-02 drift body shells for RC drift cars. Learn how to protect internal components, improve aerodynamics, and enhance visual appeal with Tamiya TT-02 body upgrades.",
-    "category": "Body & Accessories",
+    "category": "Upgrades & Mods",
     "keywords": "drift body shell, tamiya tt-02 body, lexan body, drift car aesthetics, body protection",
     "models": [
       "tamiya-tt-02"
@@ -352,7 +438,7 @@
     "slug": "what-does-gyro-do-in-rc-drift-car",
     "title": "What Does a Gyro Do in an RC Drift Car?",
     "description": "Learn how gyros stabilize RC drift cars, improve control, and enhance drift performance. Understand gyro functions, setup tips, and troubleshooting for RC drift applications.",
-    "category": "Electronics & Tuning",
+    "category": "Setup & Tuning",
     "keywords": "rc drift car gyro, gyro function, drift stabilization, rc electronics",
     "models": [
       ""

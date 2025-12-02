@@ -1,7 +1,7 @@
 ---
 title: "Tamiya TT-02 Suspension Setup Guide - Optimal Drift Tuning"
 description: "Complete suspension tuning guide for Tamiya TT-02 drift conversions. Learn camber, toe, shock setup, and alignment for perfect drifting performance."
-category: "Suspension & Tires"
+category: "Setup & Tuning"
 date: "2025-01-25"
 author: "RC Drift Parts Team"
 readingTime: 10

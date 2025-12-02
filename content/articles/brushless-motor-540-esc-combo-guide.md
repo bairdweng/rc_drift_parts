@@ -1,7 +1,7 @@
 ---
 title: "Brushless Motor 540 + ESC Combo - High-Speed Power System for RC Drift Cars"
 description: "Complete guide to brushless motor 540 + ESC combos for RC drift cars. Learn how to achieve high-speed performance, precise electronic control, and waterproof reliability with Tamiya TT-02 upgrades."
-category: "Motor & Electronics"
+category: "Upgrades & Mods"
 date: "2025-10-03"
 author: "RC Drift Parts Team"
 readingTime: 14
