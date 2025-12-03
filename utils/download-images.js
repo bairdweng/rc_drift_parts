@@ -61,36 +61,50 @@ class ImageDownloader {
   // 转换图片为WebP格式
   convertToWebp(inputPath, outputPath, quality = 75) {
     try {
-      // 直接使用PIL库进行WebP转换（参考download-article-images.js的实现）
-      const pythonCode = `
+      // 简化Python转换代码，避免复杂的字符串转义问题
+      const pythonScript = `
 import sys
 from PIL import Image
 
 try:
-    with Image.open('${inputPath}') as img:
-        # 如果是PNG且有透明度，保持RGBA模式
-        if img.format == 'PNG' and img.mode in ('RGBA', 'LA') or (img.mode == 'P' and 'transparency' in img.info):
-            img = img.convert('RGBA')
-        else:
-            img = img.convert('RGB')
-        
-        img.save('${outputPath}', 'WEBP', quality=${quality}, method=6)
-        print('SUCCESS')
+    img = Image.open('${inputPath}')
+    # 简化转换逻辑
+    if img.mode in ('RGBA', 'LA', 'P'):
+        img = img.convert('RGBA')
+    else:
+        img = img.convert('RGB')
+    
+    img.save('${outputPath}', 'WEBP', quality=${quality})
+    print('SUCCESS')
 except Exception as e:
-    print(f'ERROR: {e}')
+    print('ERROR:' + str(e))
     sys.exit(1)
 `;
       
-      // 执行Python代码进行转换
-      execSync(`python3 -c "${pythonCode.replace(/"/g, '\\"')}"`, { stdio: 'pipe' });
+      // 将Python代码写入临时文件执行，避免命令行转义问题
+      const tempScriptPath = path.join(__dirname, 'temp_convert.py');
+      fs.writeFileSync(tempScriptPath, pythonScript);
       
-      // 检查WebP文件是否生成
-      if (fs.existsSync(outputPath)) {
-        // 删除原文件
-        fs.unlinkSync(inputPath);
-        return outputPath;
+      try {
+        execSync(`python3 "${tempScriptPath}"`, { stdio: 'pipe' });
+        
+        // 检查WebP文件是否生成
+        if (fs.existsSync(outputPath)) {
+          // 删除原文件
+          fs.unlinkSync(inputPath);
+          // 删除临时脚本文件
+          fs.unlinkSync(tempScriptPath);
+          return outputPath;
+        }
+      } catch (error) {
+        console.log(`⚠️  WebP转换执行失败: ${error.message}`);
+        // 删除临时脚本文件
+        if (fs.existsSync(tempScriptPath)) {
+          fs.unlinkSync(tempScriptPath);
+        }
       }
-      return inputPath;
+      
+      return inputPath; // 返回原文件路径
     } catch (error) {
       console.log(`⚠️  WebP转换失败: ${error.message}`);
       return inputPath; // 返回原文件路径
@@ -176,16 +190,18 @@ except Exception as e:
           }
           
           try {
-            // 转换为WebP格式
-            const webpPath = this.convertToWebp(tempPath, localPath, 75);
-            
+          // 转换为WebP格式
+          const webpPath = this.convertToWebp(tempPath, localPath, 75);
+          
+          // 检查转换是否成功（文件是否存在）
+          if (fs.existsSync(webpPath)) {
             // 如果转换成功，删除临时文件
-            if (webpPath !== tempPath) {
+            if (fs.existsSync(tempPath) && webpPath !== tempPath) {
               fs.unlinkSync(tempPath);
             }
-            
+            console.log(`✅ WebP转换成功: ${webpPath}`);
             resolve(webpPath);
-          } catch (error) {
+          } else {
             // 如果转换失败，检查临时文件是否存在，然后重命名
             if (fs.existsSync(tempPath)) {
               fs.renameSync(tempPath, localPath);
@@ -195,6 +211,16 @@ except Exception as e:
               reject(new Error('WebP转换失败且临时文件丢失'));
             }
           }
+        } catch (error) {
+          // 如果转换过程中出现异常，检查临时文件是否存在
+          if (fs.existsSync(tempPath)) {
+            fs.renameSync(tempPath, localPath);
+            console.log(`⚠️  WebP转换异常，保留原格式: ${localPath}`);
+            resolve(localPath);
+          } else {
+            reject(new Error('WebP转换异常且临时文件丢失'));
+          }
+        }
         });
 
         fileStream.on('error', (err) => {
@@ -228,7 +254,7 @@ except Exception as e:
     const localPath = path.join(this.imageDir, localFilename);
     const localUrl = `/image/parts/tamiya-tt-02/${localFilename}`;
 
-    // 检查文件是否已存在（参考download-article-images.js的错误处理）
+    // 检查文件是否已存在，如果存在则删除旧文件
     let fileExists = false;
     try {
       fileExists = fs.existsSync(localPath);
@@ -239,11 +265,13 @@ except Exception as e:
     }
     
     if (fileExists) {
-      console.log(`[${index + 1}] 已存在: ${part.name} -> ${localFilename}`);
-      return { 
-        part: { ...part, image: localUrl },
-        downloaded: false 
-      };
+      console.log(`[${index + 1}] 文件已存在，删除旧文件: ${part.name} -> ${localFilename}`);
+      try {
+        fs.unlinkSync(localPath);
+        console.log(`[${index + 1}] ✓ 旧文件已删除`);
+      } catch (error) {
+        console.log(`[${index + 1}] ⚠️ 删除旧文件失败: ${error.message}`);
+      }
     }
 
     // 下载图片

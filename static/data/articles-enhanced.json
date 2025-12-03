@@ -22,7 +22,7 @@
         "name": "Aluminum Drift Steering Kit",
         "category_id": "steering_control",
         "subcategory": "drift",
-        "image": "/image/parts/tamiya-tt-02/tt02-54574-tt-02-aluminum-racing-steering-set.webp"
+        "image": "/image/parts/tamiya-tt-02/tt02-10001-aluminum-drift-steering-kit.webp"
       }
     ]
   },
@@ -158,6 +158,45 @@
     ]
   },
   {
+    "slug": "high-performance-digital-servo-guide",
+    "title": "High-Performance Digital Servo Guide - Ultimate RC Drift Car Steering Upgrade",
+    "description": "Complete guide to high-performance digital servos for RC drift cars. Learn about 25kg/cm torque, 0.10s/60° speed, metal gears, and installation tips for Tamiya TT-02, MST RMX 2.0, and YD-2 models.",
+    "category": "upgrades_mods",
+    "keywords": [
+      "high performance digital servo",
+      "rc drift servo upgrade",
+      "25kg servo torque",
+      "fast steering servo",
+      "digital vs analog servo",
+      "rc car steering upgrade",
+      "tamiya tt-02 servo",
+      "mst rmx 2.0 servo",
+      "yd-2 servo installation"
+    ],
+    "models": [
+      "Tamiya TT-02",
+      "MST RMX 2.0",
+      "YD-2"
+    ],
+    "compatibleModels": [
+      "Tamiya TT-02",
+      "MST RMX 2.0",
+      "YD-2"
+    ],
+    "partIds": [
+      "10009"
+    ],
+    "relatedParts": [
+      {
+        "id": "10009",
+        "name": "High-Performance Digital Servo",
+        "category_id": "steering_control",
+        "subcategory": "drift",
+        "image": "/image/parts/tamiya-tt-02/tt02-10009-high-performance-digital-servo.webp"
+      }
+    ]
+  },
+  {
     "slug": "high-torque-one-way-gear-set-guide",
     "title": "High Torque One-Way Gear Set - Ultimate Drivetrain Upgrade for RC Drift Cars",
     "description": "Complete guide to high torque one-way gear sets for RC drift cars. Learn how to improve power transfer, enable smooth one-way rotation, and enhance drift performance with Tamiya TT-02 upgrades.",
@@ -179,7 +218,7 @@
         "name": "High Torque One-Way Gear Set",
         "category_id": "drivetrain",
         "subcategory": "drift",
-        "image": "https://img.alicdn.com/imgextra/i3/3805918020/O1CN01OF2uBi297DUI3Jiz7_!!3805918020.jpg_.webp"
+        "image": "/image/parts/tamiya-tt-02/tt02-10002-high-torque-one-way-gear-set.webp"
       }
     ]
   },
@@ -259,7 +298,7 @@
     "title": "RC Drift Car Beginner's Guide - How to Start Drifting in 2025",
     "description": "Complete step-by-step guide for RC drift beginners. Learn how to choose your first drift car, essential parts, setup tips, and master basic drifting techniques for success.",
     "category": "Getting Started",
-    "keywords": "rc drift beginner guide, how to start rc drifting, first rc drift car, drift car setup, rc drifting techniques",
+    "keywords": "rc drift cars beginner guide, rc drift car beginner guide, how to start rc drifting, first rc drift car, drift car setup, rc drifting techniques",
     "models": [
       ""
     ],
@@ -310,7 +349,7 @@
     "title": "RC Drift Car Tips & Tricks - Advanced Techniques for Perfect Drifting",
     "description": "Master advanced RC drifting techniques with our comprehensive tips and tricks guide. Learn throttle control, suspension tuning, weight transfer, and maintenance secrets.",
     "category": "Tips & Tricks",
-    "keywords": "rc drift tips tricks techniques advanced drifting throttle control suspension tuning",
+    "keywords": "rc drift cars tips, rc drift car tips, drift car techniques, advanced drifting, throttle control, suspension tuning",
     "models": [
       ""
     ],
@@ -327,7 +366,7 @@
     "title": "RC Drift Car Upgrades & Mods Guide - Transform Your Car in 2025",
     "description": "Complete guide to RC drift car upgrades and modifications. Learn which upgrades deliver the biggest performance gains, proper installation techniques, and how to transform your car step by step.",
     "category": "Upgrades & Mods",
-    "keywords": "rc drift upgrades, drift car modifications, performance upgrades, suspension upgrades, electronics upgrades",
+    "keywords": "rc drift cars upgrades, rc drift car upgrades, drift car modifications, performance upgrades, suspension upgrades, electronics upgrades",
     "models": [
       ""
     ],

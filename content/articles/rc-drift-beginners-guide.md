@@ -7,7 +7,7 @@ author: "RC Drift Parts Team"
 readingTime: 12
 featured: true
 image: "/image/articles/rc-drift-beginners-guide-image-1.webp"
-keywords: "rc drift beginner guide, how to start rc drifting, first rc drift car, drift car setup, rc drifting techniques"
+keywords: "rc drift cars beginner guide, rc drift car beginner guide, how to start rc drifting, first rc drift car, drift car setup, rc drifting techniques"
 models: []
 compatibleModels: []
 partIds: []

@@ -11,7 +11,7 @@
       "YD-2"
     ],
     "function": "Reduces slop and improves precision steering for drift RC cars",
-    "image": "/image/parts/tamiya-tt-02/tt02-54574-tt-02-aluminum-racing-steering-set.webp",
+    "image": "/image/parts/tamiya-tt-02/tt02-10001-aluminum-drift-steering-kit.webp",
     "relatedArticles": [
       {
         "slug": "aluminum-drift-steering-kit-guide",
@@ -32,7 +32,7 @@
       "MST RMX 2.0"
     ],
     "function": "Transfers power efficiently and enables smooth one-way rotation for better drifting",
-    "image": "https://img.alicdn.com/imgextra/i3/3805918020/O1CN01OF2uBi297DUI3Jiz7_!!3805918020.jpg_.webp",
+    "image": "/image/parts/tamiya-tt-02/tt02-10002-high-torque-one-way-gear-set.webp",
     "relatedArticles": [
       {
         "slug": "high-torque-one-way-gear-set-guide",
@@ -167,6 +167,28 @@
         "title": "TT-02 Drift Body Shell - Aesthetic Protection and Performance Enhancement",
         "description": "Complete guide to TT-02 drift body shells for RC drift cars. Learn how to protect internal components, improve aerodynamics, and enhance visual appeal with Tamiya TT-02 body upgrades.",
         "category": "Upgrades & Mods"
+      }
+    ]
+  },
+  {
+    "id": "10009",
+    "name": "High-Performance Digital Servo",
+    "category_id": "steering_control",
+    "subcategory": "drift",
+    "specs": "Digital servo, 25kg/cm torque, 0.10s/60° speed, metal gears",
+    "compatibility": [
+      "TT-02",
+      "MST RMX 2.0",
+      "YD-2"
+    ],
+    "function": "Provides fast, precise steering response for professional-level drifting",
+    "image": "/image/parts/tamiya-tt-02/tt02-10009-high-performance-digital-servo.webp",
+    "relatedArticles": [
+      {
+        "slug": "high-performance-digital-servo-guide",
+        "title": "High-Performance Digital Servo Guide - Ultimate RC Drift Car Steering Upgrade",
+        "description": "Complete guide to high-performance digital servos for RC drift cars. Learn about 25kg/cm torque, 0.10s/60° speed, metal gears, and installation tips for Tamiya TT-02, MST RMX 2.0, and YD-2 models.",
+        "category": "upgrades_mods"
       }
     ]
   }

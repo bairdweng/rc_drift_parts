@@ -7,7 +7,7 @@ author: "RC Drift Parts Team"
 readingTime: 18
 featured: true
 image: "/image/articles/rc-drift-tips-tricks-guide-image-1.webp"
-keywords: "rc drift tips tricks techniques advanced drifting throttle control suspension tuning"
+keywords: "rc drift cars tips, rc drift car tips, drift car techniques, advanced drifting, throttle control, suspension tuning"
 models: []
 compatibleModels: []
 partIds: []

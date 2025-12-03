@@ -7,7 +7,7 @@ author: "RC Drift Parts Team"
 readingTime: 15
 featured: true
 image: "/image/articles/rc-drift-upgrades-mods-guide-image-1.webp"
-keywords: "rc drift upgrades, drift car modifications, performance upgrades, suspension upgrades, electronics upgrades"
+keywords: "rc drift cars upgrades, rc drift car upgrades, drift car modifications, performance upgrades, suspension upgrades, electronics upgrades"
 models: []
 compatibleModels: []
 partIds: []

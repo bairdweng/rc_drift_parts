@@ -11,7 +11,7 @@
       "YD-2"
     ],
     "function": "Reduces slop and improves precision steering for drift RC cars",
-    "image": "/image/parts/tamiya-tt-02/tt02-54574-tt-02-aluminum-racing-steering-set.webp"
+    "image": "/image/parts/tamiya-tt-02/tt02-10001-aluminum-drift-steering-kit.webp"
   },
   {
     "id": "10002",
@@ -24,7 +24,7 @@
       "MST RMX 2.0"
     ],
     "function": "Transfers power efficiently and enables smooth one-way rotation for better drifting",
-    "image": "https://img.alicdn.com/imgextra/i3/3805918020/O1CN01OF2uBi297DUI3Jiz7_!!3805918020.jpg_.webp"
+    "image": "/image/parts/tamiya-tt-02/tt02-10002-high-torque-one-way-gear-set.webp"
   },
   {
     "id": "10003",
@@ -105,5 +105,19 @@
     ],
     "function": "Protects internal parts and improves aesthetics of the drift car",
     "image": "/image/parts/tamiya-tt-02/tt02-body_nissan_gt-tt-02-nissan-gt-r-body.webp"
+  },
+  {
+    "id": "10009",
+    "name": "High-Performance Digital Servo",
+    "category_id": "steering_control",
+    "subcategory": "drift",
+    "specs": "Digital servo, 25kg/cm torque, 0.10s/60° speed, metal gears",
+    "compatibility": [
+      "TT-02",
+      "MST RMX 2.0",
+      "YD-2"
+    ],
+    "function": "Provides fast, precise steering response for professional-level drifting",
+    "image": "/image/parts/tamiya-tt-02/tt02-10009-high-performance-digital-servo.webp"
   }
 ]
