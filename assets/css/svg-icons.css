@@ -1,0 +1,86 @@
+/* SVG图标样式 - 轻量级图标解决方案 */
+
+.svg-icon,
+.svg-icon-inline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+.svg-icon svg,
+.svg-icon-inline svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+/* 图标大小变体 */
+.svg-icon.xs,
+.svg-icon-inline.xs {
+  width: 16px;
+  height: 16px;
+}
+
+.svg-icon.sm,
+.svg-icon-inline.sm {
+  width: 20px;
+  height: 20px;
+}
+
+.svg-icon.md,
+.svg-icon-inline.md {
+  width: 24px;
+  height: 24px;
+}
+
+.svg-icon.lg,
+.svg-icon-inline.lg {
+  width: 32px;
+  height: 32px;
+}
+
+.svg-icon.xl,
+.svg-icon-inline.xl {
+  width: 48px;
+  height: 48px;
+}
+
+/* 按钮中的图标 */
+.v-btn .svg-icon,
+.v-btn .svg-icon-inline {
+  margin-right: 8px;
+}
+
+.v-btn .svg-icon:last-child,
+.v-btn .svg-icon-inline:last-child {
+  margin-right: 0;
+  margin-left: 8px;
+}
+
+/* 列表项中的图标 */
+.v-list-item .svg-icon,
+.v-list-item .svg-icon-inline {
+  margin-right: 12px;
+}
+
+/* 卡片标题中的图标 */
+.v-card-title .svg-icon,
+.v-card-title .svg-icon-inline {
+  margin-right: 8px;
+}
+
+/* 响应式图标 */
+@media (max-width: 600px) {
+  .svg-icon.lg,
+  .svg-icon-inline.lg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .svg-icon.xl,
+  .svg-icon-inline.xl {
+    width: 32px;
+    height: 32px;
+  }
+}

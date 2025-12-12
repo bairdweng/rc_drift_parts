@@ -3,6 +3,9 @@ name: Deploy static content to Pages
 on:
   push:
     branches: ["main"]
+    paths-ignore:
+      - 'README.md'
+      - '.github/**'
   workflow_dispatch:
     inputs:
       use_local_dist:

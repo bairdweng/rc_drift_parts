@@ -1,29 +1,60 @@
-// https://nuxtjs.org/docs/configuration-glossary/configuration-modules
-export default {
-  // Target for static generation: https://nuxtjs.org/docs/configuration-glossary/configuration-target
-  target: 'static',
+// Nuxt 3 配置文件
+import { resolve } from 'path'
+
+export default defineNuxtConfig({
+  // 全局配置
+  ssr: true,
   
-  // GitHub Pages deployment configuration - Remove base path to support custom domain
-  // router: {
-  //   base: process.env.NODE_ENV === 'production' ? '/rc_drift_parts/' : '/'
-  // },
+  // 开发模式配置 - 启用开发工具
+  devtools: { enabled: true },
   
-  // Static site generation configuration: https://nuxtjs.org/docs/configuration-glossary/configuration-generate
-  generate: {
-    dir: 'dist',
-    routes: async () => {
-      // 简化路由生成逻辑，避免文件系统操作
-      const staticRoutes = [
+  // Nuxt 4 特定配置
+  compatibilityDate: '2024-01-01',
+  
+  // Nuxt 4 路由配置 - 使用pages目录进行路由
+  // pages: true, // Nuxt 4中pages选项已弃用，使用app/pages目录结构
+  
+  // 应用配置
+  app: {
+    head: {
+      title: 'RC漂移零件导航 - 专业RC漂移零件选购指南',
+      htmlAttrs: {
+        lang: 'zh'
+      },
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'description', content: '专业的RC漂移零件导航网站，提供Tamiya TT-02等车型的零件选购指南、价格比较和技术文章' },
+        { name: 'keywords', content: 'RC漂移车, RC零件, Tamiya, TT-02, 漂移车配件, RC模型车' },
+        { name: 'author', content: 'RC漂移零件导航' },
+        { name: 'robots', content: 'index, follow' }
+      ],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'canonical', href: 'https://rcdriftparts.com' }
+      ],
+      script: [
+        {
+          src: 'https://www.googletagmanager.com/gtag/js?id=G-KGTL7ESMEK',
+          async: true
+        },
+        {
+          innerHTML: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-KGTL7ESMEK');`
+        }
+      ]
+    }
+  },
+
+  // 静态生成配置
+  nitro: {
+    prerender: {
+      routes: [
         '/',
         '/models',
         '/parts',
         '/parts/tamiya-tt-02',
         '/rc-drift-cars',
-        '/tech-articles'
-      ]
-      
-      // 技术文章路由
-      const articleRoutes = [
+        '/tech-articles',
         '/tech-articles/battery-basics-guide',
         '/tech-articles/battery-systems-guide',
         '/tech-articles/electronics-tuning-guide',
@@ -31,170 +62,70 @@ export default {
         '/tech-articles/suspension-tire-setup',
         '/tech-articles/tamiya-tt-02-suspension-guide',
         '/tech-articles/transmitter-setup-guide',
-        '/tech-articles/what-does-gyro-do-in-rc-drift-car'
-      ]
-      
-      // 模型文章路由
-      const modelRoutes = [
+        '/tech-articles/what-does-gyro-do-in-rc-drift-car',
         '/tech-articles/model/tamiya-tt-02'
       ]
-      
-      return [...staticRoutes, ...articleRoutes, ...modelRoutes]
-    },
-    fallback: true
+    }
   },
 
-  // Global page headers: https://nuxtjs.org/docs/configuration-glossary/configuration-head
-  head: {
-    title: 'RC Drift Parts - Professional RC Drift Car Parts Search Platform',
-    htmlAttrs: {
-      lang: 'en'
-    },
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'RC Drift Parts - Professional RC drift car parts search platform. Find Tamiya TT-02 parts, compare prices, and get buying guides. Quickly find the RC drift car accessories you need.' },
-      { name: 'keywords', content: 'RC drift cars, RC parts, Tamiya, TT-02, drift car accessories, RC model cars' },
-      { name: 'author', content: 'RC Drift Parts' },
-      { name: 'robots', content: 'index, follow' }
-    ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'canonical', href: 'https://rcdriftparts.com' }
-    ],
-    script: [
+  // CSS配置
+  css: [
+    resolve(__dirname, 'assets/css/main.css'),
+    resolve(__dirname, 'assets/css/svg-icons.css')
+  ],
+
+  // 构建配置
+  build: {
+    transpile: [
+      'naive-ui',
+      'vueuc',
+      '@css-render/vue3-ssr',
+      '@juggle/resize-observer'
+    ]
+  },
+
+  // 插件配置
+  plugins: [
+    '~/plugins/performance.js',
+    '~/plugins/sitemap.js',
+    '~/plugins/svg-icons.js'
+  ],
+
+  // 自动导入组件
+  components: true,
+  
+  // Naive UI 自动导入配置
+  imports: {
+    dirs: ['composables/**'],
+    presets: [
       {
-        src: 'https://www.googletagmanager.com/gtag/js?id=G-KGTL7ESMEK',
-        async: true
-      },
-      {
-        innerHTML: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-KGTL7ESMEK');`
+        from: 'naive-ui',
+        imports: [
+          // 布局组件
+          'NLayout', 'NLayoutHeader', 'NLayoutContent', 'NLayoutFooter',
+          // 基础组件
+          'NButton', 'NIcon', 'NText', 'NH1', 'NH2', 'NH3', 'NH4', 'NH5', 'NH6',
+          // 数据展示
+          'NCard', 'NThing', 'NList', 'NListItem', 'NDataTable',
+          // 反馈组件
+          'NMessageProvider', 'useMessage', 'NDialogProvider', 'useDialog',
+          // 表单组件
+          'NInput', 'NInputGroup', 'NSelect', 'NInputNumber',
+          // 导航组件
+          'NTabs', 'NTabPane',
+          // 其他组件
+          'NGrid', 'NGi', 'NSpace', 'NTag', 'NProgress', 'NSlider',
+          'NGradientText'
+        ]
       }
     ]
   },
 
-  // Global CSS: https://nuxtjs.org/docs/configuration-glossary/configuration-css
-  css: [
-    '~/assets/css/main.css',
-    '@mdi/font/css/materialdesignicons.min.css'
-  ],
-
-  // Plugins to run before rendering page: https://nuxtjs.org/docs/configuration-glossary/configuration-plugins
-  plugins: [
-    '~/plugins/sitemap.js',
-    '~/plugins/performance.js'
-  ],
-
-  // Auto import components: https://nuxtjs.org/docs/configuration-glossary/configuration-components
-  components: true,
-
-  // Modules for dev and build (recommended): https://nuxtjs.org/docs/configuration-glossary/configuration-modules
+  // 模块配置
   modules: [
     '@nuxt/content'
   ],
-  
-  // Vuetify module configuration
-  buildModules: [
-    '@nuxtjs/vuetify'
-  ],
-  
-  // Vuetify configuration
-  vuetify: {
-    customVariables: ['~/assets/variables.scss'],
-    theme: {
-      dark: false,
-      themes: {
-        light: {
-          primary: '#1976D2',
-          secondary: '#424242',
-          accent: '#82B1FF',
-          error: '#FF5252',
-          info: '#2196F3',
-          success: '#4CAF50',
-          warning: '#FFC107'
-        }
-      }
-    },
-    // 启用树摇优化以减少打包体积
-    treeShake: true
-  },
-  
-  // Content module configuration
-  content: {
-    // Content directory
-    dir: 'content',
-    // Supported file extensions
-    extensions: ['md', 'json', 'yaml', 'yml'],
-    // Enable full-text search
-    fullTextSearchFields: ['title', 'description', 'slug', 'text'],
-    // Disable live editing in development
-    liveEdit: false,
-    // Markdown configuration
-    markdown: {
-      remarkPlugins: [],
-      rehypePlugins: []
-    }
-  },
 
-  // Build Configuration: https://nuxtjs.org/docs/configuration-glossary/configuration-build
-  build: {
-    // Optimize CSS build performance
-    optimizeCSS: true,
-    // Enable code splitting
-    splitChunks: {
-      layouts: true,
-      pages: true,
-      commons: true
-    },
-    // JavaScript compression
-    terser: {
-      terserOptions: {
-        compress: {
-          drop_console: process.env.NODE_ENV === 'production',
-          pure_funcs: ['console.log', 'console.debug']
-        }
-      }
-    },
-    // 优化Vuetify体积
-    transpile: ['vuetify/lib'],
-    // 禁用Hardsource缓存以避免构建错误
-    hardSource: false
-  },
-  
-  // Development server configuration
-  dev: process.env.NODE_ENV === 'development',
-  
-  // Render configuration
-  render: {
-    // HTML compression
-    compressor: {
-      threshold: 1024
-    },
-    // Static assets caching
-    static: {
-      maxAge: '1y'
-    }
-  },
-  
-  // 性能优化配置
-  loading: {
-    color: '#1976D2',
-    height: '3px'
-  },
-  
-  // 图片优化
-  image: {
-    // 启用图片懒加载
-    lazy: true,
-    // 图片质量优化
-    quality: 80,
-    // 响应式图片
-    responsive: true
-  },
-  
-  // 字体优化
-  webfonts: {
-    // 预加载关键字体
-    preload: true
-  }
-}
+  // Content模块配置
+  content: {}
+})
