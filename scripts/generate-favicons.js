@@ -9,7 +9,7 @@ const ICON_SIZES = [
   { size: 192, name: 'android-chrome-192x192.png' },
   { size: 512, name: 'android-chrome-512x512.png' },
   { size: 150, name: 'mstile-150x150.png' },
-  { size: 32, name: 'safari-pinned-tab.svg', format: 'svg' }
+  { size: 32, name: 'safari-pinned-tab.svg', format: 'svg' },
 ]
 
 async function generateFavicons(inputImagePath, outputDir = './public/static/favicons') {
@@ -28,11 +28,11 @@ async function generateFavicons(inputImagePath, outputDir = './public/static/fav
   try {
     // 读取输入图片
     const image = sharp(inputImagePath)
-    
+
     // 生成各种尺寸的图标
     for (const config of ICON_SIZES) {
       const outputPath = path.join(outputDir, config.name)
-      
+
       try {
         if (config.format === 'svg') {
           // 对于 SVG 格式，直接复制文件
@@ -42,7 +42,7 @@ async function generateFavicons(inputImagePath, outputDir = './public/static/fav
           await image
             .resize(config.size, config.size, {
               fit: 'cover',
-              position: 'center'
+              position: 'center',
             })
             .png()
             .toFile(outputPath)
