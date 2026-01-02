@@ -45,3 +45,26 @@ yarn-error.log*
 
 # Contentlayer
 .contentlayer
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+
+# Generated favicon source
+scripts/icon.png
+
+# Local development files
+.next/
+out/
+build/
