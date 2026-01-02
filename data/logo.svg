@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- RC Drift 主题渐变 -->
+    <linearGradient id="rcDriftGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e11d48;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#dc2626;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#b91c1c;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- 速度线效果 -->
+    <pattern id="speedLines" patternUnits="userSpaceOnUse" width="10" height="10">
+      <path d="M0,10 L10,0" stroke="#ffffff" stroke-width="0.5" stroke-opacity="0.3"/>
+    </pattern>
+  </defs>
+  
+  <!-- 背景矩形 -->
+  <rect x="0" y="0" width="200" height="60" rx="8" fill="url(#rcDriftGradient)"/>
+  
+  <!-- 速度线效果 -->
+  <rect x="0" y="0" width="200" height="60" rx="8" fill="url(#speedLines)" opacity="0.2"/>
+  
+  <!-- 轮胎轨迹效果 -->
+  <path d="M20,45 Q40,30 60,45" stroke="#ffffff" stroke-width="2" fill="none" stroke-opacity="0.6"/>
+  <path d="M140,45 Q160,30 180,45" stroke="#ffffff" stroke-width="2" fill="none" stroke-opacity="0.6"/>
+  
+  <!-- 主标题文字 -->
+  <text x="100" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff">
+    RC DRIFT PARTS
+  </text>
+  
+  <!-- 副标题 -->
+  <text x="100" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#fecaca">
+    UPGRADE GUIDES
+  </text>
+  
+  <!-- 装饰性轮胎图标 -->
+  <circle cx="30" cy="30" r="8" fill="none" stroke="#ffffff" stroke-width="2" stroke-opacity="0.8"/>
+  <circle cx="30" cy="30" r="4" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.6"/>
+  
+  <circle cx="170" cy="30" r="8" fill="none" stroke="#ffffff" stroke-width="2" stroke-opacity="0.8"/>
+  <circle cx="170" cy="30" r="4" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.6"/>
+  
+  <!-- 漂移角度指示器 -->
+  <path d="M85,20 L95,15 L95,25 Z" fill="#fbbf24" opacity="0.8"/>
+  <path d="M115,20 L105,15 L105,25 Z" fill="#fbbf24" opacity="0.8"/>
+</svg>
