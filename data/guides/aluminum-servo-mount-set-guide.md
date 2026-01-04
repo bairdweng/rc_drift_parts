@@ -11,6 +11,8 @@ keywords: "servo mount, aluminum mount, steering precision, tamiya tt-02 servo, 
 models: ["tamiya-tt-02"]
 compatibleModels: ["tamiya-tt-02", "mst-rmx-2.0"]
 partIds: ["10006"]
+tags: ['rc-drift', 'servo-mount', 'aluminum', 'upgrades', 'tamiya-tt02']
+summary: Complete guide to aluminum servo mount sets for RC drift cars. Learn how to eliminate servo flex, improve steering precision, and enhance control response with Tamiya TT-02 upgrades.
 ---
 
 # Aluminum Servo Mount Set Guide

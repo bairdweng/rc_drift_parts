@@ -1,13 +1,18 @@
 ---
 title: "High-Performance Digital Servo Guide - Ultimate RC Drift Car Steering Upgrade"
 description: "Complete guide to high-performance digital servos for RC drift cars. Learn about 25kg/cm torque, 0.10s/60° speed, metal gears, and installation tips for Tamiya TT-02, MST RMX 2.0, and YD-2 models."
+category: "Upgrades & Mods"
 date: "2025-01-01"
-category: "upgrades_mods"
-keywords: ["high performance digital servo", "rc drift servo upgrade", "25kg servo torque", "fast steering servo", "digital vs analog servo", "rc car steering upgrade", "tamiya tt-02 servo", "mst rmx 2.0 servo", "yd-2 servo installation"]
-models: ["Tamiya TT-02", "MST RMX 2.0", "YD-2"]
-compatibleModels: ["Tamiya TT-02", "MST RMX 2.0", "YD-2"]
+author: "RC Drift Parts Team"
+readingTime: 14
+featured: true
 image: "/static/images/articles/high-performance-digital-servo-guide-image-1.webp"
+keywords: "high performance digital servo, rc drift servo upgrade, 25kg servo torque, fast steering servo, digital vs analog servo, rc car steering upgrade, tamiya tt-02 servo, mst rmx 2.0 servo, yd-2 servo installation"
+models: ["tamiya-tt-02", "mst-rmx-2.0", "yd-2"]
+compatibleModels: ["tamiya-tt-02", "mst-rmx-2.0", "yd-2"]
 partIds: ["10009"]
+tags: ['rc-drift', 'servo', 'steering', 'upgrades', 'electronics']
+summary: Complete guide to high-performance digital servos for RC drift cars. Learn about 25kg/cm torque, 0.10s/60° speed, metal gears, and installation tips for Tamiya TT-02, MST RMX 2.0, and YD-2 models.
 ---
 
 # High-Performance Digital Servo Guide: Ultimate RC Drift Car Steering Upgrade

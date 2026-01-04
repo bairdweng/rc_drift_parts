@@ -11,6 +11,8 @@ keywords: "aluminum steering kit, drift steering upgrade, tamiya tt-02 steering,
 models: ["tamiya-tt-02"]
 compatibleModels: ["tamiya-tt-02", "mst-rmx-2.0", "yd-2"]
 partIds: ["10001"]
+tags: ['rc-drift', 'steering-kit', 'aluminum', 'upgrades', 'tamiya-tt02']
+summary: Complete guide to aluminum steering kits for RC drift cars. Learn how to eliminate steering slop, improve precision, and enhance drift performance with Tamiya TT-02 upgrades.
 ---
 
 

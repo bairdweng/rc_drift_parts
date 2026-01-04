@@ -11,6 +11,8 @@ keywords: "one-way gear set, drift drivetrain, tamiya tt-02 gear, high torque ge
 models: ["tamiya-tt-02"]
 compatibleModels: ["tamiya-tt-02", "mst-rmx-2.0"]
 partIds: ["10002"]
+tags: ['rc-drift', 'gear-set', 'drivetrain', 'upgrades', 'tamiya-tt02']
+summary: Complete guide to high torque one-way gear sets for RC drift cars. Learn how to improve power transfer, enable smooth one-way rotation, and enhance drift performance with Tamiya TT-02 upgrades.
 ---
 
 ## Why Upgrade Your TT-02 Gear / One‑Way Unit

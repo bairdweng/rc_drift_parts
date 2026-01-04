@@ -11,6 +11,8 @@ keywords: "rc drift cars tips, rc drift car tips, drift car techniques, advanced
 models: []
 compatibleModels: []
 partIds: []
+tags: ['rc-drift', 'tips', 'tricks', 'advanced', 'techniques']
+summary: Master advanced RC drifting techniques with our comprehensive tips and tricks guide. Learn throttle control, suspension tuning, weight transfer, and maintenance secrets.
 ---
 
 # **RC Drift Car Tips & Tricks - Advanced Techniques for Perfect Drifting**

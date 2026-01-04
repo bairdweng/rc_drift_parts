@@ -11,6 +11,8 @@ keywords: "rc drift cars beginner guide, rc drift car beginner guide, how to sta
 models: []
 compatibleModels: []
 partIds: []
+tags: ['rc-drift', 'beginner-guide', 'getting-started', 'tutorial', 'setup']
+summary: Complete step-by-step guide for RC drift beginners. Learn how to choose your first drift car, essential parts, setup tips, and master basic drifting techniques for success in 2025.
 ---
 
 # **RC Drift Car Beginner's Guide – Start Drifting Like a Pro**

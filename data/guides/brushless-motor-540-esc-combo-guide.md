@@ -11,6 +11,8 @@ keywords: "brushless motor, esc combo, drift electronics, tamiya tt-02 motor, wa
 models: ["tamiya-tt-02"]
 compatibleModels: ["tamiya-tt-02", "mst-rmx-2.0"]
 partIds: ["10004"]
+tags: ['rc-drift', 'brushless-motor', 'esc', 'power-system', 'tamiya-tt02']
+summary: Complete guide to brushless motor 540 + ESC combos for RC drift cars. Learn how to achieve high-speed performance, precise electronic control, and waterproof reliability with Tamiya TT-02 upgrades.
 ---
 
 # TT‑02 Brushless Motor 540 + ESC Combo Guide — Unlock Higher Speed & Performance

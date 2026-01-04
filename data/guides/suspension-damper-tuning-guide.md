@@ -11,6 +11,8 @@ keywords: "rc drift car suspension, oil filled dampers, adjustable dampers, damp
 models: ["tamiya-tt-02"]
 compatibleModels: ["TT-02", "MST RMX 2.0", "YD-2"]
 partIds: []
+tags: ['rc-drift', 'damper-tuning', 'suspension', 'oil-dampers', 'setup']
+summary: Complete guide to tuning oil-filled adjustable dampers for RC drift cars. Learn damping adjustment, oil viscosity selection, and suspension setup for optimal drift performance.
 ---
 
 # **RC Drift Car Suspension Damper Tuning Guide**

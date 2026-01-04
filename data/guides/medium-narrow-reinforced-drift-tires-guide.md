@@ -11,6 +11,8 @@ keywords: "drift tires, medium narrow tires, reinforced tires, tamiya tt-02 tire
 models: ["tamiya-tt-02"]
 compatibleModels: ["tamiya-tt-02", "mst-rmx-2.0", "yd-2"]
 partIds: ["10005"]
+tags: ['rc-drift', 'tires', 'traction-control', 'upgrades', 'tamiya-tt02']
+summary: Complete guide to medium-narrow reinforced drift tires for RC drift cars. Learn how to achieve optimal traction, drift angle control, and surface adaptation with Tamiya TT-02 tire upgrades.
 ---
 
 ## How to Choose the Perfect RC Drift Tires for Your Needs

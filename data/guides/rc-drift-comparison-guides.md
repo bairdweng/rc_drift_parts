@@ -11,6 +11,8 @@ keywords: "rc drift comparison guide chassis electronics tires side-by-side anal
 models: []
 compatibleModels: []
 partIds: []
+tags: ['rc-drift', 'comparison', 'chassis', 'electronics', 'tires']
+summary: Comprehensive comparison of RC drift cars, chassis, electronics, and tires. Make informed decisions with our detailed side-by-side analysis and performance metrics.
 ---
 
 # **RC Drift Car Comparison Guide - Side-by-Side Analysis of Top Models and Components**
