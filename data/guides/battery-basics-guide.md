@@ -273,3 +273,10 @@ With the right battery knowledge, you'll enjoy consistent performance and longer
 
 ---
 *Need personalized battery advice? Contact our experts for recommendations based on your specific drift car setup.*
+---
+
+## 🛒 Shop Related Products
+
+Looking to purchase RC drift parts mentioned in this article? Visit our eBay store!
+
+[👉 Visit our eBay Store](https://www.ebay.com/usr/yourrcstore)

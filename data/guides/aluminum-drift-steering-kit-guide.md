@@ -158,3 +158,10 @@ Aluminum steering parts give you:
 **This upgrade is the foundation of a stable and predictable drift setup.**
 
 ---
+---
+
+## 🛒 Shop Related Products
+
+Looking to purchase RC drift parts mentioned in this article? Visit our eBay store!
+
+[👉 Visit our eBay Store](https://www.ebay.com/usr/yourrcstore)

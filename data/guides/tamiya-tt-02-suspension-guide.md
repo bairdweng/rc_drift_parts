@@ -122,3 +122,10 @@ For most TT-02 drift conversions, start with these baseline settings and adjust 
 - Shock oil: 350cSt front, 450cSt rear
 
 With proper suspension tuning, your Tamiya TT-02 can become a competitive drift machine!
+---
+
+## 🛒 Shop Related Products
+
+Looking to purchase RC drift parts mentioned in this article? Visit our eBay store!
+
+[👉 Visit our eBay Store](https://www.ebay.com/usr/yourrcstore)

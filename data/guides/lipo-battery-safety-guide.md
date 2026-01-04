@@ -205,3 +205,10 @@ If followed correctly, these habits can extend LiPo battery life **from 3–6 mo
 LiPo batteries offer outstanding performance for RC drift cars—but only if handled safely. Checking for puffing, voltage instability, and improper cell balance can help you avoid dangerous situations and extend the life of your packs.
 
 By understanding these beginner-friendly safety tips, you'll protect your RC car, your equipment, and your workspace—while enjoying consistent performance every time you drift.
+---
+
+## 🛒 Shop Related Products
+
+Looking to purchase RC drift parts mentioned in this article? Visit our eBay store!
+
+[👉 Visit our eBay Store](https://www.ebay.com/usr/yourrcstore)

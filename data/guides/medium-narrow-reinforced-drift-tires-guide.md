@@ -49,4 +49,10 @@ Tire selection is one of the most critical factors in RC drift performance. The 
 - **Durability** - Reinforced construction withstands high-speed impacts and prolonged use
 
 ![Performance comparison chart showing drift angle control with different tire specifications](/static/images/articles/medium-narrow-reinforced-drift-tires-guide-image-5.webp)
+---
 
+## 🛒 Shop Related Products
+
+Looking to purchase RC drift parts mentioned in this article? Visit our eBay store!
+
+[👉 Visit our eBay Store](https://www.ebay.com/usr/yourrcstore)

@@ -106,3 +106,10 @@ With a properly matched combo, good battery, and well-prepared drivetrain, you c
 > ⚠️ Tip: Extra torque stresses drivetrain — consider upgrading gears, axles, or bearings to handle the load.
 
 ---
+---
+
+## 🛒 Shop Related Products
+
+Looking to purchase RC drift parts mentioned in this article? Visit our eBay store!
+
+[👉 Visit our eBay Store](https://www.ebay.com/usr/yourrcstore)

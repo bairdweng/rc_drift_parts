@@ -166,3 +166,10 @@ A good remote is an investment. It can last **3–5 years or more**, and you can
 - Pay attention to handling and menus  
 
 With the right remote, your RC experience will be much more fun and smooth!
+---
+
+## 🛒 Shop Related Products
+
+Looking to purchase RC drift parts mentioned in this article? Visit our eBay store!
+
+[👉 Visit our eBay Store](https://www.ebay.com/usr/yourrcstore)

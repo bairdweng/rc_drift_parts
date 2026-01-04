@@ -166,3 +166,10 @@ Body shells are more than just cosmetic accessories - they play a crucial role i
 Whether you choose a ready-to-run pre-painted shell or embark on a custom painting project, your TT-02's body shell is an essential component that combines form and function. Start with a style that matches your skill level and gradually work your way up to more complex projects as your experience grows.
 
 Remember that the best body shell is one that not only looks great but also enhances your drifting performance and protects your investment. With the right approach, you can create a unique drift machine that stands out on the track while delivering exceptional performance.
+---
+
+## 🛒 Shop Related Products
+
+Looking to purchase RC drift parts mentioned in this article? Visit our eBay store!
+
+[👉 Visit our eBay Store](https://www.ebay.com/usr/yourrcstore)

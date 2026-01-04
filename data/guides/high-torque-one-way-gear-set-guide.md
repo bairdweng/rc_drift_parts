@@ -141,3 +141,10 @@ It’s a relatively simple upgrade that pays dividends in feel, control, and rel
 > 📌 **Note**: Since the images come from various sources on the internet, before using them on a public/commercial site, make sure you have the appropriate usage rights — or consider using your own photos for full control over copyright.
 
 ---
+---
+
+## 🛒 Shop Related Products
+
+Looking to purchase RC drift parts mentioned in this article? Visit our eBay store!
+
+[👉 Visit our eBay Store](https://www.ebay.com/usr/yourrcstore)

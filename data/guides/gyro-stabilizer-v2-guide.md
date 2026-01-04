@@ -169,3 +169,10 @@ The Gyro Stabilizer V2 is more than just an accessory - it's a performance multi
 - The Gyro Stabilizer V2 works with all major drift chassis platforms
 
 Ready to take your drifting to the next level? The Gyro Stabilizer V2 is your ticket to smoother, more controlled, and more competitive drifting performance.
+---
+
+## 🛒 Shop Related Products
+
+Looking to purchase RC drift parts mentioned in this article? Visit our eBay store!
+
+[👉 Visit our eBay Store](https://www.ebay.com/usr/yourrcstore)

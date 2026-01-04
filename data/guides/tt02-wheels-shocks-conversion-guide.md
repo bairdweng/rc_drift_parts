@@ -186,3 +186,10 @@ If TT02B is too expensive in your area, the **TT02 90mm Wheels + 65mm Shocks** s
 A highly recommended conversion for budget rally / semi-offroad builds.
 
 ---
+---
+
+## 🛒 Shop Related Products
+
+Looking to purchase RC drift parts mentioned in this article? Visit our eBay store!
+
+[👉 Visit our eBay Store](https://www.ebay.com/usr/yourrcstore)

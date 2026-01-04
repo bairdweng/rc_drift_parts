@@ -104,4 +104,10 @@ Upgrading to **oil‑filled adjustable dampers** is among the most cost‑effect
 * It gives you **fine‑tuned control over suspension behavior**, letting you adapt to track type, terrain, speed, drift, or off‑road use.
 * It significantly improves **traction, ride smoothness, handling consistency**, and overall driving feel.
 * With proper tuning and regular maintenance, the improvement is **immediate and reliably repeatable**.
+---
 
+## 🛒 Shop Related Products
+
+Looking to purchase RC drift parts mentioned in this article? Visit our eBay store!
+
+[👉 Visit our eBay Store](https://www.ebay.com/usr/yourrcstore)

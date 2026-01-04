@@ -240,3 +240,10 @@ This setup is tested and proven to give **easy control, strong angle, and stable
 | Toe (F/R)         | 0° out / 2° in |
 
 ---
+---
+
+## 🛒 Shop Related Products
+
+Looking to purchase RC drift parts mentioned in this article? Visit our eBay store!
+
+[👉 Visit our eBay Store](https://www.ebay.com/usr/yourrcstore)

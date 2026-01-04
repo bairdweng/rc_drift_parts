@@ -276,3 +276,10 @@ Ride Height: 5-7mm
 **Ready to start your RC drift journey?** Remember that every expert was once a beginner. The key is consistent practice, continuous learning, and most importantly – having fun!
 
 *What's your first RC drift car going to be? Share your journey in the comments below!*
+---
+
+## 🛒 Shop Related Products
+
+Looking to purchase RC drift parts mentioned in this article? Visit our eBay store!
+
+[👉 Visit our eBay Store](https://www.ebay.com/usr/yourrcstore)

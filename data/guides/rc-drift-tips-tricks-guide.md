@@ -270,3 +270,10 @@ Rear Toe: 0° to 1° in (for stability)
 **Remember:** The best tip is to practice regularly and analyze your performance. Every driver develops their own style - find what works best for you and refine it through consistent practice!
 
 ---
+---
+
+## 🛒 Shop Related Products
+
+Looking to purchase RC drift parts mentioned in this article? Visit our eBay store!
+
+[👉 Visit our eBay Store](https://www.ebay.com/usr/yourrcstore)

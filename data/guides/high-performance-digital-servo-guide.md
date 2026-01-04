@@ -168,6 +168,14 @@ Set endpoints to prevent servo strain:
 
 Upgrading to a high-performance digital servo is one of the most impactful improvements you can make to your RC drift car's steering system. The combination of 25kg/cm torque, 0.10s/60° speed, and digital precision provides the responsive, accurate control needed for competitive drifting.
 
+---
+
+## 🛒 Shop Related Products
+
+Looking to purchase RC drift parts mentioned in this article? Visit our eBay store!
+
+[👉 Visit our eBay Store](https://www.ebay.com/usr/yourrcstore)
+
 Remember to:
 - Choose the right servo for your skill level and budget
 - Follow proper installation procedures

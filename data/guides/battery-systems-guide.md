@@ -188,3 +188,10 @@ Proper battery management is essential for both performance and safety in RC dri
 
 ---
 *Need battery recommendations? Contact our experts for personalized advice based on your specific setup.*
+---
+
+## 🛒 Shop Related Products
+
+Looking to purchase RC drift parts mentioned in this article? Visit our eBay store!
+
+[👉 Visit our eBay Store](https://www.ebay.com/usr/yourrcstore)

@@ -192,3 +192,10 @@ This gives smooth, predictable drifts.
 Mastering ESC and motor basics is one of the fastest ways to improve your drifting skills.
 
 ---
+---
+
+## 🛒 Shop Related Products
+
+Looking to purchase RC drift parts mentioned in this article? Visit our eBay store!
+
+[👉 Visit our eBay Store](https://www.ebay.com/usr/yourrcstore)

@@ -180,3 +180,10 @@ A gyro is essential for stability and control. In simple terms:
 It’s one of the cheapest upgrades with the biggest improvement in performance.
 
 ---
+---
+
+## 🛒 Shop Related Products
+
+Looking to purchase RC drift parts mentioned in this article? Visit our eBay store!
+
+[👉 Visit our eBay Store](https://www.ebay.com/usr/yourrcstore)
