@@ -25,7 +25,7 @@ export default function Home() {
         {/* Three Entry Points */}
         <section className="space-y-6">
           <Link
-            href="/guides"
+            href="/guides/tamiya-tt02-drift-upgrade-guide"
             className="block rounded-lg p-4 transition-colors hover:bg-gray-50 dark:hover:bg-gray-800"
           >
             <div>
@@ -37,7 +37,7 @@ export default function Home() {
           </Link>
 
           <Link
-            href="/guides"
+            href="/guides/suspension-damper-tuning-guide"
             className="block rounded-lg p-4 transition-colors hover:bg-gray-50 dark:hover:bg-gray-800"
           >
             <div>
@@ -50,7 +50,7 @@ export default function Home() {
           </Link>
 
           <Link
-            href="/guides"
+            href="/guides/rc-drift-beginners-guide"
             className="block rounded-lg p-4 transition-colors hover:bg-gray-50 dark:hover:bg-gray-800"
           >
             <div>
