@@ -11,11 +11,22 @@ const CustomLink = ({ href, ...rest }: LinkProps & AnchorHTMLAttributes<HTMLAnch
 
   // Track external link clicks with Google Analytics
   const handleExternalLinkClick = (url: string) => {
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      ;(window as any).gtag('event', 'click', {
+    if (
+      typeof window !== 'undefined' &&
+      (
+        window as typeof window & {
+          gtag?: (command: string, event: string, params: Record<string, string>) => void
+        }
+      ).gtag
+    ) {
+      ;(
+        window as typeof window & {
+          gtag: (command: string, event: string, params: Record<string, string>) => void
+        }
+      ).gtag('event', 'click', {
         event_category: 'External Link',
         event_label: url,
-        transport_type: 'beacon'
+        transport_type: 'beacon',
       })
     }
   }
@@ -29,13 +40,13 @@ const CustomLink = ({ href, ...rest }: LinkProps & AnchorHTMLAttributes<HTMLAnch
   }
 
   return (
-    <a 
-      className="break-words" 
-      target="_blank" 
-      rel="noopener noreferrer" 
+    <a
+      className="break-words"
+      target="_blank"
+      rel="noopener noreferrer"
       href={href}
       onClick={() => handleExternalLinkClick(href as string)}
-      {...rest} 
+      {...rest}
     />
   )
 }
