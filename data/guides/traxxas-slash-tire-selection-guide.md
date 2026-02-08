@@ -82,16 +82,14 @@ Based on market feedback and performance testing, we recommend these high-value 
 - Special tread pattern design, balanced grip and durability
 - Compatible with 12mm hex hubs, easy installation
 
-![Traxxas Slash tires - performance on different surfaces](https://i.ebayimg.com/images/g/q-YAAeSw6W9pambC/s-l1600.webp)
-
+![Traxxas Slash tires - performance on different surfaces](https://i.ebayimg.com/images/g/posAAeSwvBxpXoJg/s-l1600.webp)
 **Suitable for:**
 - Long-term use on asphalt and concrete surfaces
 - Daily practice and recreational driving
 - Budget-conscious upgrade options
 
 ### Professional Grade Durable Tires
-
-![Traxxas Slash tires - professional detail display](https://i.ebayimg.com/images/g/q-YAAeSw6W9pambC/s-l1600.webp)
+![Traxxas Slash tires - professional detail display](https://i.ebayimg.com/images/g/Tg4AAeSwJjtpLtb-/s-l1600.webp)
 
 **Advantages:**
 - Multi-layer composite rubber technology
