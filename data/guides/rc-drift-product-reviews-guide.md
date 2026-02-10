@@ -11,7 +11,7 @@ keywords: "rc drift product reviews component analysis motor esc gyro suspension
 models: []
 compatibleModels: []
 partIds: []
-tags: ['rc-drift', 'product-reviews', 'components', 'comparison', 'analysis']
+tags: ['beginner-guides']
 summary: In-depth reviews of the best RC drift car components. Compare performance, value, and real-world results for motors, ESCs, gyros, and suspension systems.
 ---
 

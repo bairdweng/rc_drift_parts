@@ -11,7 +11,7 @@ keywords: "rc drift cars battery basics"
 models: []
 compatibleModels: []
 partIds: []
-tags: ['rc-drift', 'battery-basics', 'beginner-guide', 'electronics', 'maintenance']
+tags: ['beginner-guides', 'maintenance-care']
 summary: Essential beginner's guide to RC drift car battery fundamentals. Understand 1S, 2S, 3S battery configurations, C-ratings, voltage specifications, and proper charging techniques for optimal drift performance.
 ---
 

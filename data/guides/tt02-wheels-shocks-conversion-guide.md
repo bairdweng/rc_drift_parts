@@ -11,7 +11,7 @@ keywords: "tamiya tt02 conversion, 90mm wheels tt02, 65mm shocks tt02, tt02b alt
 models: ["tamiya-tt-02"]
 compatibleModels: ["tamiya-tt-02"]
 partIds: []
-tags: ['rc-drift', 'tamiya-tt02', 'conversion', 'wheels', 'shocks']
+tags: ['performance-upgrades', 'suspension-setup']
 summary: Complete guide to converting Tamiya TT02 with 90mm wheels and 65mm shocks. Learn how to achieve TT02B-like performance with standard TT02 chassis, including parts compatibility, installation steps, and performance benefits.
 ---
 

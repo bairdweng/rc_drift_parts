@@ -11,7 +11,7 @@ keywords: "high performance digital servo, rc drift servo upgrade, 25kg servo to
 models: ["tamiya-tt-02", "mst-rmx-2.0", "yd-2"]
 compatibleModels: ["tamiya-tt-02", "mst-rmx-2.0", "yd-2"]
 partIds: ["10009"]
-tags: ['rc-drift', 'servo', 'steering', 'upgrades', 'electronics']
+tags: ['performance-upgrades', 'electronics-tuning']
 summary: Complete guide to high-performance digital servos for RC drift cars. Learn about 25kg/cm torque, 0.10s/60° speed, metal gears, and installation tips for Tamiya TT-02, MST RMX 2.0, and YD-2 models.
 ---
 

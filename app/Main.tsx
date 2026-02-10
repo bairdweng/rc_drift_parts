@@ -25,39 +25,37 @@ export default function Home() {
         {/* Three Entry Points */}
         <section className="space-y-6">
           <Link
-            href="/guides/tamiya-tt02-drift-upgrade-guide"
+            href="/guides?tag=performance-upgrades"
             className="block rounded-lg p-4 transition-colors hover:bg-gray-50 dark:hover:bg-gray-800"
           >
             <div>
-              <h2 className="text-xl font-semibold">🚗 Upgrade by Vehicle Model</h2>
+              <h2 className="text-xl font-semibold">🚗 Vehicle-Specific Upgrade Guides</h2>
               <p className="text-gray-600">
-                Detailed upgrade paths for popular RC drift models like TT02, YD-2, RMX, and more.
+                Complete upgrade paths tailored for specific RC drift models including Tamiya TT02, Traxxas Slash, MST RMX, Yokomo YD-2, and more.
               </p>
             </div>
           </Link>
 
           <Link
-            href="/guides/suspension-damper-tuning-guide"
+            href="/guides?tag=electronics-tuning"
             className="block rounded-lg p-4 transition-colors hover:bg-gray-50 dark:hover:bg-gray-800"
           >
             <div>
-              <h2 className="text-xl font-semibold">⚙️ Parts Selection by Function</h2>
+              <h2 className="text-xl font-semibold">⚙️ Component Selection by Function</h2>
               <p className="text-gray-600">
-                Expert advice on selecting key components: suspension, tires, steering, gyros, and
-                more.
+                Expert guidance on choosing performance parts: suspension systems, tire selection, steering upgrades, electronic components, and chassis tuning.
               </p>
             </div>
           </Link>
 
           <Link
-            href="/guides/rc-drift-beginners-guide"
+            href="/guides?tag=beginner-guides"
             className="block rounded-lg p-4 transition-colors hover:bg-gray-50 dark:hover:bg-gray-800"
           >
             <div>
-              <h2 className="text-xl font-semibold">📘 Beginner & Advanced Guides</h2>
+              <h2 className="text-xl font-semibold">📘 Skill-Based Learning Paths</h2>
               <p className="text-gray-600">
-                Complete RC drift setup and upgrade strategies from entry level to advanced
-                techniques.
+                Progressive learning from beginner fundamentals to advanced techniques, including setup optimization, maintenance, and competition-level tuning.
               </p>
             </div>
           </Link>

@@ -11,7 +11,7 @@ keywords: "drift body shell, tamiya tt-02 body, lexan body, drift car aesthetics
 models: ["tamiya-tt-02"]
 compatibleModels: ["tamiya-tt-02"]
 partIds: ["10008"]
-tags: ['rc-drift', 'tamiya-tt02', 'body-shell', 'upgrades', 'aesthetics']
+tags: ['performance-upgrades']
 summary: Complete guide to TT-02 drift body shells for RC drift cars. Learn how to protect internal components, improve aerodynamics, and enhance visual appeal with Tamiya TT-02 body upgrades.
 ---
 

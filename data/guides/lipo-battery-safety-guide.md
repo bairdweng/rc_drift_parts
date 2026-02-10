@@ -12,7 +12,7 @@ keywords: "rc drift cars lipo battery safety, dangerous rc battery, swollen lipo
 models: []
 compatibleModels: []
 partIds: []
-tags: ['rc-drift', 'battery-safety', 'lipo-battery', 'maintenance', 'safety-guide']
+tags: ['maintenance-care']
 summary: Comprehensive LiPo battery safety guide for RC drift enthusiasts. Learn to identify dangerous battery conditions, prevent fires, handle swollen batteries, and implement proper charging and storage practices for safe drifting.
 ---
 

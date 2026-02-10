@@ -11,7 +11,7 @@ keywords: "gyro stabilizer, drift gyro, counter-steer control, tamiya tt-02 gyro
 models: ["tamiya-tt-02"]
 compatibleModels: ["tamiya-tt-02", "mst-rmx-2.0", "yd-2", "sakura-d4"]
 partIds: ["10007"]
-tags: ['rc-drift', 'gyro-stabilizer', 'electronics', 'tamiya-tt02', 'stabilization']
+tags: ['electronics-tuning']
 summary: Complete guide to gyro stabilizer V2 systems for RC drift cars. Learn how to maintain counter-steer, improve drift stability, and enhance control for beginners and professionals with Tamiya TT-02 upgrades.
 ---
 

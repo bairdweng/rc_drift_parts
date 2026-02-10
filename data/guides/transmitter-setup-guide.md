@@ -11,7 +11,7 @@ keywords: "rc drift cars transmitter setup"
 models: []
 compatibleModels: []
 partIds: []
-tags: ['rc-drift', 'transmitter', 'setup', 'tuning', 'electronics']
+tags: ['electronics-tuning']
 summary: Complete guide to setting up your RC drift car transmitter for optimal control and drift performance. Learn about steering endpoints, throttle curves, and advanced settings for RC drift cars.
 ---
 

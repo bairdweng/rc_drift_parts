@@ -11,7 +11,7 @@ keywords: "rc drift cars battery systems"
 models: []
 compatibleModels: []
 partIds: []
-tags: ['rc-drift', 'battery', 'power-systems', 'maintenance', 'lipo']
+tags: ['maintenance-care']
 summary: Complete guide to RC drift car battery selection, maintenance, and performance optimization. Learn about LiPo vs LiFe batteries, C-ratings, and proper charging techniques for RC drift cars.
 ---
 

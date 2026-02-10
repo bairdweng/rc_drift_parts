@@ -11,7 +11,7 @@ keywords: "tamiya tt-02 suspension, tt02 drift setup, tamiya drift tuning"
 models: ["tamiya-tt-02"]
 compatibleModels: ["tamiya-tt-02"]
 partIds: []
-tags: ['rc-drift', 'tamiya-tt02', 'suspension', 'setup', 'tuning']
+tags: ['suspension-setup']
 summary: Complete suspension tuning guide for Tamiya TT-02 drift conversions. Learn camber, toe, shock setup, and alignment for perfect drifting performance.
 ---
 

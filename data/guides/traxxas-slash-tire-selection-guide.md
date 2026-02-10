@@ -13,6 +13,7 @@ keywords: 'traxxas slash tires'
 models: ['traxxas-slash']
 compatibleModels: ['Traxxas Slash 2WD', 'Traxxas Slash 4x4', 'Traxxas Slash VXL']
 partIds: ['tire-slash-1']
+tags: ['performance-upgrades', 'suspension-setup']
 summary: 'Complete guide to selecting durable tires for Traxxas Slash short course trucks. Learn about rubber hardness, tread patterns, ground adaptability, and installation techniques for optimal performance and longevity.'
 ---
 

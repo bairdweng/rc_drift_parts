@@ -11,7 +11,7 @@ keywords: "rc drift cars upgrades, rc drift car upgrades, drift car modification
 models: []
 compatibleModels: []
 partIds: []
-tags: ['rc-drift', 'upgrades', 'modifications', 'performance', 'installation']
+tags: ['performance-upgrades']
 summary: Complete guide to RC drift car upgrades and modifications. Learn which upgrades deliver the biggest performance gains, proper installation techniques, and how to transform your car step by step.
 ---
 

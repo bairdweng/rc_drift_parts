@@ -1,6 +1,6 @@
 'use client'
 
-import { usePathname } from 'next/navigation'
+import { usePathname, useSearchParams } from 'next/navigation'
 import { slug } from 'github-slugger'
 import { formatDate } from 'pliny/utils/formatDate'
 import { CoreContent } from 'pliny/utils/contentlayer'
@@ -73,6 +73,9 @@ export default function ListLayoutWithTags({
   pagination,
 }: ListLayoutProps) {
   const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const selectedTag = searchParams.get('tag')
+  
   const tagCounts = tagData as Record<string, number>
   const tagKeys = Object.keys(tagCounts)
   const sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a])
@@ -102,15 +105,16 @@ export default function ListLayoutWithTags({
               )}
               <ul>
                 {sortedTags.map((t) => {
+                  const isTagSelected = selectedTag === t || decodeURI(pathname.split('/tags/')[1]) === slug(t)
                   return (
                     <li key={t} className="my-3">
-                      {decodeURI(pathname.split('/tags/')[1]) === slug(t) ? (
+                      {isTagSelected ? (
                         <h3 className="text-primary-500 inline px-3 py-2 text-sm font-bold uppercase">
                           {`${t} (${tagCounts[t]})`}
                         </h3>
                       ) : (
                         <Link
-                          href={`/tags/${slug(t)}`}
+                          href={pathname.startsWith('/guides') ? `/guides?tag=${t}` : `/tags/${slug(t)}`}
                           className="hover:text-primary-500 dark:hover:text-primary-500 px-3 py-2 text-sm font-medium text-gray-500 uppercase dark:text-gray-300"
                           aria-label={`View posts tagged ${t}`}
                         >

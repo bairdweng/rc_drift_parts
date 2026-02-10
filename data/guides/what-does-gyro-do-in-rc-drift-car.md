@@ -11,7 +11,7 @@ keywords: "rc drift car gyro, gyro function, drift stabilization, rc electronics
 models: []
 compatibleModels: []
 partIds: []
-tags: ['rc-drift', 'gyro', 'electronics', 'setup', 'tuning']
+tags: ['electronics-tuning']
 summary: Learn how gyros stabilize RC drift cars, improve control, and enhance drift performance. Understand gyro functions, setup tips, and troubleshooting for RC drift applications.
 ---
 
