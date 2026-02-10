@@ -1,13 +1,13 @@
 ---
-title: "What Does a Gyro Do in an RC Drift Car?"
-description: "Learn how gyros stabilize RC drift cars, improve control, and enhance drift performance. Understand gyro functions, setup tips, and troubleshooting for RC drift applications."
-category: "Setup & Tuning"
-date: "2025-11-28"
-author: "RC Drift Parts Team"
+title: 'What Does a Gyro Do in an RC Drift Car?'
+description: 'Learn how gyros stabilize RC drift cars, improve control, and enhance drift performance. Understand gyro functions, setup tips, and troubleshooting for RC drift applications.'
+category: 'Setup & Tuning'
+date: '2025-11-28'
+author: 'RC Drift Parts Team'
 readingTime: 10
 featured: true
-image: "/static/images/articles/gyro-drift-car.webp"
-keywords: "rc drift car gyro, gyro function, drift stabilization, rc electronics"
+image: '/static/images/articles/gyro-drift-car.webp'
+keywords: 'rc drift car gyro, gyro function, drift stabilization, rc electronics'
 models: []
 compatibleModels: []
 partIds: []
@@ -17,7 +17,7 @@ summary: Learn how gyros stabilize RC drift cars, improve control, and enhance d
 
 # What Does a Gyro Do in an RC Drift Car?
 
-*Your content will go here*
+_Your content will go here_
 
 ---
 
@@ -29,9 +29,9 @@ The simplest explanation:
 
 ### **A gyro helps correct your steering when the car starts to lose control.**
 
-* If the rear kicks out → gyro turns the wheels to counter-steer
-* If the car wiggles → gyro smooths the movement
-* If the car pulls to one side → gyro stabilizes it
+- If the rear kicks out → gyro turns the wheels to counter-steer
+- If the car wiggles → gyro smooths the movement
+- If the car pulls to one side → gyro stabilizes it
 
 You can think of it like a small **driver assistant** that reacts faster than a human.
 
@@ -44,17 +44,17 @@ Without a gyro, even experienced drivers struggle to control the car.
 
 ### **Without a gyro:**
 
-* The car spins out easily
-* Hard to drive straight
-* Small mistakes become big crashes
-* Steering feels shaky and unpredictable
+- The car spins out easily
+- Hard to drive straight
+- Small mistakes become big crashes
+- Steering feels shaky and unpredictable
 
 ### **With a gyro:**
 
-* Smooth, stable drifting
-* Easier counter-steer
-* Better throttle control
-* Much easier for beginners to learn
+- Smooth, stable drifting
+- Easier counter-steer
+- Better throttle control
+- Much easier for beginners to learn
 
 This is why almost **every competitive RC drifter** uses a gyro.
 
@@ -88,20 +88,20 @@ Even under heavy throttle or big angle drifts.
 
 **Gyro Gain = how much the gyro helps you.**
 
-* **High gain:** the gyro does more correction
-* **Low gain:** you do more of the steering yourself
+- **High gain:** the gyro does more correction
+- **Low gain:** you do more of the steering yourself
 
 ### **Too high:**
 
-* Car shakes or “snakes”
-* Overreactive steering
-* Feels robotic
+- Car shakes or “snakes”
+- Overreactive steering
+- Feels robotic
 
 ### **Too low:**
 
-* Car spins out
-* Feels unstable
-* Hard to drive a straight line
+- Car spins out
+- Feels unstable
+- Hard to drive a straight line
 
 **Best setting for beginners: 30–40% gain**
 
@@ -115,9 +115,9 @@ Not at all — this is a common myth among beginners.
 
 In fact:
 
-* Every pro drifter uses a gyro
-* Every competition allows gyros
-* Modern drift chassis are designed to work *with* gyros
+- Every pro drifter uses a gyro
+- Every competition allows gyros
+- Modern drift chassis are designed to work _with_ gyros
 
 A gyro is simply a **tool**, similar to ABS or traction control in real cars.
 
@@ -132,17 +132,17 @@ Cheap gyros feel twitchy and inconsistent.
 
 ### **Good gyro characteristics:**
 
-* Fast response
-* Smooth corrections
-* No shaking
-* Easy to control big angle drifts
+- Fast response
+- Smooth corrections
+- No shaking
+- Easy to control big angle drifts
 
 ### **Bad gyro characteristics:**
 
-* Delayed reaction
-* Excessive shaking
-* Unstable straight-line behavior
-* Harder to drift, not easier
+- Delayed reaction
+- Excessive shaking
+- Unstable straight-line behavior
+- Harder to drift, not easier
 
 Upgrading to a quality gyro is one of the **best performance improvements** for any drift car.
 
@@ -152,9 +152,9 @@ Upgrading to a quality gyro is one of the **best performance improvements** for 
 
 There are only a few cases:
 
-* When you’re checking steering alignment
-* When setting servo center
-* When testing end points or radio settings
+- When you’re checking steering alignment
+- When setting servo center
+- When testing end points or radio settings
 
 For actual drifting?
 **Always keep the gyro on.**
@@ -180,6 +180,7 @@ A gyro is essential for stability and control. In simple terms:
 It’s one of the cheapest upgrades with the biggest improvement in performance.
 
 ---
+
 ---
 
 ## 🛒 Shop Related Products

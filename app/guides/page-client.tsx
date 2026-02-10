@@ -11,15 +11,15 @@ const POSTS_PER_PAGE = 5
 export default function BlogPage() {
   const searchParams = useSearchParams()
   const selectedTag = searchParams.get('tag')
-  
+
   // 获取所有文章
   const allPosts = allCoreContent(sortPosts(allBlogs))
-  
+
   // 根据标签过滤文章
-  const filteredPosts = selectedTag 
-    ? allPosts.filter(post => post.tags?.includes(selectedTag))
+  const filteredPosts = selectedTag
+    ? allPosts.filter((post) => post.tags?.includes(selectedTag))
     : allPosts
-  
+
   const pageNumber = 1
   const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE)
   const initialDisplayPosts = filteredPosts.slice(0, POSTS_PER_PAGE * pageNumber)
@@ -36,7 +36,7 @@ export default function BlogPage() {
         'performance-upgrades': 'RC Drift Performance Upgrades',
         'electronics-tuning': 'RC Drift Electronics Tuning',
         'suspension-setup': 'RC Drift Suspension Setup',
-        'maintenance-care': 'RC Drift Maintenance & Care'
+        'maintenance-care': 'RC Drift Maintenance & Care',
       }
       return tagTitles[selectedTag as keyof typeof tagTitles] || `RC Drift Guides - ${selectedTag}`
     }

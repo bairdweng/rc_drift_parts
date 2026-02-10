@@ -1,14 +1,14 @@
 ---
-title: "RC Drift Cars LiPo Battery Safety Guide - How to Identify Dangerous Batteries"
-description: "Complete LiPo battery safety guide for RC drift cars. Learn to identify dangerous battery conditions, prevent fires, and handle swollen LiPo batteries safely for Tamiya TT-02, Yokomo, and MST drift cars."
-category: "Maintenance & Repairs"
-date: "2025-11-21"
-author: "RC Drift Parts Team"
+title: 'RC Drift Cars LiPo Battery Safety Guide - How to Identify Dangerous Batteries'
+description: 'Complete LiPo battery safety guide for RC drift cars. Learn to identify dangerous battery conditions, prevent fires, and handle swollen LiPo batteries safely for Tamiya TT-02, Yokomo, and MST drift cars.'
+category: 'Maintenance & Repairs'
+date: '2025-11-21'
+author: 'RC Drift Parts Team'
 readingTime: 10
 featured: true
-image: "/static/images/articles/lipo-safety.webp"
-alt: "RC drift cars LiPo battery safety guide - dangerous battery identification and prevention"
-keywords: "rc drift cars lipo battery safety, dangerous rc battery, swollen lipo battery, rc drift car battery fire prevention, tamiya tt-02 battery safety"
+image: '/static/images/articles/lipo-safety.webp'
+alt: 'RC drift cars LiPo battery safety guide - dangerous battery identification and prevention'
+keywords: 'rc drift cars lipo battery safety, dangerous rc battery, swollen lipo battery, rc drift car battery fire prevention, tamiya tt-02 battery safety'
 models: []
 compatibleModels: []
 partIds: []
@@ -34,10 +34,10 @@ This is the most common and most important red flag.
 
 You can confirm puffing by checking:
 
-* The battery feels **thick or soft** compared to new
-* It no longer lies flat on the table
-* The case appears **inflated** like it has air inside
-* The surface feels “squishy” when pressed lightly
+- The battery feels **thick or soft** compared to new
+- It no longer lies flat on the table
+- The case appears **inflated** like it has air inside
+- The surface feels “squishy” when pressed lightly
 
 A puffed LiPo means internal chemical instability.
 **Do not use it—stop immediately.**
@@ -48,8 +48,8 @@ A puffed LiPo means internal chemical instability.
 
 If your car loses power within seconds, or the battery voltage suddenly drops from:
 
-* 8.4V → 7.2V
-* 7.4V → 6.8V
+- 8.4V → 7.2V
+- 7.4V → 6.8V
 
 it means one or more cells are failing.
 
@@ -61,9 +61,9 @@ This battery is no longer safe for RC use.
 
 Warning signs include:
 
-* Sharp chemical or plastic smell
-* Battery gets hotter than usual during charging
-* Battery warms up even when not in use
+- Sharp chemical or plastic smell
+- Battery gets hotter than usual during charging
+- Battery warms up even when not in use
 
 Heat = internal damage.
 
@@ -73,10 +73,10 @@ Heat = internal damage.
 
 If the battery has:
 
-* Cracks
-* Deep dents
-* Deformed corners
-* Exposed wiring or loose connectors
+- Cracks
+- Deep dents
+- Deformed corners
+- Exposed wiring or loose connectors
 
 then it may be unsafe even if the voltage looks normal.
 
@@ -86,9 +86,9 @@ then it may be unsafe even if the voltage looks normal.
 
 When charging:
 
-* One cell voltage jumps up and down
-* The charger displays “Cell Error”
-* Cells differ by more than **0.05V**
+- One cell voltage jumps up and down
+- The charger displays “Cell Error”
+- Cells differ by more than **0.05V**
 
 This means internal imbalance—another danger sign.
 
@@ -112,8 +112,8 @@ Change the battery **as soon as power feels weak**.
 
 Long-term storage at:
 
-* 8.4V (full)
-* below 7.0V (low)
+- 8.4V (full)
+- below 7.0V (low)
 
 will degrade the battery quickly.
 
@@ -150,9 +150,9 @@ If you see any → **stop using it**.
 
 Healthy cells should be:
 
-* Close to each other
-* Fully chargeable to 4.20V per cell
-* Not dropping rapidly
+- Close to each other
+- Fully chargeable to 4.20V per cell
+- Not dropping rapidly
 
 If the charger struggles to balance → the battery is aging or damaged.
 
@@ -171,15 +171,15 @@ If the voltage drops sharply → the battery is no longer safe.
 
 Do **NOT**:
 
-* Cut it open
-* Puncture it
-* Throw it in the trash
+- Cut it open
+- Puncture it
+- Throw it in the trash
 
 **Safe method:**
 
-1.   Fully discharge the battery in your RC car
-2.   Let it sit for 24 hours
-3.   Bring it to a battery recycling center or electronics recycling bin
+1.  Fully discharge the battery in your RC car
+2.  Let it sit for 24 hours
+3.  Bring it to a battery recycling center or electronics recycling bin
 
 This is the safest and cleanest way for beginners.
 
@@ -189,12 +189,12 @@ This is the safest and cleanest way for beginners.
 
 If you want long-lasting, efficient batteries, follow these habits:
 
-* Stop running when power feels weak
-* Always store at 3.8V per cell
-* Use a high-quality balance charger
-* Keep batteries away from heat
-* Avoid crashes when using soft-case packs
-* Never charge unattended
+- Stop running when power feels weak
+- Always store at 3.8V per cell
+- Use a high-quality balance charger
+- Keep batteries away from heat
+- Avoid crashes when using soft-case packs
+- Never charge unattended
 
 If followed correctly, these habits can extend LiPo battery life **from 3–6 months to 1–2 years**.
 
@@ -204,8 +204,7 @@ If followed correctly, these habits can extend LiPo battery life **from 3–6 mo
 
 LiPo batteries offer outstanding performance for RC drift cars—but only if handled safely. Checking for puffing, voltage instability, and improper cell balance can help you avoid dangerous situations and extend the life of your packs.
 
-By understanding these beginner-friendly safety tips, you'll protect your RC car, your equipment, and your workspace—while enjoying consistent performance every time you drift.
----
+## By understanding these beginner-friendly safety tips, you'll protect your RC car, your equipment, and your workspace—while enjoying consistent performance every time you drift.
 
 ## 🛒 Shop Related Products
 

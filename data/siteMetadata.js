@@ -3,7 +3,8 @@ const siteMetadata = {
   title: 'RC Drift Parts Upgrade Guides',
   author: 'RC Drift Expert',
   headerTitle: 'RC Drift Parts',
-  description: 'Professional RC drift car upgrade guides, parts selection advice and technical tutorials',
+  description:
+    'Professional RC drift car upgrade guides, parts selection advice and technical tutorials',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://rcdriftparts.com',

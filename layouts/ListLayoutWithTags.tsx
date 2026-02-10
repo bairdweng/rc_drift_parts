@@ -75,7 +75,7 @@ export default function ListLayoutWithTags({
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const selectedTag = searchParams.get('tag')
-  
+
   const tagCounts = tagData as Record<string, number>
   const tagKeys = Object.keys(tagCounts)
   const sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a])
@@ -105,7 +105,8 @@ export default function ListLayoutWithTags({
               )}
               <ul>
                 {sortedTags.map((t) => {
-                  const isTagSelected = selectedTag === t || decodeURI(pathname.split('/tags/')[1]) === slug(t)
+                  const isTagSelected =
+                    selectedTag === t || decodeURI(pathname.split('/tags/')[1]) === slug(t)
                   return (
                     <li key={t} className="my-3">
                       {isTagSelected ? (
@@ -114,7 +115,9 @@ export default function ListLayoutWithTags({
                         </h3>
                       ) : (
                         <Link
-                          href={pathname.startsWith('/guides') ? `/guides?tag=${t}` : `/tags/${slug(t)}`}
+                          href={
+                            pathname.startsWith('/guides') ? `/guides?tag=${t}` : `/tags/${slug(t)}`
+                          }
                           className="hover:text-primary-500 dark:hover:text-primary-500 px-3 py-2 text-sm font-medium text-gray-500 uppercase dark:text-gray-300"
                           aria-label={`View posts tagged ${t}`}
                         >

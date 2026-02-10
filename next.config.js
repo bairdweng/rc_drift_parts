@@ -81,16 +81,18 @@ module.exports = () => {
       ],
       unoptimized,
     },
-    ...(process.env.EXPORT ? {} : {
-      async headers() {
-        return [
-          {
-            source: '/(.*)',
-            headers: securityHeaders,
+    ...(process.env.EXPORT
+      ? {}
+      : {
+          async headers() {
+            return [
+              {
+                source: '/(.*)',
+                headers: securityHeaders,
+              },
+            ]
           },
-        ]
-      },
-    }),
+        }),
     webpack: (config, options) => {
       config.module.rules.push({
         test: /\.svg$/,

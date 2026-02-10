@@ -12,13 +12,13 @@
 
 ## 📋 支持的图标规格
 
-| 规格 | 尺寸 | 用途 |
-|------|------|------|
-| Favicon | 16x16, 32x32 | 浏览器标签页图标 |
-| Apple Touch Icon | 180x180 | iOS 设备主屏幕图标 |
-| Android Chrome | 192x192, 512x512 | Android 设备主屏幕图标 |
-| Microsoft Tile | 150x150 | Windows 开始菜单图标 |
-| Safari Pinned Tab | 32x32 | Safari 浏览器固定标签页图标 |
+| 规格              | 尺寸             | 用途                        |
+| ----------------- | ---------------- | --------------------------- |
+| Favicon           | 16x16, 32x32     | 浏览器标签页图标            |
+| Apple Touch Icon  | 180x180          | iOS 设备主屏幕图标          |
+| Android Chrome    | 192x192, 512x512 | Android 设备主屏幕图标      |
+| Microsoft Tile    | 150x150          | Windows 开始菜单图标        |
+| Safari Pinned Tab | 32x32            | Safari 浏览器固定标签页图标 |
 
 ## 🛠️ 使用方法
 
@@ -63,24 +63,24 @@ public/static/favicons/
 
 ```html
 <!-- Favicon -->
-<link rel="icon" type="image/png" sizes="32x32" href="/static/favicons/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/static/favicons/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/static/favicons/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/static/favicons/favicon-16x16.png" />
 
 <!-- Apple Touch Icon -->
-<link rel="apple-touch-icon" sizes="180x180" href="/static/favicons/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/static/favicons/apple-touch-icon.png" />
 
 <!-- Safari Pinned Tab -->
-<link rel="mask-icon" href="/static/favicons/safari-pinned-tab.svg" color="#000000">
+<link rel="mask-icon" href="/static/favicons/safari-pinned-tab.svg" color="#000000" />
 
 <!-- Web App Manifest -->
-<link rel="manifest" href="/static/favicons/site.webmanifest">
+<link rel="manifest" href="/static/favicons/site.webmanifest" />
 
 <!-- Microsoft Tile -->
-<meta name="msapplication-TileColor" content="#000000">
-<meta name="msapplication-config" content="/static/favicons/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#000000" />
+<meta name="msapplication-config" content="/static/favicons/browserconfig.xml" />
 
 <!-- Theme Color -->
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#000000" />
 ```
 
 ## 🔧 自定义配置
@@ -94,7 +94,7 @@ const ICON_SIZES = [
   { size: 16, name: 'favicon-16x16.png' },
   { size: 32, name: 'favicon-32x32.png' },
   // 添加更多规格...
-];
+]
 ```
 
 ### 修改网站清单配置
@@ -106,7 +106,7 @@ const MANIFEST_CONFIG = {
   description: '网站描述',
   theme_color: '#您的主题颜色',
   // 其他配置...
-};
+}
 ```
 
 ## 🎯 最佳实践
@@ -119,17 +119,21 @@ const MANIFEST_CONFIG = {
 ## ❓ 常见问题
 
 ### Q: 脚本运行失败怎么办？
+
 A: 检查图片路径是否正确，确保图片文件存在且可读。
 
 ### Q: 生成的图标模糊怎么办？
+
 A: 使用更高分辨率的原始图片，建议至少 512x512 像素。
 
 ### Q: 如何更新现有图标？
+
 A: 直接运行脚本，它会覆盖现有的图标文件。
 
 ## 📞 技术支持
 
 如有问题，请检查：
+
 - 图片文件路径是否正确
 - Node.js 版本是否支持 sharp 库
 - 输出目录是否有写入权限

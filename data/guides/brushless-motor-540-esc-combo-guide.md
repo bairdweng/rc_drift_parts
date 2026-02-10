@@ -1,16 +1,16 @@
 ---
-title: "Brushless Motor 540 + ESC Combo - High-Speed Power System for RC Drift Cars"
-description: "Complete guide to brushless motor 540 + ESC combos for RC drift cars. Learn how to achieve high-speed performance, precise electronic control, and waterproof reliability with Tamiya TT-02 upgrades."
-category: "Upgrades & Mods"
-date: "2025-10-03"
-author: "RC Drift Parts Team"
+title: 'Brushless Motor 540 + ESC Combo - High-Speed Power System for RC Drift Cars'
+description: 'Complete guide to brushless motor 540 + ESC combos for RC drift cars. Learn how to achieve high-speed performance, precise electronic control, and waterproof reliability with Tamiya TT-02 upgrades.'
+category: 'Upgrades & Mods'
+date: '2025-10-03'
+author: 'RC Drift Parts Team'
 readingTime: 14
 featured: true
-image: "/static/images/articles/brushless-motor-540-esc-combo-guide-image-1.webp"
-keywords: "brushless motor, esc combo, drift electronics, tamiya tt-02 motor, waterproof esc"
-models: ["tamiya-tt-02"]
-compatibleModels: ["tamiya-tt-02", "mst-rmx-2.0"]
-partIds: ["10004"]
+image: '/static/images/articles/brushless-motor-540-esc-combo-guide-image-1.webp'
+keywords: 'brushless motor, esc combo, drift electronics, tamiya tt-02 motor, waterproof esc'
+models: ['tamiya-tt-02']
+compatibleModels: ['tamiya-tt-02', 'mst-rmx-2.0']
+partIds: ['10004']
 tags: ['performance-upgrades', 'electronics-tuning']
 summary: Complete guide to brushless motor 540 + ESC combos for RC drift cars. Learn how to achieve high-speed performance, precise electronic control, and waterproof reliability with Tamiya TT-02 upgrades.
 ---
@@ -24,44 +24,44 @@ summary: Complete guide to brushless motor 540 + ESC combos for RC drift cars. L
 ## Why Brushless Motor + ESC Upgrade Is Popular
 
 ![540‑size brushless motor example](/static/images/articles/brushless-motor-540-esc-combo-guide-image-1.webp)
-*Example of a 540‑size brushless motor suitable for 1/10‑scale RC cars — a common upgrade option.*
+_Example of a 540‑size brushless motor suitable for 1/10‑scale RC cars — a common upgrade option._
 
-* Brushless motors deliver **higher power output, stronger acceleration, and higher top speed** compared with stock brushed 540/550 motors.
-* Brushless setups are **more efficient**, converting battery energy into torque with less heat loss — resulting in longer battery runtime and more consistent performance.
-* Brushless motors have **less mechanical wear** (no brushes, no commutator friction), reducing maintenance and increasing durability.
-* A proper ESC matched to the motor allows **smooth throttle response, adjustable parameters (throttle/brake/low-voltage cutoff), and stable torque delivery** — essential for performance driving or drift use.
+- Brushless motors deliver **higher power output, stronger acceleration, and higher top speed** compared with stock brushed 540/550 motors.
+- Brushless setups are **more efficient**, converting battery energy into torque with less heat loss — resulting in longer battery runtime and more consistent performance.
+- Brushless motors have **less mechanical wear** (no brushes, no commutator friction), reducing maintenance and increasing durability.
+- A proper ESC matched to the motor allows **smooth throttle response, adjustable parameters (throttle/brake/low-voltage cutoff), and stable torque delivery** — essential for performance driving or drift use.
 
 ---
 
 ## Brushed vs Brushless Motors — What's the Difference
 
 ![Brushless motor + ESC kit](/static/images/articles/brushless-motor-540-esc-combo-guide-image-2.webp)
-*Typical 540‑size brushless motor + ESC combo kit for 1/10 RC cars — representing the modern upgrade path for many TT‑02 owners.*
+_Typical 540‑size brushless motor + ESC combo kit for 1/10 RC cars — representing the modern upgrade path for many TT‑02 owners._
 
 ### Stock Brushed 540 / 550 Motor
 
-* Relies on brushes and a commutator; simpler, lower cost, but with mechanical friction and wear.
-* Performance is limited: torque and top speed are modest, efficiency and runtime are lower under heavy load or high-speed driving.
+- Relies on brushes and a commutator; simpler, lower cost, but with mechanical friction and wear.
+- Performance is limited: torque and top speed are modest, efficiency and runtime are lower under heavy load or high-speed driving.
 
 ### Brushless Motor + ESC
 
-* Uses stator + permanent-magnet rotor with electronic commutation: much higher efficiency, more torque, smoother acceleration, and better heat handling.
-* ESC manages power delivery: throttle curve, brake, low-voltage cutoff (LVC), thermal protection — making power delivery more controllable and reliable.
-* Result: stronger acceleration, better throttle response, higher sustained speed, lower maintenance.
+- Uses stator + permanent-magnet rotor with electronic commutation: much higher efficiency, more torque, smoother acceleration, and better heat handling.
+- ESC manages power delivery: throttle curve, brake, low-voltage cutoff (LVC), thermal protection — making power delivery more controllable and reliable.
+- Result: stronger acceleration, better throttle response, higher sustained speed, lower maintenance.
 
 ---
 
 ## Recommended Brushless + ESC Setup for TT‑02 (540 / 1/10 On-Road / Drift / Touring)
 
 ![Another 540 brushless motor variant](/static/images/articles/brushless-motor-540-esc-combo-guide-image-3.webp)
-*Another example of a 540‑size brushless motor often sold for 1/10-scale RC cars — suitable for TT‑02 chassis with minimal modification.*
+_Another example of a 540‑size brushless motor often sold for 1/10-scale RC cars — suitable for TT‑02 chassis with minimal modification._
 
 **Key points to consider:**
 
-* **Motor size & spec:** Use a 540-size brushless motor compatible with 1/10 chassis. Moderate-turn motors (10.5T–17.5T) balance speed and drivability.
-* **ESC compatibility:** Must support brushless motors; 2S or 3S LiPo compatible, with sufficient current rating (e.g., 45–60 A or more).
-* **Battery & wiring:** Use high-C-rate LiPo battery; ensure connectors/wires are quality and routed cleanly; allow ESC/motor cooling.
-* **Drivetrain readiness:** Brushless delivers higher torque — check pinion/spur gears, drivetrain shafts, and bearings. Upgrade if stock parts are worn.
+- **Motor size & spec:** Use a 540-size brushless motor compatible with 1/10 chassis. Moderate-turn motors (10.5T–17.5T) balance speed and drivability.
+- **ESC compatibility:** Must support brushless motors; 2S or 3S LiPo compatible, with sufficient current rating (e.g., 45–60 A or more).
+- **Battery & wiring:** Use high-C-rate LiPo battery; ensure connectors/wires are quality and routed cleanly; allow ESC/motor cooling.
+- **Drivetrain readiness:** Brushless delivers higher torque — check pinion/spur gears, drivetrain shafts, and bearings. Upgrade if stock parts are worn.
 
 ---
 
@@ -90,10 +90,10 @@ summary: Complete guide to brushless motor 540 + ESC combos for RC drift cars. L
 
 ## Considerations & What to Watch Out For
 
-* **Cost:** Brushless motor + ESC kit is more expensive than stock brushed setup.
-* **Drivetrain stress:** Higher torque may accelerate wear on gears, diffs, and shafts — reinforce if needed.
-* **Battery & ESC requirements:** Use quality LiPo batteries and compatible ESCs; avoid undersized or cheap components.
-* **Setup complexity:** Correct gearing, ESC programming, wiring, and cooling are required — not as plug-and-play as brushed motors.
+- **Cost:** Brushless motor + ESC kit is more expensive than stock brushed setup.
+- **Drivetrain stress:** Higher torque may accelerate wear on gears, diffs, and shafts — reinforce if needed.
+- **Battery & ESC requirements:** Use quality LiPo batteries and compatible ESCs; avoid undersized or cheap components.
+- **Setup complexity:** Correct gearing, ESC programming, wiring, and cooling are required — not as plug-and-play as brushed motors.
 
 ---
 
@@ -106,6 +106,7 @@ With a properly matched combo, good battery, and well-prepared drivetrain, you c
 > ⚠️ Tip: Extra torque stresses drivetrain — consider upgrading gears, axles, or bearings to handle the load.
 
 ---
+
 ---
 
 ## 🛒 Shop Related Products

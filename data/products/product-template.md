@@ -3,6 +3,7 @@ eBay Listing AI-Readable Template
 ==============================
 
 [USAGE RULES]
+
 - Strictly follow this template structure
 - Do NOT change fixed fields
 - Do NOT invent UPC, Brand, or MPN
@@ -54,6 +55,7 @@ These tires provide stable traction and reliable performance on
 {{SURFACE_TYPE}} surfaces. Suitable for bashing and general RC driving.
 
 Specifications:
+
 - Scale: 1/10
 - Type: Short Course Truck Tires
 - Hex Size: {{HEX_SIZE}}
@@ -64,12 +66,14 @@ Specifications:
 - Mounting: {{MOUNTING}}
 
 Features:
+
 - Durable rubber compound
 - Good grip for off-road use
 - Easy installation
 - Suitable for hobby-grade RC vehicles
 
 Package Includes:
+
 - {{QUANTITY}} × 1/10 Short Course Truck Tires
 
 Note:

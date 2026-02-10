@@ -31,7 +31,8 @@ export default function Home() {
             <div>
               <h2 className="text-xl font-semibold">🚗 Vehicle-Specific Upgrade Guides</h2>
               <p className="text-gray-600">
-                Complete upgrade paths tailored for specific RC drift models including Tamiya TT02, Traxxas Slash, MST RMX, Yokomo YD-2, and more.
+                Complete upgrade paths tailored for specific RC drift models including Tamiya TT02,
+                Traxxas Slash, MST RMX, Yokomo YD-2, and more.
               </p>
             </div>
           </Link>
@@ -43,7 +44,8 @@ export default function Home() {
             <div>
               <h2 className="text-xl font-semibold">⚙️ Component Selection by Function</h2>
               <p className="text-gray-600">
-                Expert guidance on choosing performance parts: suspension systems, tire selection, steering upgrades, electronic components, and chassis tuning.
+                Expert guidance on choosing performance parts: suspension systems, tire selection,
+                steering upgrades, electronic components, and chassis tuning.
               </p>
             </div>
           </Link>
@@ -55,7 +57,8 @@ export default function Home() {
             <div>
               <h2 className="text-xl font-semibold">📘 Skill-Based Learning Paths</h2>
               <p className="text-gray-600">
-                Progressive learning from beginner fundamentals to advanced techniques, including setup optimization, maintenance, and competition-level tuning.
+                Progressive learning from beginner fundamentals to advanced techniques, including
+                setup optimization, maintenance, and competition-level tuning.
               </p>
             </div>
           </Link>
