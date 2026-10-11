@@ -1,8 +1,8 @@
 ---
 title: '68mm W110 TE37-Style Wheels: Scale-Real Street Tires for 1/10 Photos & Pavement'
-description: 'RS Red Spider W110 pre-glued wheels—68 mm OD, 27 mm tread, white TE37-style rims and Proxes-inspired lettering. Fitment, scale-real looks vs drift slicks, and a practical photo playbook for listings and street shots.'
+description: 'RS Red Spider W110 pre-glued wheels—68 mm OD, 27 mm tread, white TE37-style rims and Proxes-inspired lettering. Fitment, scale-real looks vs drift slicks, and a practical photo guide for owners who want convincing street shots.'
 category: 'Upgrades & Mods'
-date: '2026-03-22'
+date: '2026-10-11'
 author: 'RC Drift Parts Team'
 readingTime: 8
 featured: true
@@ -17,7 +17,7 @@ summary: 'Pre-glued 68×27 mm street wheels with white TE37-style faces and side
 
 # RS Red Spider W110: Scale-Real 1/10 Street Wheels for Photos and Pavement
 
-Most buyers of the **RS Red Spider W110** set are not shopping for carpet drift angles. They want **1/10 wheels that look like a real JDM street car in photos**—white six-spoke faces, visible tread, and **Proxes-inspired sidewall lettering**—on **asphalt or clean concrete**, then bolt-on and shoot.
+The **RS Red Spider W110** set is built for owners who care how their **1/10 car looks in real-world photos**—not for carpet drift competition. You get white six-spoke faces, visible street tread, and **Proxes-inspired sidewall lettering** that reads like a JDM street wheel on **asphalt or clean concrete**: bolt on, drive slowly, and shoot.
 
 This guide focuses on **scale realism**: proportions, detailing, pairing with bodies, and a **repeatable photo playbook**. For indoor drift compounds, see [medium-narrow reinforced drift tires](/guides/medium-narrow-reinforced-drift-tires-guide). For shells that match white TE37-style wheels, see [TT-02 drift body shells](/guides/tt-02-drift-body-shell-guide).
 
@@ -50,7 +50,7 @@ This guide focuses on **scale realism**: proportions, detailing, pairing with bo
 
 ![Four pre-glued white TE37-style RC wheels with street tread and white sidewall lettering](/static/images/articles/rs-red-spider-w110-street-cruise-photo-guide-image-1.webp)
 
-_Use this angle for **eBay gallery hero** or “what’s in the box”: all four wheels, tread and lettering visible._
+The set ships as **four matched, pre-glued wheels**—you can see the full tread pattern and sidewall print on every tire before they go on the car.
 
 What breaks scale in 1/10 photos is usually not the body—it is the **wheels**: chrome dish rims, missing sidewall detail, or **featureless slick drift rubber** that reads as plastic from three feet away. The W110 set targets the opposite.
 
@@ -73,7 +73,7 @@ Factory-glued tires sit **square on the rim** every time. Crooked or wobbly moun
 ### What still looks “RC” (honest expectations)
 
 - Plastic rims will not mirror-polish like forged wheels; **side light** helps, harsh overhead flash does not.
-- Lettering is **inspired styling**, not OEM Toyo or Volk product—say **“style” / “inspired”** in listings and captions.
+- Lettering is **inspired styling**, not OEM Toyo or Volk product—accurate descriptions use terms like **“TE37-style”** and **“Proxes-inspired.”**
 
 ---
 
@@ -81,11 +81,13 @@ Factory-glued tires sit **square on the rim** every time. Crooked or wobbly moun
 
 ![Angled view of W110 wheels showing street tread pattern and white Proxes-inspired sidewall branding](/static/images/articles/rs-red-spider-w110-street-cruise-photo-guide-image-2.webp)
 
-_Use as your **second gallery image** or Instagram carousel slide—buyers zoom here._
+This is the detail you are paying for: **directional grooves** plus **white TOVO / PROXES-style text** on the sidewall. In person or in a close photo, it reads as a street performance tire—not a plain black donut.
+
+When you photograph your own car:
 
 - Frame **tread direction** so grooves lead into the shot—same visual language as real semi-slick street tires.
-- Include **one spoke and the lip** in the same frame when possible; it sells both rim and tire in one click.
-- If you reshoot your own macro, match this framing: **45° to the wheel**, not straight down.
+- Include **one spoke and the lip** in the same frame when possible so viewers see **rim and rubber together**.
+- For close-ups, shoot from about **45° to the wheel**, not straight down.
 
 ---
 
@@ -93,7 +95,7 @@ _Use as your **second gallery image** or Instagram carousel slide—buyers zoom 
 
 ![Top view of four W110 wheels showing spoke pattern and matching sidewall print on each tire](/static/images/articles/rs-red-spider-w110-street-cruise-photo-guide-image-3.webp)
 
-_Use for **size and set confirmation** shots—four matching faces prove you are selling a complete set._
+All four wheels share the **same spoke layout and sidewall print**, so your car looks even left to right—important for scale realism in front 3/4 shots.
 
 - **Best photo pairings:** white or two-tone JDM shells (AE86 panda, white S15/Silvia schemes), dark bodies with **white wheels** for contrast.
 - **68 mm diameter:** taller than many drift setups—expect a **fuller arch**. Before a shoot, **turn steering to full lock**; narrow arches may rub. Slight ride-height increase or thinner hex spacers sometimes clears—test on your shell.
@@ -101,13 +103,13 @@ _Use for **size and set confirmation** shots—four matching faces prove you are
 
 ---
 
-## Scale Photography Playbook (Listing + Instagram)
+## Scale Photography Playbook
 
 ![Product feature graphic: W110 white wheels with 1/10 scale street tire styling](/static/images/articles/rs-red-spider-w110-street-cruise-photo-guide-image-4.webp)
 
-_Use marketing-style crops for **social covers**; for realism, prefer your **own outdoor shots** with real pavement texture._
+The graphic shows the **1/10 street-wheel look** on a typical JDM shell. For the most convincing photos, take your **own shots outdoors** on real pavement—texture and shadows do more for scale than any studio background.
 
-Shoot **static detail first**, then one slow roll. Most sales and likes come from **sharp tread + lettering**, not smoke edits.
+Shoot **static detail first**, then one slow roll. The shots that look most realistic usually lead with **sharp tread and lettering**, not heavy effects.
 
 ### Camera setup checklist
 
@@ -116,7 +118,7 @@ Shoot **static detail first**, then one slow roll. Most sales and likes come fro
 | **Height** | Lens near **hub center** (crouch or phone on a low support) | High angles exaggerate toy scale |
 | **Focal length** | Phone **2×–3×** or **~50 mm equivalent** and up | Less wide-angle distortion on the body |
 | **Hero framing** | **3/4 front**, one wheel turned toward camera | Shows face + tread + lettering in one frame |
-| **Macro** | Fill frame with **sidewall arc** (TOVO / PROXES text) | Listing thumbnail that proves “street tire” |
+| **Macro** | Fill frame with **sidewall arc** (TOVO / PROXES text) | Shows street-tire character at a glance |
 | **Background** | **Asphalt seams**, parking lines, clean **concrete** | Street context; avoid busy grass or indoor tile |
 | **Light** | **Golden hour side light** or open shade | Grooves and spokes need shadow to read |
 | **Prep** | Dry white rims; brush **dust off lettering** | White plastic and white print show grime instantly |
@@ -125,7 +127,7 @@ Shoot **static detail first**, then one slow roll. Most sales and likes come fro
 
 - **Portrait mode** eating the body line or wheel edge.
 - **HDR** smearing fine tread blocks into a black blob.
-- **Top-down** shots only—fine for inventory, weak for scale emotion.
+- **Top-down** shots only—fine for documenting the set, weak for scale emotion.
 - **Burnouts** before photos—worn lettering and rounded tread **kill the scale look** faster than any filter fixes.
 
 ### Optional motion
@@ -150,7 +152,7 @@ If your goal is **competition drift** on carpet or epoxy, use a dedicated drift 
 
 | Choose W110 if you want… | Skip it if you need… |
 | ----------------------- | -------------------- |
-| **Scale-real street photos** and eBay-grade wheel detail | Maximum indoor drift slide |
+| **Scale-real street photos** and sharp wheel detail in your shots | Maximum indoor drift slide |
 | **Pre-glued 68×27 mm** bolt-on for 12 mm hex tourers | Mud, sand, or grass running |
 | **White TE37-style + sidewall print** on pavement backdrops | Bare slick drift rubber only |
 
